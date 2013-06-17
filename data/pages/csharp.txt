@@ -1,0 +1,31 @@
+This page contains information about C# language.
+C#(pronounced see sharp) is a multi-paradigm programming language encompassing:
+  * **strong typing** - every variable has a type and if there are two variables of different types, you have to cast them, to make an operation executable.
+Example : int a = 3 * "3" - it gives an exception
+  * **imperative** - consist of instructions. (running programme as changing states)
+Example : 
+
+    List<int> results = new List<int>();
+    foreach(var num in collection)
+    {
+        if (num % 2 != 0)
+           results.Add(num);
+    }
+
+  * **declarative** - we say to compiler what we want, but do not say how to get it
+Example (LINQ) : 
+  var results = collection.Where( num => num % 2 != 0);
+
+  * **functional** - we can create functions as objects to manipulate them (delegates, Func<>, Predicate<>, Action<>, Lambda, LINQ)
+[[http://www.codeproject.com/Articles/375166/Functional-programming-in-Csharp]]
+  * **procedural** - we can divide task into steps
+  * **generic** - types can be instantiated when needed (we can apply different types in algorithms and do not change description of algorithm)
+Example:
+   static void MakeAtLeast<T>(T[] list, T lowest) where T : IComparable<T> {
+        for (int i = 0; i < list.Length; i++)
+            if (list[i].CompareTo(lowest) < 0)
+                list[i] = lowest;
+    }
+
+  * **object-oriented**
+  * **component-oriented programming**

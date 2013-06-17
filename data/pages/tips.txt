@@ -1,0 +1,12 @@
+====== Creating new pages and links ======
+First of all, if we want to create new page, we need create a link to this page:
+
+----
+So, for instance we need to create new page called ASP.NET
+===== Steps: =====
+  - Write text : ASP.NET
+  - Add [[ASP.NET]] symbols
+  - Then approve changes
+  - Click on ASP.NET link (highlighted in red)
+  - Create new page
+

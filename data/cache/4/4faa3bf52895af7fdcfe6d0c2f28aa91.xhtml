@@ -1,0 +1,65 @@
+
+<p>
+This page contains information about C# language.
+C#(pronounced see sharp) is a multi-paradigm programming language encompassing:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>strong typing</strong> - every variable has a type and if there are two variables of different types, you have to cast them, to make an operation executable.</div>
+</li>
+</ul>
+
+<p>
+Example : int a = 3 * «3» - it gives an exception
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>imperative</strong> - consist of instructions. (running programme as changing states)</div>
+</li>
+</ul>
+
+<p>
+Example : 
+</p>
+<pre class="code">  List&lt;int&gt; results = new List&lt;int&gt;();
+  foreach(var num in collection)
+  {
+      if (num % 2 != 0)
+         results.Add(num);
+  }</pre>
+<ul>
+<li class="level1"><div class="li"> <strong>declarative</strong> - we say to compiler what we want, but do not say how to get it</div>
+</li>
+</ul>
+
+<p>
+Example (LINQ) : 
+</p>
+<pre class="code">var results = collection.Where( num =&gt; num % 2 != 0);</pre>
+<ul>
+<li class="level1"><div class="li"> <strong>functional</strong> - we can create functions as objects to manipulate them (delegates, Func&lt;&gt;, Predicate&lt;&gt;, Action&lt;&gt;, Lambda, LINQ)</div>
+</li>
+</ul>
+
+<p>
+<a href="http://www.codeproject.com/Articles/375166/Functional-programming-in-Csharp" class="urlextern" title="http://www.codeproject.com/Articles/375166/Functional-programming-in-Csharp"  rel="nofollow">http://www.codeproject.com/Articles/375166/Functional-programming-in-Csharp</a>
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>procedural</strong> - we can divide task into steps</div>
+</li>
+<li class="level1"><div class="li"> <strong>generic</strong> - types can be instantiated when needed (we can apply different types in algorithms and do not change description of algorithm)</div>
+</li>
+</ul>
+
+<p>
+Example:
+</p>
+<pre class="code"> static void MakeAtLeast&lt;T&gt;(T[] list, T lowest) where T : IComparable&lt;T&gt; {
+      for (int i = 0; i &lt; list.Length; i++)
+          if (list[i].CompareTo(lowest) &lt; 0)
+              list[i] = lowest;
+  }</pre>
+<ul>
+<li class="level1"><div class="li"> <strong>object-oriented</strong></div>
+</li>
+<li class="level1"><div class="li"> <strong>component-oriented programming</strong></div>
+</li>
+</ul>

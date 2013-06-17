@@ -1,0 +1,17 @@
+Добро пожаловать, дорогой %username%. На этой wiki представлены все заметки, которые я оставлял в ходе обучения по специальности "Информационные системы и технологии" вуза ТПУ, кафедры АИКС.
+
+Translation : Welcome, dear %username%. On this wiki you can see all notes, which i left during my training in the speciality "Information systems and technology" of TPU (Tomsk Polytechnical University), AIKS Department. Enjoy! :) I hope they will help you!
+
+====== Some tips on dokuwiki ======
+[[Tips]]
+
+====== Хобби ======
+
+===== Программирование =====
+  * [[ASP.NET]]
+  * [[CSharp]]
+  * [[HTML/CSS]]
+  * [[JAVASCRIPT]]
+  * [[CPP]]
+  * [[QT]]
+  * [[Паттерны проектирования]]
