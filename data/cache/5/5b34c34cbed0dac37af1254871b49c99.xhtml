@@ -1,0 +1,183 @@
+
+<h1 class="sectionedit1" id="clr">CLR</h1>
+<div class="level1">
+
+<p>
+C# just a part of CLR (Common Language Runtime)
+</p>
+<hr />
+
+<p>
+Утилита CLRVer.exe позволяет узнать версию CLR
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "CLR" [1-151] -->
+<h2 class="sectionedit2" id="загрузка_clr">Загрузка CLR</h2>
+<div class="level2">
+
+<p>
+Параметр командной строки /platform предназначен для указания версии целевой платформы. Также это можно сделать в списке Platform Target на вкладке Build
+</p>
+<hr />
+<ol>
+<li class="level1"><div class="li"> В зависимости от платформы генерируется заголовок PE32. Для анализа изпользуются 2 утилиты - <strong>DumpBun.exe и CorFlags.exe</strong></div>
+</li>
+</ol>
+
+<p>
+Также при запуске .exe - Windows анализирует заголовок .exe для определения, какое адресное пространство требуется (32 или 64). Если значение параметра /platform == x86, а запускается приложение для 64 разрядное, то выполняется приложение в 64х среде WOW64.
+</p>
+<ol>
+<li class="level1"><div class="li"> Далее в это адресное пространство загружается библиотека MSCorEE.dll (каталог System32/SysWoW64). </div>
+</li>
+<li class="level1"><div class="li"> Далее основной поток вызывает в MSCoreEE.dll метод инициализирующий CLR, загружает exe, затем вызывает Main.</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "Загрузка CLR" [152-1421] -->
+<h3 class="sectionedit3" id="clr_features">CLR features</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Memory management</div>
+</li>
+<li class="level1"><div class="li"> Assembly loading</div>
+</li>
+<li class="level1"><div class="li"> Security</div>
+</li>
+<li class="level1"><div class="li"> Exception handling</div>
+</li>
+<li class="level1"><div class="li"> Thread synchronization</div>
+</li>
+</ul>
+
+<p>
+!This features are available to any CLR language
+</p>
+
+</div>
+<!-- EDIT3 SECTION "CLR features" [1422-1600] -->
+<h2 class="sectionedit4" id="process_of_compilation_into_managed_modules">Process of compilation into MANAGED MODULES</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Source code (Исходный код) <strong>can be written in any languagge that supports CLR.</strong></div>
+</li>
+<li class="level1"><div class="li"> Compiler <strong>check the syntax</strong> and <strong>analyze the source code</strong></div>
+</li>
+<li class="level1"><div class="li"> RESULT - <strong><a href="/dokuwiki/doku.php?id=managed_module" class="wikilink1" title="managed_module">MANAGED MODULE</a></strong> (управляемый модуль). A managed module - standard windows portable executable (PE32) file.</div>
+</li>
+</ol>
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=clr&amp;media=wiki:comp.png" class="media" title="wiki:comp.png"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;tok=022442&amp;media=wiki:comp.png" class="mediacenter" alt="" width="200" /></a>
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Process of compilation into MANAGED MODULES" [1601-1989] -->
+<h2 class="sectionedit5" id="combining_mm_into_assemblies">Combining MM into Assemblies</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Все ресурсные файлы и IL code , manifest собираются в сборки.</div>
+</li>
+<li class="level1"><div class="li"> Сборками могут быть и dll и exe файлы</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "Combining MM into Assemblies" [1990-2197] -->
+<h2 class="sectionedit6" id="executing_assembly_code">Executing Assembly Code</h2>
+<div class="level2">
+
+<p>
+<a href="/dokuwiki/doku.php?id=il" class="wikilink1" title="il">IL</a> - CPU-independent machine language, and is a much higher-level lan tham most CPU machine languages [access and manipulate objects, call virtual methods on objects, manipulate array elements directly, throw-catch exceptions]
+</p>
+<ul>
+<li class="level1"><div class="li"> You can write in <a href="/dokuwiki/doku.php?id=il" class="wikilink1" title="il">IL</a> - ILAsm.exe</div>
+</li>
+<li class="level1"><div class="li"> You can disassemble <a href="/dokuwiki/doku.php?id=il" class="wikilink1" title="il">IL</a> code - ILDasm.exe</div>
+</li>
+</ul>
+<ol>
+<li class="level1"><div class="li"> JITCompiler knows what method is being called</div>
+</li>
+<li class="level1"><div class="li"> JITCompiler searches the defining assembly&#039;s metadata for the called method&#039;s IL</div>
+</li>
+<li class="level1"><div class="li"> JITCompiler verifies and compiles IL code into native CPU instructions</div>
+</li>
+<li class="level1"><div class="li"> Native CPU instructions are saved in a dynamically allocated block of memory</div>
+</li>
+<li class="level1"><div class="li"> JITCompiler goes to the method and gives reference to block of memory with this instructions</div>
+</li>
+</ol>
+
+<p>
+<strong>СКОМПИЛИРОВАННЫЙ КОД УНИЧТОЖАЕТСЯ ПОСЛЕ ЗАВЕРШЕНИЯ ПРОГРАММЫ</strong>
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Executing Assembly Code" [2198-3061] -->
+<h3 class="sectionedit7" id="cli_languages">CLI Languages</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> A#: Ada.</div>
+</li>
+<li class="level1"><div class="li"> Boo: inspired by Python.</div>
+</li>
+<li class="level1"><div class="li"> C#</div>
+</li>
+<li class="level1"><div class="li"> C++/CLI</div>
+</li>
+<li class="level1"><div class="li"> Cobra: static and dynamic typing, design by contract and built-in unit testing.</div>
+</li>
+<li class="level1"><div class="li"> Component Pascal: strongly typed language</div>
+</li>
+<li class="level1"><div class="li"> ClojureCLR: A native implementation of Clojure (a Lisp dialect)</div>
+</li>
+<li class="level1"><div class="li"> Eiffel: Purely object-oriented language, focused on software quality, includes integrated design by contract and multiple inheritance</div>
+</li>
+<li class="level1"><div class="li"> F#: functional programming and imperative object-oriented programming disciplines</div>
+</li>
+<li class="level1"><div class="li"> IronPythonimplementation of Python</div>
+</li>
+<li class="level1"><div class="li"> IronRuby: implementation of Ruby</div>
+</li>
+<li class="level1"><div class="li"> IronLisp: implementation of Lisp</div>
+</li>
+<li class="level1"><div class="li"> J#: implementation of Java | will be supported until 2015.</div>
+</li>
+<li class="level1"><div class="li"> JScript .NET: implementation of ECMAScript </div>
+</li>
+<li class="level1"><div class="li"> L#: implementation of Lisp.</div>
+</li>
+<li class="level1"><div class="li"> Managed JScript: A CLI implementation of JScript built on the DLR. Conforms to ECMAScript version 3.</div>
+</li>
+<li class="level1"><div class="li"> Nemerle: A multi-paradigm language similar to C#, OCaml and Lisp.</div>
+</li>
+<li class="level1"><div class="li"> Oxygene: An Object Pascal-based CLI language.</div>
+</li>
+<li class="level1"><div class="li"> P#: A CLI implementation of Prolog.</div>
+</li>
+<li class="level1"><div class="li"> Phalanger: An implementation of PHP with extensions for ASP.NET</div>
+</li>
+<li class="level1"><div class="li"> Phrogram: A custom CLI language for beginners and intermediate users produced by The Phrogram Company</div>
+</li>
+<li class="level1"><div class="li"> PowerBuilder: Can target CLI since version 11.1.</div>
+</li>
+<li class="level1"><div class="li"> Synergy DBL .NET: an object oriented CLI compliant implementation of DBL and DIBOL</div>
+</li>
+<li class="level1"><div class="li"> Team Developer: SQLWindows Application Language (SAL) since Team Developer 6.0.</div>
+</li>
+<li class="level1"><div class="li"> VBx: A dynamic version of Visual Basic .NET built on the DLR</div>
+</li>
+<li class="level1"><div class="li"> Visual Basic .NET (VB.NET): A redesigned dialect of Visual Basic</div>
+</li>
+<li class="level1"><div class="li"> Visual COBOL: implementation of COBOL with object-oriented extensions</div>
+</li>
+<li class="level1"><div class="li"> Windows PowerShell: An object-oriented command-line shell</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "CLI Languages" [3062-] -->

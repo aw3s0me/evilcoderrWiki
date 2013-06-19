@@ -1,0 +1,5 @@
+====== IL code ======
+==== Benefits of IL code ====
+  - Provides application robustness and security (verification == ensures that code is safe[checking parameters for types etc])
+  - We can run multiple apps in a sing operating system process == improves performance, fewer resources
+

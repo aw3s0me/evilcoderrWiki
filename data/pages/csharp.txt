@@ -1,4 +1,12 @@
 This page contains information about C# language.
+====== Goal ======
+Different languages offer different capabilities:
+In unmanaged C/C++ you have access  to low-level control of system (you can manage memory, create threads).
+But C# allows you to make apps very rapidly [easy to control COM and DB] 
+
+C# is a part of [[CLR]]
+Перевод из IL кода в Native занимается [[JITCompiler]]
+====== Definition ======
 C#(pronounced see sharp) is a multi-paradigm programming language encompassing:
   * **strong typing** - every variable has a type and if there are two variables of different types, you have to cast them, to make an operation executable.
 Example : int a = 3 * "3" - it gives an exception
@@ -28,4 +36,5 @@ Example:
     }
 
   * **object-oriented**
-  * **component-oriented programming**
+  * **component-oriented programming** - allows to use component constructs such as events, properties, interfaces
+

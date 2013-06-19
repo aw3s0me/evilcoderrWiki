@@ -1,0 +1,24 @@
+====== Managed module ======
+Это надстройка над COM-библиотеками и IDL (interface def lang)
+==== Отличия от COM и IDL ====
+  - Метаданные всегда связаны с файлом содержащим IL-code (метаданные встроены в .exe или .dll и их нельзя разделить)
+  - C++ сборки (exe/dll) к-ые содержат native code не требуют CLR для выполнения, хотя можно в shell вызвать c++ компилятор с параметром /CLR, он создаст MM
+==== PE32 **(Portable executable)** header ====
+Indicates the type of file : DLL, GUI, CUI. Also shows time when module was constructed.
+==== CLR header ====
+  * Version of CLR required
+  * Flags
+  * MethodDef metadata
+  * token of Main
+  * Location/size of modules metadata, resources, name, flags
+==== Metadata ====
+  * Every MM contains metadata tables. 2 types: tables that describe the types VS members defined in source code
+==== IL code ====
+Intermediate language code (код между Native and Source, в общем потом его в машинные команды)
+===== Плюсы метаданных =====
+  * Metadata removes the need for native c/c++ header and library files **when compiling** cos all info about referenced types/members is contained in the file. Compilers can read metadata from MM.
+  * IntelliSense parses metadata to tell what parametes the method expects and types/methods/events/fields type offers
+  * For type-safe operations
+  * MD allows an object fields to be serialized into a memory block, sent to another machine and deserialized
+  * MD allows the garbage collector to track lifetime of objects
+

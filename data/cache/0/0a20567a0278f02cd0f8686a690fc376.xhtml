@@ -1,0 +1,82 @@
+
+<h1 class="sectionedit1" id="managed_module">Managed module</h1>
+<div class="level1">
+
+<p>
+Это надстройка над COM-библиотеками и IDL (interface def lang)
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Managed module" [1-121] -->
+<h3 class="sectionedit2" id="отличия_от_com_и_idl">Отличия от COM и IDL</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Метаданные всегда связаны с файлом содержащим IL-code (метаданные встроены в .exe или .dll и их нельзя разделить)</div>
+</li>
+<li class="level1"><div class="li"> C++ сборки (exe/dll) к-ые содержат native code не требуют CLR для выполнения, хотя можно в shell вызвать c++ компилятор с параметром /CLR, он создаст MM</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "Отличия от COM и IDL" [122-603] -->
+<h3 class="sectionedit3" id="pe32_portable_executable_header">PE32 **(Portable executable)** header</h3>
+<div class="level3">
+
+<p>
+Indicates the type of file : DLL, <abbr title="Graphical User Interface">GUI</abbr>, CUI. Also shows time when module was constructed.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "PE32 **(Portable executable)** header" [604-740] -->
+<h3 class="sectionedit4" id="clr_header">CLR header</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Version of CLR required</div>
+</li>
+<li class="level1"><div class="li"> Flags</div>
+</li>
+<li class="level1"><div class="li"> MethodDef metadata</div>
+</li>
+<li class="level1"><div class="li"> token of Main</div>
+</li>
+<li class="level1"><div class="li"> Location/size of modules metadata, resources, name, flags</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "CLR header" [741-902] -->
+<h3 class="sectionedit5" id="metadata">Metadata</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Every MM contains metadata tables. 2 types: tables that describe the types VS members defined in source code</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Metadata" [903-1034] -->
+<h3 class="sectionedit6" id="il_code">IL code</h3>
+<div class="level3">
+
+<p>
+Intermediate language code (код между Native and Source, в общем потом его в машинные команды)
+</p>
+
+</div>
+<!-- EDIT6 SECTION "IL code" [1035-1185] -->
+<h2 class="sectionedit7" id="плюсы_метаданных">Плюсы метаданных</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Metadata removes the need for native c/c++ header and library files <strong>when compiling</strong> cos all info about referenced types/members is contained in the file. Compilers can read metadata from MM.</div>
+</li>
+<li class="level1"><div class="li"> IntelliSense parses metadata to tell what parametes the method expects and types/methods/events/fields type offers</div>
+</li>
+<li class="level1"><div class="li"> For type-safe operations</div>
+</li>
+<li class="level1"><div class="li"> MD allows an object fields to be serialized into a memory block, sent to another machine and deserialized</div>
+</li>
+<li class="level1"><div class="li"> MD allows the garbage collector to track lifetime of objects</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Плюсы метаданных" [1186-] -->

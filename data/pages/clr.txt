@@ -1,0 +1,67 @@
+====== CLR ======
+C# just a part of CLR (Common Language Runtime)
+----
+Утилита CLRVer.exe позволяет узнать версию CLR
+----
+===== Загрузка CLR =====
+Параметр командной строки /platform предназначен для указания версии целевой платформы. Также это можно сделать в списке Platform Target на вкладке Build
+----
+  - В зависимости от платформы генерируется заголовок PE32. Для анализа изпользуются 2 утилиты - **DumpBun.exe и CorFlags.exe**
+Также при запуске .exe - Windows анализирует заголовок .exe для определения, какое адресное пространство требуется (32 или 64). Если значение параметра /platform == x86, а запускается приложение для 64 разрядное, то выполняется приложение в 64х среде WOW64.
+  - Далее в это адресное пространство загружается библиотека MSCorEE.dll (каталог System32/SysWoW64). 
+  - Далее основной поток вызывает в MSCoreEE.dll метод инициализирующий CLR, загружает exe, затем вызывает Main.
+==== CLR features ====
+  * Memory management
+  * Assembly loading
+  * Security
+  * Exception handling
+  * Thread synchronization
+!This features are available to any CLR language
+
+===== Process of compilation into MANAGED MODULES =====
+  - Source code (Исходный код) **can be written in any languagge that supports CLR.**
+  - Compiler **check the syntax** and **analyze the source code**
+  - RESULT - **[[MANAGED MODULE]]** (управляемый модуль). A managed module - standard windows portable executable (PE32) file.
+{{ :wiki:comp.png?200 |}}
+===== Combining MM into Assemblies =====
+  - Все ресурсные файлы и IL code , manifest собираются в сборки.
+  - Сборками могут быть и dll и exe файлы
+===== Executing Assembly Code =====
+[[IL]] - CPU-independent machine language, and is a much higher-level lan tham most CPU machine languages [access and manipulate objects, call virtual methods on objects, manipulate array elements directly, throw-catch exceptions]
+  * You can write in [[IL]] - ILAsm.exe
+  * You can disassemble [[IL]] code - ILDasm.exe
+  - JITCompiler knows what method is being called
+  - JITCompiler searches the defining assembly's metadata for the called method's IL
+  - JITCompiler verifies and compiles IL code into native CPU instructions
+  - Native CPU instructions are saved in a dynamically allocated block of memory
+  - JITCompiler goes to the method and gives reference to block of memory with this instructions
+**СКОМПИЛИРОВАННЫЙ КОД УНИЧТОЖАЕТСЯ ПОСЛЕ ЗАВЕРШЕНИЯ ПРОГРАММЫ**
+==== CLI Languages ====
+  * A#: Ada.
+  * Boo: inspired by Python.
+  * C#
+  * C++/CLI
+  * Cobra: static and dynamic typing, design by contract and built-in unit testing.
+  * Component Pascal: strongly typed language
+  * ClojureCLR: A native implementation of Clojure (a Lisp dialect)
+  * Eiffel: Purely object-oriented language, focused on software quality, includes integrated design by contract and multiple inheritance
+  * F#: functional programming and imperative object-oriented programming disciplines
+  * IronPythonimplementation of Python
+  * IronRuby: implementation of Ruby
+  * IronLisp: implementation of Lisp
+  * J#: implementation of Java | will be supported until 2015.
+  * JScript .NET: implementation of ECMAScript 
+  * L#: implementation of Lisp.
+  * Managed JScript: A CLI implementation of JScript built on the DLR. Conforms to ECMAScript version 3.
+  * Nemerle: A multi-paradigm language similar to C#, OCaml and Lisp.
+  * Oxygene: An Object Pascal-based CLI language.
+  * P#: A CLI implementation of Prolog.
+  * Phalanger: An implementation of PHP with extensions for ASP.NET
+  * Phrogram: A custom CLI language for beginners and intermediate users produced by The Phrogram Company
+  * PowerBuilder: Can target CLI since version 11.1.
+  * Synergy DBL .NET: an object oriented CLI compliant implementation of DBL and DIBOL
+  * Team Developer: SQLWindows Application Language (SAL) since Team Developer 6.0.
+  * VBx: A dynamic version of Visual Basic .NET built on the DLR
+  * Visual Basic .NET (VB.NET): A redesigned dialect of Visual Basic
+  * Visual COBOL: implementation of COBOL with object-oriented extensions
+  * Windows PowerShell: An object-oriented command-line shell

@@ -10,6 +10,7 @@ Translation : Welcome, dear %username%. On this wiki you can see all notes, whic
 ===== Программирование =====
   * [[ASP.NET]]
   * [[CSharp]]
+  * [[Git]]
   * [[HTML/CSS]]
   * [[JAVASCRIPT]]
   * [[CPP]]
