@@ -1,0 +1,56 @@
+
+<h1 class="sectionedit1" id="native_code_generator_toolngenexe">Native Code Generator Tool: NGen.exe</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Native Code Generator Tool: NGen.exe" [1-51] -->
+<h2 class="sectionedit2" id="using">Using</h2>
+<div class="level2">
+
+<p>
+Can be used <em class="u">to compile IL code to native code</em> <strong>when app is installed</strong> on a user&#039;s machine
+</p>
+<ul>
+<li class="level1"><div class="li"> Improving an app startup time #code already compiled</div>
+</li>
+<li class="level1"><div class="li"> Reducing an app working set  </div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Using" [52-256] -->
+<h2 class="sectionedit3" id="asm_files">Asm Files</h2>
+<div class="level2">
+
+<p>
+<em class="u">%SysRoot%\Assembly\NativeImages_v4.0.####_64</em>
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Asm Files" [257-327] -->
+<h2 class="sectionedit4" id="jit">JIT</h2>
+<div class="level2">
+
+<p>
+If assembly file not found, CLR compile the IL code as usual
+</p>
+
+</div>
+<!-- EDIT4 SECTION "JIT" [328-404] -->
+<h2 class="sectionedit5" id="problems">Problems</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Not property protection</div>
+</li>
+<li class="level1"><div class="li"> Files can get out of sync</div>
+</li>
+<li class="level1"><div class="li"> Inferior exec-time performance</div>
+</li>
+</ul>
+
+<p>
+RULE: DON&#039;T USE IT FOR SERVER-SIDE APPS [MAKES LITTLE OR NO SENSE]
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Problems" [405-] -->

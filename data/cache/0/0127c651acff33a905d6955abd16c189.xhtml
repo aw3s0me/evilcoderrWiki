@@ -1,0 +1,45 @@
+
+<h1 class="sectionedit1" id="настраиваемые_атрибуты">Настраиваемые атрибуты</h1>
+<div class="level1">
+
+<p>
+Настроить область применения:
+</p>
+<pre class="code">   [assembly: SomeAttr]
+   using System;
+   [field: SomeAttr]
+   public Int32 SomeField = 0;</pre>
+
+<p>
+Одинаковый результат:
+</p>
+<pre class="code">   [Serializable][Flags]
+   [Serializable , Flags]
+   [FlagsAttribute][SerializableAttribute]
+   [FlagsAttribute()][Serializable()]</pre>
+
+</div>
+<!-- EDIT1 SECTION "Настраиваемые атрибуты" [1-396] -->
+<h3 class="sectionedit2" id="свои_атрибуты">Свои атрибуты</h3>
+<div class="level3">
+
+<p>
+нужно определить свой класс, к-ый наследуется от System.Attribute
+</p>
+<pre class="code">   public class MyAttribute : System.Attribute {
+       public FlagsAttribute() {
+       }
+   }
+   вариант с использованием к типу:
+   [AttributeUsage(AttributeTargets.Enum, Inherited = false)]
+   public class MyAttribute : System.Attribute {
+       public FlagsAttribute() {
+       }
+   }</pre>
+
+<p>
+Для проверки на принадлежность аттрибута к типу юзаем IsDefined
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Свои атрибуты" [397-] -->

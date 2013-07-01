@@ -1,0 +1,171 @@
+
+<h1 class="sectionedit1" id="методы">Методы</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Методы" [1-27] -->
+<h3 class="sectionedit2" id="конструкторы">Конструкторы</h3>
+<div class="level3">
+
+</div>
+
+<h5 id="конструкторы_экземпляров">Конструкторы экземпляров</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> Конструкторы не наследуются</div>
+</li>
+<li class="level1"><div class="li"> Нельзя применять модификаторы virtual, new, override, sealed, abstract</div>
+</li>
+<li class="level1"><div class="li"> Для абстрактных классов компилятор по умолчанию создает коструктор с модификатором protected</div>
+</li>
+<li class="level1"><div class="li"> Зато для статических нет конструкторов по умолчанию</div>
+</li>
+<li class="level1"><div class="li"> Не вызывается при десериализации объекта</div>
+</li>
+<li class="level1"><div class="li"> можно public BlaClass(Int32 x) : this() { m_x = x; ]</div>
+</li>
+<li class="level1"><div class="li"> для значимых типов конструкторы ТОЛЬКО С ПАРАМЕТРОМ</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="конструкторы_типов">Конструкторы типов</h5>
+<div class="level5">
+
+<p>
+Конструкторы типов - статические конструкторы
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Используются для установки первоначального состояния типа</strong></div>
+</li>
+<li class="level1"><div class="li"> У такого конструктора НЕТ ПАРАМЕТРОВ</div>
+</li>
+<li class="level1"><div class="li"> Всегда должны быть <strong>закрытыми</strong></div>
+</li>
+<li class="level1"><div class="li"> Если у типа не определен такой конструктор, то он создается по умолчанию</div>
+</li>
+<li class="level1"><div class="li"> ХОРОШ ДЛЯ ИНИЦИАЛИЗАЦИИ ПАТТЕРНА СИНГЛТОН</div>
+</li>
+</ul>
+
+<p>
+Пример:
+</p>
+<pre class="code">     static MyClass() {   }</pre>
+
+</div>
+<!-- EDIT2 SECTION "Конструкторы" [28-1435] -->
+<h3 class="sectionedit3" id="перегрузка_операторов">Перегрузка операторов</h3>
+<div class="level3">
+<pre class="code">    public sealed class Complex {
+         public static Complex operator+(Complex c1, Complex c2) {..}
+         public static Complex Add(Complex c1, Complex c2) { return(c1+c2); }
+    }</pre>
+
+</div>
+<!-- EDIT3 SECTION "Перегрузка операторов" [1436-1683] -->
+<h3 class="sectionedit4" id="операторы_преобразования_типов">Операторы преобразования типов</h3>
+<div class="level3">
+
+<p>
+Правила:
+</p>
+<ol>
+<li class="level1"><div class="li"> Должны определятся public конструкторы</div>
+</li>
+<li class="level1"><div class="li"> Определен экземплярный метод ToXxx</div>
+</li>
+</ol>
+
+<p>
+Пример:
+</p>
+<pre class="code">      public sealed class Rational {
+           public Rational (Int32 num) {...}
+           public Rational (Single num) {...}
+           public Int32 ToInt32() {...}
+           public Single ToSingle() {...}
+      
+      Теперь добавим операторы преобр-ия:
+           public static implicit operator Rational(Int32 num) { return new Rational(num); } //неявно Rational из Int32
+           public static implicit operator Rational(Single num) { return new Rational(num); } //неявно Rational из Single
+           public static explicit operator Rational(Int32 r) { return r.ToInt32; } //явно Rational из Int32
+           public static explicit operator Rational(Single r) { return r.ToSingle; } //явно Rational из Single</pre>
+
+<p>
+.
+</p>
+<ul>
+<li class="level1"><div class="li"> Implicit ук-ет компилятору что наличие в исх коде явного приведения типов не обязательно для генерации кода, вызыв метод опер-а преобр-ия</div>
+</li>
+<li class="level4"><div class="li"> Explicit - вызывает метод когда в исх тексте явное преобр-ие типов</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Операторы преобразования типов" [1684-3092] -->
+<h3 class="sectionedit5" id="методы_расширения">Методы расширения</h3>
+<div class="level3">
+
+<p>
+Синтаксический сахар для удобства. <em class="u">Позволяет добавлять новые методы в класс без создания производного.</em>
+<strong>Обозначаются как Имя_метода&lt;&gt;</strong>
+</p>
+<pre class="code">    static class IntListExtensionMethods
+    {
+        static public int GetMaxValue(this List&lt;int&gt; list)
+        {
+            int max = list[0];
+            foreach (int value in list)
+            {
+                if (max &lt; value)
+                    max = value;
+            }
+            return max;
+        }
+    }</pre>
+
+<p>
+Условия:
+</p>
+<ul>
+<li class="level1"><div class="li"> Метод должен быть статическим</div>
+</li>
+<li class="level1"><div class="li"> Определен в статическом классе</div>
+</li>
+<li class="level1"><div class="li"> <strong>ДОЛЖНО БЫТЬ КЛЮЧЕВОЕ СЛОВО this в параметре</strong></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Методы расширения" [3093-3960] -->
+<h3 class="sectionedit6" id="параметры">Параметры</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> По умолчанию все параметры перед-ся по ЗНАЧЕНИЮ</div>
+</li>
+<li class="level1"><div class="li"> Если хотим по ссылке то - ref(инициализация обязательна)/out (инициализация не обязательна)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Параметры" [3961-4246] -->
+<h3 class="sectionedit7" id="свойства">Свойства</h3>
+<div class="level3">
+
+</div>
+
+<h5 id="свойства_с_параметрами">Свойства с параметрами</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> Напоминают массивы, так как представляет индексатор</div>
+</li>
+</ul>
+<pre class="code">    public Boolean this[Int32 num] {
+          get {...}
+          set {...}
+    }</pre>
+
+</div>
+<!-- EDIT7 SECTION "Свойства" [4247-] -->

@@ -1,0 +1,96 @@
+
+<h1 class="sectionedit1" id="исключения">Исключения</h1>
+<div class="level1">
+
+<p>
+Исключение - ситуация, когда член не в состоянии решить возложенную на него задачу
+</p>
+<ol>
+<li class="level1"><div class="li"> Основывается на SEH - структурная обраб-а исключений</div>
+</li>
+<li class="level1"><div class="li"> Если в try нет исключения, то нету перехода в catch, а сразу в finally</div>
+</li>
+<li class="level1"><div class="li"> КОД в finally ВЫПОЛНЯЕТСЯ ВСЕГДА</div>
+</li>
+<li class="level1"><div class="li"> Все исключения производные от System.Exception</div>
+</li>
+<li class="level1"><div class="li"> Просмотр блоков catch сверху вниз → более специализированные исключения нужно ставить выше, сначала самые младшие и в самом низу - System.Exception, иначе ошибка, так как в младшие будут недостижимыми</div>
+</li>
+<li class="level1"><div class="li"> Если есть в потоке необработанное исключение, то после его нахождения, CLR уничтожает этот поток. + в журнал записывается запись об исключении (приложение Event Viewer)</div>
+</li>
+<li class="level1"><div class="li"> При обнаружении catch CLR Исполняет внутренние блоки finally, при этом не один блок finally не выполняется до завершения дейсвтия с catch</div>
+</li>
+</ol>
+
+<p>
+       try {
+</p>
+<pre class="code">         //здесь код, требующий обработки или очистки ресурсов
+     }
+     catch (InvalidOperationException) {
+         //код к-ый восстанавливается после ошибки типа InvalidOperationException
+     }
+     catch (IOException) {
+         //код к-ый восстанавливается после ошибки типа IOException
+     }
+     catch {
+         //код к-ый восстанавливается после остальных исключений
+         
+         //после перехвата их обычно вбрасывают повторно
+         throw;
+     }
+     finally {
+         //код выполняющий очистку ресурсов
+         посел операций начатых в try
+     }</pre>
+
+</div>
+<!-- EDIT1 SECTION "Исключения" [1-2295] -->
+<h3 class="sectionedit2" id="способ_восстановления_после_исключения">Способ восстановления после исключения</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Еще раз вбросить (throw;)</div>
+</li>
+<li class="level1"><div class="li"> Вбросить исключение другого типа, передавая расположенному выше в стеке коду больше сведений об исключении</div>
+</li>
+<li class="level1"><div class="li"> Позволить потоку покинуть блок catch</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Способ восстановления после исключения" [2296-2694] -->
+<h3 class="sectionedit3" id="cls-совместимые_исключения">CLS-совместимые исключения</h3>
+<div class="level3">
+
+<p>
+Для них используем catch без параметров. Если не попадет в catch → RunTimeWrappedException
+</p>
+
+</div>
+<!-- EDIT3 SECTION "CLS-совместимые исключения" [2695-2887] -->
+<h3 class="sectionedit4" id="контракты">Контракты</h3>
+<div class="level3">
+
+<p>
+Позволяют проверить аргументы перед модификацией состояния. Проверка не проходит → исключение.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Контракты" [2888-3093] -->
+<h3 class="sectionedit5" id="правила">ПРАВИЛА</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Если юзаем lock, то в finally отключаем запирание</div>
+</li>
+<li class="level1"><div class="li"> Если юзаем using, то в finally вызываем Dispose</div>
+</li>
+<li class="level1"><div class="li"> Если юзаем foreach, то в finally для объекта IEnumerator вызываем Dispose</div>
+</li>
+<li class="level1"><div class="li"> Если определяем деструктор, то в finally вызываем метод Finalize базового класса</div>
+</li>
+<li class="level1"><div class="li"> НЕ НАДО ПЕРЕХВАТЫВАТЬ ВСЕ ИСКЛЮЧЕНИЯ</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "ПРАВИЛА" [3094-] -->

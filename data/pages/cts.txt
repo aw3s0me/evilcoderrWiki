@@ -1,0 +1,112 @@
+====== The Common Type System ======
+Describes how types are defined and how they behave
+==== Consists of ====
+  * **Field** - data variable that is part of the object's state. Fields identified by name and type
+  * **Method** - Function that performs an operation on the object, changing the object's state. (method have name, siganture, modifiers, parameters)
+  * **Property** - validate input parameters/read only
+  * **Event** - notification mechanism between objects
+==== Access modifiers ====
+  * **Public** - member accessible by any code in any assemble
+  * **Private** - Accessible only by other members in the same class type
+  * **Family**  - Accessible by derived types __(protected modifier)__
+  * **Assembly** - member accessible by any code in the **SAME ASSEMBLE** __(internal modifier)__
+  * **Family or Assembly** - accessible by derived types in any assemble ALSO by any types in the same assembly __(protected internal)__
+==== CTS RULES ====
+  - ALL TYPES MUST INHERIT FROM A __PREDEFINED TYPE__: **SYSTEM.OBJECT**
+  - CLR автоматически инициализирует все локальные переменные 0 и null
+  - ОБОБЩЕННЫЕ (GENERIC) типы БЕЗОПАСНЕЕ НЕОБОБЩЕННЫХ. Пространство потокобезопасных - System.Collections.Concurrent
+===== Основы типов =====
+  * Все типы - производные от [[System.Object]] (методы Equals, GetHashCode, ToString, GetType)
+  * Правило : Все объекты должны создаваться с помощью [[new]]!
+  * Почти всегда нужно переопределять метод Equals класса System.Object, так как он дает true, если переменные УКАЗЫВАЮТ НА ОДИН И ТОТ ЖЕ ОБЪЕКТ, хотя есть метод ReferenceEquals(obja, objb)
+  * НИКОГДА НЕ ХРАНИТЬ ЗНАЧЕНИЯ ХЭШЕЙ (НАПРИМЕР В БАЗЕ). так как после обновления алгоритма, будет худо.
+  * Ключевое слово dynamic помогает определить динамически тип. Поэтому var - опред тип в момент компиляции, dynamic - runtime
+      var obj1 - throw exception
+      dynamic obj1 - ok
+===== Привидение типов =====
+  * Во время выполнения всегда известен тип объекта (безопасность типов) (метод GetType)
+  * Можно привести к базовому (явно-неявно)
+  * К производному если определен явно оператор приведения
+  * Проверка на типы с помощью оператора is, as
+
+       if (o is Employee) {
+           Employee e = (Employee) o;
+       }
+Здесь проверка на тип осущ-ся 2 раза. если o==null, то возвращ is возвращ false
+2 способ:
+       Employee e = o as Employee;
+       if (e!=null) {
+       }
+эфф-е чем просто опред типов
+D производный от B
+       B b1 = new B();
+       B b2 = new D();
+       D d6 = (D)b1() - ошибка RTE
+       D d5 = (D)b2() - все ок
+       B b3 = b2; - ок
+
+===== Пространства имен =====
+  * Допустим, что в двух сборках объявлен класс Widget : Microsoft.Widget и MyAsmb.Widget;
+  * Если мы их обе подлючим, то при создании объекта Widget w =new Widget() - ОШИБКА
+  * Поэтому надо MyAsmb.Widget w =new MyAsmb.Widget
+  * ИЛИ 
+
+       using MyAsmbWidgetO = MyAsmb.Widget
+       MyAsmbWidgetO w = new MyAsmbWidgetO();
+__**Типы к одному пространству имен могут быть реализованы в разных сборках**__
+
+===== Вз-ие типов, стека, кучи =====
+=== Стек ===
+  * У процесса может быть много потоков. После создания потока выделяется стек памяти == 1МБ. Такая память исп-ся для передачи параметров в методы и хранения локальных переменных
+  * Стеки заполняются от старших к младшим адресам
+  * Методы содержат входной код (prologue code) и выходной (epilogue code)
+  * Также адрес возврата также заталкивается в стек при вызове функции
+=== Куча ===
+{{ :wiki:clr_via_csharp_f4.9.png?200 |}}
+===== Примитивные типы =====
+  * Есть FCL-типы (System.String), а есть преобразованные к ним (using string = System.String)
+  * int преобразуется в Int32 long в Int64
+=== Переполнение ===
+  * **По умолчанию в c# режим проверки переполнения отключен, поэтому в c# есть 2 оператора checked и unchecked**
+
+       UInt32 invalid = unchecked((UInt32) -1); //ok, без проверки
+       Byte b = 100; b = checked((Byte)(b+200)); //вброс исключения OverflowException
+.
+  * Также их можно использовать как блоки
+
+       checked {
+            Byte b=100;
+            b=(Byte)(b+200);
+       }
+.     
+  * **Для больших целых чисел есть супер типы (например System.Numeric.BigInteger) к-ые никогда не вбросят эксепшон перполнения, но могут вбросить исключения нехватки памяти**
+===== Cсылочные и значимые типы =====
+  * Память для ссылочных выделяется всегда из кучи
+  * Каждый объект в куче имеет доп члены подлежащие инициализации
+  * Незанятые инф-ей байты обнуляются
+  * Размещение в кучи иногда инициирует сборку мусора
+Если бы все типы были бы ссылочными то эффективность приложения упала бы, поэтому **ВВЕЛИ ЗНАЧИМЫЕ ТИПЫ** (struct) (в стеке, поля в самой переменной) + __не обрабатываются сборщиком мусора__
+----
+Значимые типы 2ух типов:
+  * Структуры (Int32, Boolean, Decimal, TimeSpan) - **потомки System.ValueType**
+  * Перечисления (DayOfWeek, FileAttributes, Drawing.FontStyle) - **потомки от System.Enum**, производного от ValueType
+Пример:
+        class SomeRef; //ссылочный (слово class)
+        struct SomeVal; //значимый (слово struct)
+        SomeVal v1=v2; //при изменении значений v1, v2 не меняется, зато в SomeRef да
+=== Условия использования значимых вместо ссылочных ===
+  * Тип ведет себя как примитивный
+  * Типу не нужен любой тип в кач-ве базового
+  * Тип не будет иметь производных типов
+  * Размер экземпляров мал (16 Б)
+=== Преобразование значимого в ссылочный ===
+Упаковка (boxing) для этого:
+=== Кортежи (Анонимный тип) ===
+       var o1 = new { Name = "Jeff", Year = 1964 };
+       Console.WriteLine(o1.Name + o1.Year.ToString());
+=== Арность дженериков ===
+internal sealed class DictionaryStringKey<Tvalue>:Dictionary<String, TValue>{ }
+t=typeof(DictionaryStringKey<>); //1 параметр
+Dictionary<,> - 2 параметра
+  * where - ук-ет что тип в Т должен реализовывать обощенный интерефейс IComparable того же типа (Т)
+      public static T Min<T>(T o1, T o2) where T : IComparable<T> {..}

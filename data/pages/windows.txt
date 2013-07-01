@@ -1,0 +1,9 @@
+====== Windows ======
+==== Problems of windows ====
+Windows has gotten a reputation for being **unstable and complicated**.
+Reasons:
+  * DLL's form various vendors, developer can't be 100 percent sure how someone else is going to use it [in practise these don't arise cos apps are tested and debugged before they are deployed
+  * when company want to update code and ships new files to hem [new files should be backward-compatible with previous files]
+  * New app corrupts an already-installed app [DLL HELL]
+  * Installation complexity [files to be copied in various directories -> registry, settings, shortcuts ]
+  * Security [apps allows to do many forbidden things]

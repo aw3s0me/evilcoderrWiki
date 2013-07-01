@@ -1,0 +1,141 @@
+
+<h1 class="sectionedit1" id="delegates">Delegates</h1>
+<div class="level1">
+
+<p>
+Раньше мы делали указатели, к-ые хранили адрес функции, теперь мы имеем целый ОБЪЕКТ. Делегат - объект, содержащий ссылку на метод/функцию.
+</p>
+<ul>
+<li class="level1"><div class="li"> Содержит возвращающий тип, список аргументов к-ые совпадает с методом</div>
+</li>
+</ul>
+
+<p>
+Формат объявления:
+</p>
+<pre class="code">     delegate тип имя(список_аргументов);</pre>
+
+<p>
+Формат определения:
+</p>
+<pre class="code">     имя_Делегата имя_Объекта = new имя_Делегата (имя_Метода);</pre>
+
+<p>
+Используются для:
+</p>
+<ul>
+<li class="level1"><div class="li"> Передачи методов в качестве аргументов в ДРУГИЕ МЕТОДЫ</div>
+</li>
+<li class="level1"><div class="li"> Обработчиков события (при нажатии на кнопку к примеру: button1.Click += new EventHandler(button1_Click);, где EventHandler - делегат)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Delegates" [1-986] -->
+<h3 class="sectionedit2" id="обобщенные_делегаты">Обобщенные делегаты</h3>
+<div class="level3">
+
+<p>
+2 Вида:
+</p>
+<ul>
+<li class="level1"><div class="li"> Action - возвращаемое значение void</div>
+</li>
+<li class="level1"><div class="li"> Func - возвращаемое значение типа TResult</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="action">Action</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> параметр - object</div>
+</li>
+<li class="level1"><div class="li"> Всего таких видов 16</div>
+</li>
+<li class="level1"><div class="li"> return void</div>
+</li>
+</ul>
+
+<p>
+      public delegate void Action() - не обобщенный
+</p>
+<pre class="code">    public delegate void Action&lt;T&gt;(T obj);
+    public delegate void Action&lt;T1, T2&gt;(T1 arg1, T2 arg2);
+    ...
+    public delegate void Action&lt;T1, ... , T16&gt;(T1 arg1, ... , T16 arg16);</pre>
+
+</div>
+
+<h5 id="func">Func</h5>
+<div class="level5">
+<ul>
+<li class="level1"><div class="li"> один из параметров типа TResult</div>
+</li>
+<li class="level1"><div class="li"> Всего таких видов 16</div>
+</li>
+<li class="level1"><div class="li"> возврат значений методами обратного вызова (TResult)</div>
+</li>
+</ul>
+
+<p>
+      public delegate TResult Func&lt;TResult&gt;()
+</p>
+<pre class="code">    public delegate void Action&lt;T&gt;(T obj);
+    public delegate void Action&lt;T1, T2&gt;(T1 arg1, T2 arg2);
+    ...
+    public delegate void Action&lt;T1, ... , T16&gt;(T1 arg1, ... , T16 arg16);</pre>
+
+</div>
+<!-- EDIT2 SECTION "Обобщенные делегаты" [987-1971] -->
+<h3 class="sectionedit3" id="упрощения_при_работе_с_делегатами">Упрощения при работе с делегатами</h3>
+<div class="level3">
+
+<p>
+Неудобно, так как при привязке создается новый объект. Например:
+</p>
+<pre class="code">    button1.Click += new EventHandler(button1_Click);
+    void button1_Click(Object sender, EventArgs e){ ... }</pre>
+
+</div>
+
+<h4 id="упрощение_1">Упрощение 1</h4>
+<div class="level4">
+
+<p>
+Без создания объекта:
+</p>
+<pre class="code">    internal sealed class AClass {
+         public static void CallbackWithoutNewingADelegateObject(){
+            ThreadPool.QueueUserWorkItem(SomeAsyncTask, 5);
+         }
+         private static void SomeAsyncTask (Object o) {
+             Console.WriteLine(o);
+         }
+    }</pre>
+
+</div>
+
+<h4 id="упрощение_2">Упрощение 2</h4>
+<div class="level4">
+
+<p>
+Без определения метода обратного вызова
+</p>
+<pre class="code">    internal sealed class AClass {
+         public static void CallbackWithoutNewingADelegateObject(){
+            ThreadPool.QueueUserWorkItem(obj =&gt; Console.WriteLine(obj), 5);
+         }
+    }</pre>
+
+</div>
+<!-- EDIT3 SECTION "Упрощения при работе с делегатами" [1972-2955] -->
+<h3 class="sectionedit4" id="лямбда">Лямбда</h3>
+<div class="level3">
+<pre class="code">    Func&lt;String&gt; f =() =&gt; &quot;Jeff&quot; //делегат без аргументов
+    Func&lt;Int32, String&gt; f2 =(Int32 n) =&gt; n.ToString() //один/несколько аргументов
+    Bar b = (out Int32 n) =&gt; n =5;</pre>
+
+</div>
+<!-- EDIT4 SECTION "Лямбда" [2956-] -->

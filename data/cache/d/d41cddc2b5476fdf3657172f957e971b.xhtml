@@ -1,0 +1,95 @@
+
+<h1 class="sectionedit1" id="сборки">Сборки</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> [assembly: AssemblyTitle(«MyDLL.dll»)]</div>
+</li>
+<li class="level1"><div class="li"> [assembly: AssemblyDescription(«Blabla)»]</div>
+</li>
+<li class="level1"><div class="li"> [assembly: AssemblyCompany(«Aleks Korovin company»)]</div>
+</li>
+<li class="level1"><div class="li"> [assembly: AssemblyProduct(«MyProduct»)]</div>
+</li>
+<li class="level1"><div class="li"> [assembly: AssemblyCopyright(«Copyright © MyCompany 2012»)]</div>
+</li>
+<li class="level1"><div class="li"> [assembly: AssemblyVersion(«3.0.0.0»)]</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Сборки" [1-327] -->
+<h3 class="sectionedit2" id="администрирование_сборок">Администрирование сборок</h3>
+<div class="level3">
+
+<p>
+Для доступа к сборки, нужно поместить конфигурационный файл в каталог приложения. (файл состоит их XML). Для exe он должен распологаться в базовом каталоге приложения. Для ASP.NET Web Forms в виртуальном корневом каталоге веб приложения Web.config
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Администрирование сборок" [328-809] -->
+<h3 class="sectionedit3" id="виды_сборок">Виды сборок</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> С нестрогими именами</div>
+</li>
+<li class="level1"><div class="li"> С строгими</div>
+</li>
+</ol>
+
+<p>
+Идентичны по структуре . Но со строгими именами сборки подписаны с помощью пары ключей (открытого-закрытого), идентиф. издателя. Эти ключи обеспечивают безопасность, помогают управлять версиями, развертывать сборки в любом месте.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Виды сборок" [810-1329] -->
+<h3 class="sectionedit4" id="развертывание_сборок">Развертывание сборок</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Закрытое - развертывание в базовом каталоге (с нестрогим только такое)</div>
+</li>
+<li class="level1"><div class="li"> Глобальное - в любом каталоге</div>
+</li>
+</ol>
+
+<p>
+СОВЕТ: лучше строгие имена, так как можно применить больше политик
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Развертывание сборок" [1330-1692] -->
+<h3 class="sectionedit5" id="глобальный_кэш_сборок">Глобальный кэш сборок</h3>
+<div class="level3">
+
+<p>
+Место где располгаются совместно используемые сборки - GAC (Global Assembly Cache) - C:\Windows\Assembly. Для тестирования и разработки сборок применяют утилиту - GACUtil.exe
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Глобальный кэш сборок" [1693-2013] -->
+<h3 class="sectionedit6" id="дружественные_сборки">Дружественные сборки</h3>
+<div class="level3">
+
+<p>
+Если мы хотим, чтобы классы в сборках были internal, но были доступны друг другу, то надо использовать аттрибут InternalsVisibleTo:
+</p>
+<pre class="code">      [assembly:InternalsVisibleTo(&quot;Microsoft, PublicKey=b88aa..fffeafwe&quot;)]</pre>
+
+</div>
+<!-- EDIT6 SECTION "Дружественные сборки" [2014-2356] -->
+<h3 class="sectionedit7" id="влияние_ключевых_слов_на_упр-ие_версиями_компонентов">Влияние ключевых слов на упр-ие версиями компонентов</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> abstract - экземпляры нельзя создавать, член необходимо переопределить и реализовать в производном, потом их можно юзать.</div>
+</li>
+<li class="level1"><div class="li"> virtual - тип-запрещен, член можно переопределить в производном</div>
+</li>
+<li class="level1"><div class="li"> override - тип-запрещен, член переопределяется в производном типе</div>
+</li>
+<li class="level1"><div class="li"> sealed - тип-запрещен, член нельзя переопределить в производном типе, применяют только к методу, переопределяющему виртуальный метод</div>
+</li>
+<li class="level1"><div class="li"> new - применительно к вложенному типу, методу, св-ву, событию, константе или полю, член никак не свзяан с похожим членом, к-ый может существовать в базовом классе</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Влияние ключевых слов на упр-ие версиями компонентов" [2357-] -->

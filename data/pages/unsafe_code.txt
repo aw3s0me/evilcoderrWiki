@@ -1,0 +1,37 @@
+====== Unsafe code ======
+Unsafe code - code whose safety cannot be verified by CLR. So CLR can execute only safe code or unsafe + [unsafe] keyword in methods. **Remember that unsafe code is not necessarily dangerous!**
+----
+Using pointers == unsafe code
+==== Classes ====
+System.Security.Permission
+
+
+==== Example 1 ('\0') ====
+    unsafe static void Main()
+    {
+	     fixed (char* value = "sam")
+	     {
+	        char* ptr = value;
+	        while (*ptr != '\0')
+	        {
+		    Console.WriteLine(*ptr);
+		    ++ptr;
+	        }
+	     }
+    }
+==== Example 2 (can use an unsafe block inside a method) ====
+    static void Main()
+    {
+	    unsafe
+	    {
+	        fixed (char* value = "sam")
+	        {
+		   char* ptr = value;
+		   while (*ptr != '\0')
+		   {
+		       Console.WriteLine(*ptr);
+		       ++ptr;
+		   }
+	        }
+	    }
+    }

@@ -1,0 +1,63 @@
+
+<h1 class="sectionedit1" id="массивы">Массивы</h1>
+<div class="level1">
+
+<p>
+Типы массивов:
+</p>
+<ol>
+<li class="level1"><div class="li"> Одномерные</div>
+</li>
+<li class="level1"><div class="li"> Многомерные</div>
+</li>
+<li class="level1"><div class="li"> Вложенные (jagged)</div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> Базовый - System.Array : System.Object</div>
+</li>
+<li class="level1"><div class="li"> Все массивы - ссылочные → хранятся в куче</div>
+</li>
+<li class="level1"><div class="li"> Обращение за индекс (пример [-5]) - исключение System.Index.OutOfRange</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="вложенные_массивы">Вложенные массивы</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Обращение к элементу вложенного = обращение к 2ум или больше массивам одновременно</div>
+</li>
+</ul>
+
+<p>
+Пример:
+</p>
+<pre class="code">    Point[][] myPolygons = new Point[3][]; //одномерный массив из массива типа Point
+    myPolygons[0] = new Point[10];
+    myPolygons[1] = new Point[20];
+    myPolygons[2] = new Point[30];
+    Типа это многоугольник</pre>
+
+</div>
+
+<h4 id="многомерные_массивы">Многомерные массивы</h4>
+<div class="level4">
+<pre class="code">    Double[,] myDoubles = new Double [10,20] - создание двумерного массива
+    Double[,,] myDoubles = new Double [5,3,10] - создание трехмерного массива</pre>
+
+</div>
+
+<h4 id="инициализиация_эл-ов">Инициализиация эл-ов</h4>
+<div class="level4">
+<pre class="code">    String[] names = new String[] {&quot;Bl1&quot;, &quot;Bil2&quot;}; //в фигурных скобках - array initializer
+    String[] names = {&quot;Bl1&quot;, &quot;Bil2&quot;}; - допустимо</pre>
+
+</div>
+
+<h5 id="инициализация_в_случае_анонимных_типов">Инициализация в случае анонимных типов</h5>
+<div class="level5">
+<pre class="code">    var kids = new[] {new {Name = &quot;Aidan&quot;}, new {Name = &quot;Grant&quot;}};</pre>
+
+</div>

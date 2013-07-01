@@ -1,0 +1,24 @@
+====== Массивы ======
+Типы массивов:
+  - Одномерные
+  - Многомерные
+  - Вложенные (jagged)
+  * Базовый - System.Array : System.Object
+  * Все массивы - ссылочные -> хранятся в куче
+  * Обращение за индекс (пример [-5]) - исключение System.Index.OutOfRange
+=== Вложенные массивы ===
+  * Обращение к элементу вложенного = обращение к 2ум или больше массивам одновременно
+Пример:
+      Point[][] myPolygons = new Point[3][]; //одномерный массив из массива типа Point
+      myPolygons[0] = new Point[10];
+      myPolygons[1] = new Point[20];
+      myPolygons[2] = new Point[30];
+      Типа это многоугольник
+=== Многомерные массивы ===
+      Double[,] myDoubles = new Double [10,20] - создание двумерного массива
+      Double[,,] myDoubles = new Double [5,3,10] - создание трехмерного массива
+=== Инициализиация эл-ов ===
+      String[] names = new String[] {"Bl1", "Bil2"}; //в фигурных скобках - array initializer
+      String[] names = {"Bl1", "Bil2"}; - допустимо
+== Инициализация в случае анонимных типов ==
+      var kids = new[] {new {Name = "Aidan"}, new {Name = "Grant"}};

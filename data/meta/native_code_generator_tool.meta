@@ -1,0 +1,14 @@
+a:2:{s:7:"current";a:8:{s:4:"date";a:2:{s:7:"created";i:1371633226;s:8:"modified";i:1371633226;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1371633226;s:2:"ip";s:3:"::1";s:4:"type";s:1:"C";s:2:"id";s:26:"native_code_generator_tool";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:14:"создано";s:5:"extra";s:0:"";}s:5:"title";s:36:"Native Code Generator Tool: NGen.exe";s:11:"description";a:2:{s:15:"tableofcontents";a:5:{i:0;a:4:{s:3:"hid";s:33:"native_code_generator_toolngenexe";s:5:"title";s:36:"Native Code Generator Tool: NGen.exe";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:5:"using";s:5:"title";s:5:"Using";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:9:"asm_files";s:5:"title";s:9:"Asm Files";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:3:"jit";s:5:"title";s:3:"JIT";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:8:"problems";s:5:"title";s:8:"Problems";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:310:"Using
+
+Can be used to compile IL code to native code when app is installed on a user's machine
+
+	*  Improving an app startup time #code already compiled
+	*  Reducing an app working set  
+
+Asm Files
+
+%SysRoot%\Assembly\NativeImages_v4.0.####_64
+
+JIT
+
+If assembly file not found, CLR compile the IL code as usual";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:4:{s:4:"date";a:1:{s:7:"created";i:1371633226;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1371633226;s:2:"ip";s:3:"::1";s:4:"type";s:1:"C";s:2:"id";s:26:"native_code_generator_tool";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:14:"создано";s:5:"extra";s:0:"";}}}

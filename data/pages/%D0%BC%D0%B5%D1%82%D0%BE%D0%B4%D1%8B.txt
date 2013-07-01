@@ -1,0 +1,75 @@
+====== Методы ======
+==== Конструкторы ====
+== Конструкторы экземпляров ==
+  * Конструкторы не наследуются
+  * Нельзя применять модификаторы virtual, new, override, sealed, abstract
+  * Для абстрактных классов компилятор по умолчанию создает коструктор с модификатором protected
+  * Зато для статических нет конструкторов по умолчанию
+  * Не вызывается при десериализации объекта
+  * можно public BlaClass(Int32 x) : this() { m_x = x; ]
+  * для значимых типов конструкторы ТОЛЬКО С ПАРАМЕТРОМ
+== Конструкторы типов ==
+Конструкторы типов - статические конструкторы
+  * **Используются для установки первоначального состояния типа**
+  * У такого конструктора НЕТ ПАРАМЕТРОВ
+  * Всегда должны быть **закрытыми**
+  * Если у типа не определен такой конструктор, то он создается по умолчанию
+  * ХОРОШ ДЛЯ ИНИЦИАЛИЗАЦИИ ПАТТЕРНА СИНГЛТОН
+Пример:
+       static MyClass() {   }
+==== Перегрузка операторов ====
+      public sealed class Complex {
+           public static Complex operator+(Complex c1, Complex c2) {..}
+           public static Complex Add(Complex c1, Complex c2) { return(c1+c2); }
+      }
+==== Операторы преобразования типов ====
+Правила:
+  - Должны определятся public конструкторы
+  - Определен экземплярный метод ToXxx
+Пример:
+        public sealed class Rational {
+             public Rational (Int32 num) {...}
+             public Rational (Single num) {...}
+             public Int32 ToInt32() {...}
+             public Single ToSingle() {...}
+        
+        Теперь добавим операторы преобр-ия:
+             public static implicit operator Rational(Int32 num) { return new Rational(num); } //неявно Rational из Int32
+             public static implicit operator Rational(Single num) { return new Rational(num); } //неявно Rational из Single
+             public static explicit operator Rational(Int32 r) { return r.ToInt32; } //явно Rational из Int32
+             public static explicit operator Rational(Single r) { return r.ToSingle; } //явно Rational из Single
+.      
+  * Implicit ук-ет компилятору что наличие в исх коде явного приведения типов не обязательно для генерации кода, вызыв метод опер-а преобр-ия
+  * Explicit - вызывает метод когда в исх тексте явное преобр-ие типов
+==== Методы расширения ====
+Синтаксический сахар для удобства. __Позволяет добавлять новые методы в класс без создания производного.__
+**Обозначаются как Имя_метода<>**
+
+      static class IntListExtensionMethods
+      {
+          static public int GetMaxValue(this List<int> list)
+          {
+              int max = list[0];
+              foreach (int value in list)
+              {
+                  if (max < value)
+                      max = value;
+              }
+              return max;
+          }
+      }
+Условия:
+  * Метод должен быть статическим
+  * Определен в статическом классе
+  * **ДОЛЖНО БЫТЬ КЛЮЧЕВОЕ СЛОВО this в параметре**
+==== Параметры ====
+  * По умолчанию все параметры перед-ся по ЗНАЧЕНИЮ
+  * Если хотим по ссылке то - ref(инициализация обязательна)/out (инициализация не обязательна)
+==== Свойства ====
+== Свойства с параметрами ==
+  * Напоминают массивы, так как представляет индексатор
+
+      public Boolean this[Int32 num] {
+            get {...}
+            set {...}
+      }

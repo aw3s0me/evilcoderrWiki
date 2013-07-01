@@ -1,0 +1,9 @@
+====== C# Утилиты ======
+  * ILDasm.exe - дизассемблер IL кода (для exe и dll)
+  * AL.exe - компоновщик сборок (для создания сборок вместо компилятора)
+al /out:NewSborkaTypes.dll /t:library lib1.netmodule lib2.netmodule
+В NewSborkaTypes.dll отсутствует IL код и метаданные. В .netmodule НЕТУ МАНИФЕСТОВ
+  * SN.exe (Strong Name) - утилита для получения ключа для сборки
+    SN -k MyCompany.snk //создаем файл, содержащий открытый/закрытый ключи. параметры -p и -tp/// для компилятора csc /keyfile:MyCompany.snk Program.cs
+  * GACUtil.exe - Для тестирования и разработки сборок применяют утилиту - 
+  * FxCop - позволяет находить блоки catch(Exception) в к-ых нету throw;

@@ -1,0 +1,24 @@
+====== Настраиваемые атрибуты ======
+Настроить область применения:
+     [assembly: SomeAttr]
+     using System;
+     [field: SomeAttr]
+     public Int32 SomeField = 0;
+Одинаковый результат:
+     [Serializable][Flags]
+     [Serializable , Flags]
+     [FlagsAttribute][SerializableAttribute]
+     [FlagsAttribute()][Serializable()]
+==== Свои атрибуты ====
+нужно определить свой класс, к-ый наследуется от System.Attribute
+     public class MyAttribute : System.Attribute {
+         public FlagsAttribute() {
+         }
+     }
+     вариант с использованием к типу:
+     [AttributeUsage(AttributeTargets.Enum, Inherited = false)]
+     public class MyAttribute : System.Attribute {
+         public FlagsAttribute() {
+         }
+     }
+Для проверки на принадлежность аттрибута к типу юзаем IsDefined

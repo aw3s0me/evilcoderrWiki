@@ -1,0 +1,61 @@
+
+<h1 class="sectionedit1" id="unsafe_code">Unsafe code</h1>
+<div class="level1">
+
+<p>
+Unsafe code - code whose safety cannot be verified by CLR. So CLR can execute only safe code or unsafe + [unsafe] keyword in methods. <strong>Remember that unsafe code is not necessarily dangerous!</strong>
+</p>
+<hr />
+
+<p>
+Using pointers == unsafe code
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Unsafe code" [1-255] -->
+<h3 class="sectionedit2" id="classes">Classes</h3>
+<div class="level3">
+
+<p>
+System.Security.Permission
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Classes" [256-302] -->
+<h3 class="sectionedit3" id="example_1_0">Example 1 (&#039;\0&#039;)</h3>
+<div class="level3">
+<pre class="code">  unsafe static void Main()
+  {
+     fixed (char* value = &quot;sam&quot;)
+     {
+        char* ptr = value;
+        while (*ptr != &#039;\0&#039;)
+        {
+	    Console.WriteLine(*ptr);
+	    ++ptr;
+        }
+     }
+  }</pre>
+
+</div>
+<!-- EDIT3 SECTION "Example 1 ('\0')" [303-545] -->
+<h3 class="sectionedit4" id="example_2_can_use_an_unsafe_block_inside_a_method">Example 2 (can use an unsafe block inside a method)</h3>
+<div class="level3">
+<pre class="code">  static void Main()
+  {
+    unsafe
+    {
+        fixed (char* value = &quot;sam&quot;)
+        {
+	   char* ptr = value;
+	   while (*ptr != &#039;\0&#039;)
+	   {
+	       Console.WriteLine(*ptr);
+	       ++ptr;
+	   }
+        }
+    }
+  }</pre>
+
+</div>
+<!-- EDIT4 SECTION "Example 2 (can use an unsafe block inside a method)" [546-] -->

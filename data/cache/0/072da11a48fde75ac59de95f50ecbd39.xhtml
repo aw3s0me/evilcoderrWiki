@@ -1,0 +1,49 @@
+
+<h1 class="sectionedit1" id="useful_console_commands">Useful console commands</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Useful console commands" [1-38] -->
+<h3 class="sectionedit2" id="building_types_into_module">Building types into module</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Консольное : csc.exe /out:Program.exe /t:exe /r:MSCorLib.dll Program.cs</div>
+</li>
+</ul>
+
+<p>
+Создать Program.exe (имя задано параметром Program.exe), тип созд файла Win32 (тип /t[arget]:exe), ссылки на /r[eference] (поисх внешних типов в сборке)
+В MSCorLib находятся все типы (Byte,Char,String,Int32)
+фактически мы только что запустили компиляцию по умолчанию с csc.exe Program.cs.
+Для гуи приложения надо /t:winexe
+</p>
+<pre class="code">   public sealed class Program {  //тип Program, методы его в MSCorLib
+      public static void Main() {
+          System.Console.WriteLine(&quot;Hi&quot;);
+      }
+   }</pre>
+
+<p>
+———————–
+</p>
+<ul>
+<li class="level1"><div class="li"> Файл параметров (файл содержащий набор параметров для командной строки для компилятора)  : csc.exe @MyProject.rsp CodeFile1.cs CodeFile2.cs</div>
+</li>
+</ul>
+
+<p>
+ПУСТЬ ЕСТЬ ФАЙЛ ПАРАМЕТРОВ MyProject.rsp с текстом
+</p>
+<pre class="code">   /out:MyProject.exe /target:winexe
+   Кстати в CSC.rsp содержатся все стандартные dll поэтому параметр /r можно не юзать для них</pre>
+
+<p>
+———————–
+</p>
+<ul>
+<li class="level1"><div class="li"> Создание PE-файла без метаданных /t:module (расширение .netmodule)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Building types into module" [39-] -->

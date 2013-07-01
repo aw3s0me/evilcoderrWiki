@@ -4,8 +4,30 @@ Different languages offer different capabilities:
 In unmanaged C/C++ you have access  to low-level control of system (you can manage memory, create threads).
 But C# allows you to make apps very rapidly [easy to control COM and DB] 
 
-C# is a part of [[CLR]]
-Перевод из IL кода в Native занимается [[JITCompiler]]
+  * C# is a part of [[CLR]]
+  * Перевод из [[IL]] кода в Native занимается [[JITCompiler]]
+  * [[Unsafe code]] - can corrupt data structures or influences bad on security -> ALL methods should marked as [unsafe] keyword
+  * C# provides the [[Native Code Generator Tool]]: NGen.exe
+  * [[FCL]] (Framework Class Lib)
+  * CLR is all about types - [[CTS]] (The Common Type System)
+  * CLS - set of basic language features needed by many applications [assembly: CLSCompliant(true)] (uint+pointers etc)
+  * [[Unmanaged code]]
+  * [[Useful console commands]]
+  * [[CSharp Utilities]]
+  * [[Сборки]]
+  * [[Методы]]
+  * [[События]]
+  * [[Наследование]]
+  * [[Enum]]
+  * [[String]]
+  * [[Array]]
+  * [[delegate]]
+  * [[Custom Attributes]]
+  * [[Nullable]]
+  * [[Exceptions]]
+  * [[Contracts]]
+  * [[Memory management]]
+  * [[AppDomain]]
 ====== Definition ======
 C#(pronounced see sharp) is a multi-paradigm programming language encompassing:
   * **strong typing** - every variable has a type and if there are two variables of different types, you have to cast them, to make an operation executable.
@@ -37,4 +59,3 @@ Example:
 
   * **object-oriented**
   * **component-oriented programming** - allows to use component constructs such as events, properties, interfaces
-

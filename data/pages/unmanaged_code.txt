@@ -1,0 +1,3 @@
+  * Managed code can call an unmanaged function in DLL
+  * Managed code can use an existing unmanaged COM component
+  * Unmanaged code can use a managed type (server)

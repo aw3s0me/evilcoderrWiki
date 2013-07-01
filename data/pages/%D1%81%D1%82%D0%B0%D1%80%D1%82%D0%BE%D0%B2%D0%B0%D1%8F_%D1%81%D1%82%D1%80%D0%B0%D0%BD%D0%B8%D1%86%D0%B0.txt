@@ -7,7 +7,7 @@ Translation : Welcome, dear %username%. On this wiki you can see all notes, whic
 
 ====== Хобби ======
 
-===== Программирование =====
+===== Programming =====
   * [[ASP.NET]]
   * [[CSharp]]
   * [[Git]]
@@ -16,3 +16,7 @@ Translation : Welcome, dear %username%. On this wiki you can see all notes, whic
   * [[CPP]]
   * [[QT]]
   * [[Паттерны проектирования]]
+===== Computer operator =====
+  * [[Windows]]
+===== Useful tips =====
+  * [[Email writing]]

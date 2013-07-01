@@ -1,0 +1,40 @@
+
+<h1 class="sectionedit1" id="null-совместимые_значимые_типы">Null-совместимые значимые типы</h1>
+<div class="level1">
+
+<p>
+Переменная значимого типа не может иметь зн-ие null
+</p>
+<ul>
+<li class="level1"><div class="li"> В базе данных могут содержаться значения в int = null ⇒ затруднения работы с базами</div>
+</li>
+<li class="level1"><div class="li"> System.DateTime - не может быть null, зато java.util.Date может ⇒ если java приложение передаст инф-ию о дате и времени в CLR ⇒ ошибка</div>
+</li>
+</ul>
+
+<p>
+Класс System.Nullable&lt;T&gt;
+Пример:
+</p>
+<pre class="code">     Nullable&lt;Int32&gt; x=5;
+     Nullable&lt;Int32&gt; y=null;
+     Второй вариант исп-я оператор &quot;?&quot;:
+     Int32? x=5
+     Int32? y=null</pre>
+
+</div>
+<!-- EDIT1 SECTION "Null-совместимые значимые типы" [1-725] -->
+<h3 class="sectionedit2" id="оператор_объединения_nullable_значений">Оператор объединения nullable значений</h3>
+<div class="level3">
+
+<p>
+Обозначается - »??»
+Правила:
+</p>
+<ul>
+<li class="level1"><div class="li"> Если левый операнд!=null, оператор возвращает значение, если == null, то возвращается зн-ие первого операнда (поддержка ссылоч)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Оператор объединения nullable значений" [726-] -->

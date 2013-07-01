@@ -1,0 +1,41 @@
+
+<h1 class="sectionedit1" id="enum">Enum</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Члены типа - константы</div>
+</li>
+<li class="level1"><div class="li"> Им присваиваются числовые значения</div>
+</li>
+<li class="level1"><div class="li"> IsDefined метод для проверки параметров</div>
+</li>
+</ul>
+<pre class="code">    if (!Enum.IsDefined(typeof(Color),c)) {
+       throw...
+    }</pre>
+
+<p>
+.
+</p>
+<ul>
+<li class="level1"><div class="li"> В основе типа числ значения</div>
+</li>
+</ul>
+
+<p>
+Пример:
+</p>
+<pre class="code">   internal enum Color : byte {
+      White,
+      Red,
+      ...
+   } </pre>
+
+<p>
+.
+</p>
+<ul>
+<li class="level1"><div class="li"> Для перечисления с битовыми флагами - юзаем параметр [Flags]</div>
+</li>
+</ul>
+
+</div>

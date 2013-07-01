@@ -1,0 +1,19 @@
+====== Useful console commands ======
+==== Building types into module ====
+  * Консольное : csc.exe /out:Program.exe /t:exe /r:MSCorLib.dll Program.cs
+Создать Program.exe (имя задано параметром Program.exe), тип созд файла Win32 (тип /t[arget]:exe), ссылки на /r[eference] (поисх внешних типов в сборке)
+В MSCorLib находятся все типы (Byte,Char,String,Int32)
+фактически мы только что запустили компиляцию по умолчанию с csc.exe Program.cs.
+Для гуи приложения надо /t:winexe
+     public sealed class Program {  //тип Program, методы его в MSCorLib
+        public static void Main() {
+            System.Console.WriteLine("Hi");
+        }
+     }
+-----------------------
+  * Файл параметров (файл содержащий набор параметров для командной строки для компилятора)  : csc.exe @MyProject.rsp CodeFile1.cs CodeFile2.cs
+ПУСТЬ ЕСТЬ ФАЙЛ ПАРАМЕТРОВ MyProject.rsp с текстом
+     /out:MyProject.exe /target:winexe
+     Кстати в CSC.rsp содержатся все стандартные dll поэтому параметр /r можно не юзать для них
+-----------------------
+  * Создание PE-файла без метаданных /t:module (расширение .netmodule)

@@ -1,0 +1,286 @@
+
+<h1 class="sectionedit1" id="the_common_type_system">The Common Type System</h1>
+<div class="level1">
+
+<p>
+Describes how types are defined and how they behave
+</p>
+
+</div>
+<!-- EDIT1 SECTION "The Common Type System" [1-89] -->
+<h3 class="sectionedit2" id="consists_of">Consists of</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong>Field</strong> - data variable that is part of the object&#039;s state. Fields identified by name and type</div>
+</li>
+<li class="level1"><div class="li"> <strong>Method</strong> - Function that performs an operation on the object, changing the object&#039;s state. (method have name, siganture, modifiers, parameters)</div>
+</li>
+<li class="level1"><div class="li"> <strong>Property</strong> - validate input parameters/read only</div>
+</li>
+<li class="level1"><div class="li"> <strong>Event</strong> - notification mechanism between objects</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Consists of" [90-472] -->
+<h3 class="sectionedit3" id="access_modifiers">Access modifiers</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong>Public</strong> - member accessible by any code in any assemble</div>
+</li>
+<li class="level1"><div class="li"> <strong>Private</strong> - Accessible only by other members in the same class type</div>
+</li>
+<li class="level1"><div class="li"> <strong>Family</strong>  - Accessible by derived types <em class="u">(protected modifier)</em></div>
+</li>
+<li class="level1"><div class="li"> <strong>Assembly</strong> - member accessible by any code in the <strong>SAME ASSEMBLE</strong> <em class="u">(internal modifier)</em></div>
+</li>
+<li class="level1"><div class="li"> <strong>Family or Assembly</strong> - accessible by derived types in any assemble ALSO by any types in the same assembly <em class="u">(protected internal)</em></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Access modifiers" [473-942] -->
+<h3 class="sectionedit4" id="cts_rules">CTS RULES</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> ALL TYPES MUST INHERIT FROM A <em class="u">PREDEFINED TYPE</em>: <strong>SYSTEM.OBJECT</strong></div>
+</li>
+<li class="level1"><div class="li"> CLR автоматически инициализирует все локальные переменные 0 и null</div>
+</li>
+<li class="level1"><div class="li"> ОБОБЩЕННЫЕ (GENERIC) типы БЕЗОПАСНЕЕ НЕОБОБЩЕННЫХ. Пространство потокобезопасных - System.Collections.Concurrent</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT4 SECTION "CTS RULES" [943-1337] -->
+<h2 class="sectionedit5" id="основы_типов">Основы типов</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Все типы - производные от <a href="/dokuwiki/doku.php?id=system.object" class="wikilink1" title="system.object">System.Object</a> (методы Equals, GetHashCode, ToString, GetType)</div>
+</li>
+<li class="level1"><div class="li"> Правило : Все объекты должны создаваться с помощью <a href="/dokuwiki/doku.php?id=new" class="wikilink1" title="new">new</a>!</div>
+</li>
+<li class="level1"><div class="li"> Почти всегда нужно переопределять метод Equals класса System.Object, так как он дает true, если переменные УКАЗЫВАЮТ НА ОДИН И ТОТ ЖЕ ОБЪЕКТ, хотя есть метод ReferenceEquals(obja, objb)</div>
+</li>
+<li class="level1"><div class="li"> НИКОГДА НЕ ХРАНИТЬ ЗНАЧЕНИЯ ХЭШЕЙ (НАПРИМЕР В БАЗЕ). так как после обновления алгоритма, будет худо.</div>
+</li>
+<li class="level1"><div class="li"> Ключевое слово dynamic помогает определить динамически тип. Поэтому var - опред тип в момент компиляции, dynamic - runtime</div>
+</li>
+</ul>
+
+<p>
+      var obj1 - throw exception
+</p>
+<pre class="code">    dynamic obj1 - ok</pre>
+
+</div>
+<!-- EDIT5 SECTION "Основы типов" [1338-2345] -->
+<h2 class="sectionedit6" id="привидение_типов">Привидение типов</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Во время выполнения всегда известен тип объекта (безопасность типов) (метод GetType)</div>
+</li>
+<li class="level1"><div class="li"> Можно привести к базовому (явно-неявно)</div>
+</li>
+<li class="level1"><div class="li"> К производному если определен явно оператор приведения</div>
+</li>
+<li class="level1"><div class="li"> Проверка на типы с помощью оператора is, as</div>
+</li>
+</ul>
+<pre class="code">     if (o is Employee) {
+         Employee e = (Employee) o;
+     }</pre>
+
+<p>
+Здесь проверка на тип осущ-ся 2 раза. если o==null, то возвращ is возвращ false
+2 способ:
+</p>
+<pre class="code">     Employee e = o as Employee;
+     if (e!=null) {
+     }</pre>
+
+<p>
+эфф-е чем просто опред типов
+D производный от B
+</p>
+<pre class="code">     B b1 = new B();
+     B b2 = new D();
+     D d6 = (D)b1() - ошибка RTE
+     D d5 = (D)b2() - все ок
+     B b3 = b2; - ок</pre>
+
+</div>
+<!-- EDIT6 SECTION "Привидение типов" [2346-3322] -->
+<h2 class="sectionedit7" id="пространства_имен">Пространства имен</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Допустим, что в двух сборках объявлен класс Widget : Microsoft.Widget и MyAsmb.Widget;</div>
+</li>
+<li class="level1"><div class="li"> Если мы их обе подлючим, то при создании объекта Widget w =new Widget() - ОШИБКА</div>
+</li>
+<li class="level1"><div class="li"> Поэтому надо MyAsmb.Widget w =new MyAsmb.Widget</div>
+</li>
+<li class="level1"><div class="li"> ИЛИ </div>
+</li>
+</ul>
+<pre class="code">     using MyAsmbWidgetO = MyAsmb.Widget
+     MyAsmbWidgetO w = new MyAsmbWidgetO();</pre>
+
+<p>
+<em class="u"><strong>Типы к одному пространству имен могут быть реализованы в разных сборках</strong></em>
+</p>
+
+</div>
+<!-- EDIT7 SECTION "Пространства имен" [3323-3933] -->
+<h2 class="sectionedit8" id="вз-ие_типов_стека_кучи">Вз-ие типов, стека, кучи</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="стек">Стек</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> У процесса может быть много потоков. После создания потока выделяется стек памяти == 1МБ. Такая память исп-ся для передачи параметров в методы и хранения локальных переменных</div>
+</li>
+<li class="level1"><div class="li"> Стеки заполняются от старших к младшим адресам</div>
+</li>
+<li class="level1"><div class="li"> Методы содержат входной код (prologue code) и выходной (epilogue code)</div>
+</li>
+<li class="level1"><div class="li"> Также адрес возврата также заталкивается в стек при вызове функции</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="куча">Куча</h4>
+<div class="level4">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=cts&amp;media=wiki:clr_via_csharp_f4.9.png" class="media" title="wiki:clr_via_csharp_f4.9.png"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;tok=ebe1a9&amp;media=wiki:clr_via_csharp_f4.9.png" class="mediacenter" alt="" width="200" /></a>
+</p>
+
+</div>
+<!-- EDIT8 SECTION "Вз-ие типов, стека, кучи" [3934-4712] -->
+<h2 class="sectionedit9" id="примитивные_типы">Примитивные типы</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Есть FCL-типы (System.String), а есть преобразованные к ним (using string = System.String)</div>
+</li>
+<li class="level1"><div class="li"> int преобразуется в Int32 long в Int64</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="переполнение">Переполнение</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <strong>По умолчанию в c# режим проверки переполнения отключен, поэтому в c# есть 2 оператора checked и unchecked</strong></div>
+</li>
+</ul>
+<pre class="code">     UInt32 invalid = unchecked((UInt32) -1); //ok, без проверки
+     Byte b = 100; b = checked((Byte)(b+200)); //вброс исключения OverflowException</pre>
+
+<p>
+.
+</p>
+<ul>
+<li class="level1"><div class="li"> Также их можно использовать как блоки</div>
+</li>
+</ul>
+<pre class="code">     checked {
+          Byte b=100;
+          b=(Byte)(b+200);
+     }</pre>
+
+<p>
+.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Для больших целых чисел есть супер типы (например System.Numeric.BigInteger) к-ые никогда не вбросят эксепшон перполнения, но могут вбросить исключения нехватки памяти</strong></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "Примитивные типы" [4713-5792] -->
+<h2 class="sectionedit10" id="cсылочные_и_значимые_типы">Cсылочные и значимые типы</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Память для ссылочных выделяется всегда из кучи</div>
+</li>
+<li class="level1"><div class="li"> Каждый объект в куче имеет доп члены подлежащие инициализации</div>
+</li>
+<li class="level1"><div class="li"> Незанятые инф-ей байты обнуляются</div>
+</li>
+<li class="level1"><div class="li"> Размещение в кучи иногда инициирует сборку мусора</div>
+</li>
+</ul>
+
+<p>
+Если бы все типы были бы ссылочными то эффективность приложения упала бы, поэтому <strong>ВВЕЛИ ЗНАЧИМЫЕ ТИПЫ</strong> (struct) (в стеке, поля в самой переменной) + <em class="u">не обрабатываются сборщиком мусора</em>
+</p>
+<hr />
+
+<p>
+Значимые типы 2ух типов:
+</p>
+<ul>
+<li class="level1"><div class="li"> Структуры (Int32, Boolean, Decimal, TimeSpan) - <strong>потомки System.ValueType</strong></div>
+</li>
+<li class="level1"><div class="li"> Перечисления (DayOfWeek, FileAttributes, Drawing.FontStyle) - <strong>потомки от System.Enum</strong>, производного от ValueType</div>
+</li>
+</ul>
+
+<p>
+Пример:
+</p>
+<pre class="code">      class SomeRef; //ссылочный (слово class)
+      struct SomeVal; //значимый (слово struct)
+      SomeVal v1=v2; //при изменении значений v1, v2 не меняется, зато в SomeRef да</pre>
+
+</div>
+
+<h4 id="условия_использования_значимых_вместо_ссылочных">Условия использования значимых вместо ссылочных</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Тип ведет себя как примитивный</div>
+</li>
+<li class="level1"><div class="li"> Типу не нужен любой тип в кач-ве базового</div>
+</li>
+<li class="level1"><div class="li"> Тип не будет иметь производных типов</div>
+</li>
+<li class="level1"><div class="li"> Размер экземпляров мал (16 Б)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="преобразование_значимого_в_ссылочный">Преобразование значимого в ссылочный</h4>
+<div class="level4">
+
+<p>
+Упаковка (boxing) для этого:
+</p>
+
+</div>
+
+<h4 id="кортежи_анонимный_тип">Кортежи (Анонимный тип)</h4>
+<div class="level4">
+<pre class="code">     var o1 = new { Name = &quot;Jeff&quot;, Year = 1964 };
+     Console.WriteLine(o1.Name + o1.Year.ToString());</pre>
+
+</div>
+
+<h4 id="арность_дженериков">Арность дженериков</h4>
+<div class="level4">
+
+<p>
+internal sealed class DictionaryStringKey&lt;Tvalue&gt;:Dictionary&lt;String, TValue&gt;{ }
+t=typeof(DictionaryStringKey&lt;&gt;); <em>1 параметр
+Dictionary&lt;,&gt; - 2 параметра
+  * where - ук-ет что тип в Т должен реализовывать обощенный интерефейс IComparable того же типа (Т)
+      public static T Min&lt;T&gt;(T o1, T o2) where T : IComparable&lt;T&gt; {..}
+</p>
+
+</div>
+<!-- EDIT10 SECTION "Cсылочные и значимые типы" [5793-] -->

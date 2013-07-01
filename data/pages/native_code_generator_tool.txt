@@ -1,0 +1,14 @@
+====== Native Code Generator Tool: NGen.exe ======
+===== Using =====
+Can be used __to compile IL code to native code__ **when app is installed** on a user's machine
+  * Improving an app startup time #code already compiled
+  * Reducing an app working set  
+===== Asm Files =====
+__%SysRoot%\Assembly\NativeImages_v4.0.####_64__
+===== JIT =====
+If assembly file not found, CLR compile the IL code as usual
+===== Problems =====
+  * Not property protection
+  * Files can get out of sync
+  * Inferior exec-time performance
+RULE: DON'T USE IT FOR SERVER-SIDE APPS [MAKES LITTLE OR NO SENSE]

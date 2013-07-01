@@ -1,0 +1,58 @@
+
+<h1 class="sectionedit1" id="строки">Строки</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Строки" [1-27] -->
+<h3 class="sectionedit2" id="char">Char</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> char в Unicod&#039;е</div>
+</li>
+<li class="level1"><div class="li"> Для конвертации наследование от Convert</div>
+</li>
+<li class="level1"><div class="li"> «\n»=Environment.NewLine</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Char" [28-165] -->
+<h3 class="sectionedit3" id="string">String</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Для конкатенации и если много операций со строками - юзаем StringBuilder</div>
+</li>
+<li class="level1"><div class="li"> @«C:\Bla\Bla» - объявление буквальной строки. ЮЗАЕТСЯ ДЛЯ REGEX и адресов файлов</div>
+</li>
+<li class="level1"><div class="li"> САМОЕ ВАЖНО О СТРОКАХ - ОНИ НЕИЗМЕНЯЕМЫ (нельзя изменить размер итд)</div>
+</li>
+<li class="level1"><div class="li"> Для сравнений строк юзаем Equals/Compare. CompareTo - с учетом региональных стандартов</div>
+</li>
+<li class="level1"><div class="li"> Для производительности - хранить строки в хеш таблице - String.Intern</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="форматирование_строк">Форматирование строк</h4>
+<div class="level4">
+
+<p>
+Наследование от IFormattable
+</p>
+<ul>
+<li class="level1"><div class="li"> Для форматирования можно юзать свою версию ToString</div>
+</li>
+</ul>
+
+<p>
+Пример:
+</p>
+<pre class="code">     Decimal price = 123.54M;
+     String s=price.ToString(&quot;C&quot;, new CultureInfo(&quot;vi-VN&quot;)); //перевод в формат вьетнама
+     или
+     String s=String.Format(&quot;On {0:D}, {1} is {2:E} years old.&quot;, new DateTime(2010,4,22,14,35,5), &quot;Aidan&quot;, 7);
+     //С,D,E - форматы</pre>
+
+</div>
+<!-- EDIT3 SECTION "String" [166-] -->

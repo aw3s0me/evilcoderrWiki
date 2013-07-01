@@ -1,0 +1,57 @@
+====== Delegates ======
+Раньше мы делали указатели, к-ые хранили адрес функции, теперь мы имеем целый ОБЪЕКТ. Делегат - объект, содержащий ссылку на метод/функцию. 
+  * Содержит возвращающий тип, список аргументов к-ые совпадает с методом
+Формат объявления:
+       delegate тип имя(список_аргументов);
+Формат определения:
+       имя_Делегата имя_Объекта = new имя_Делегата (имя_Метода);
+Используются для:
+  * Передачи методов в качестве аргументов в ДРУГИЕ МЕТОДЫ
+  * Обработчиков события (при нажатии на кнопку к примеру: button1.Click += new EventHandler(button1_Click);, где EventHandler - делегат)
+==== Обобщенные делегаты ====
+2 Вида:
+  * Action - возвращаемое значение void
+  * Func - возвращаемое значение типа TResult
+== Action ==
+  * параметр - object
+  * Всего таких видов 16
+  * return void
+      public delegate void Action() - не обобщенный
+      public delegate void Action<T>(T obj);
+      public delegate void Action<T1, T2>(T1 arg1, T2 arg2);
+      ...
+      public delegate void Action<T1, ... , T16>(T1 arg1, ... , T16 arg16);
+== Func ==
+  * один из параметров типа TResult
+  * Всего таких видов 16
+  * возврат значений методами обратного вызова (TResult)
+      public delegate TResult Func<TResult>()
+      public delegate void Action<T>(T obj);
+      public delegate void Action<T1, T2>(T1 arg1, T2 arg2);
+      ...
+      public delegate void Action<T1, ... , T16>(T1 arg1, ... , T16 arg16);
+==== Упрощения при работе с делегатами ====
+Неудобно, так как при привязке создается новый объект. Например:
+      button1.Click += new EventHandler(button1_Click);
+      void button1_Click(Object sender, EventArgs e){ ... }
+=== Упрощение 1 ===
+Без создания объекта:
+      internal sealed class AClass {
+           public static void CallbackWithoutNewingADelegateObject(){
+              ThreadPool.QueueUserWorkItem(SomeAsyncTask, 5);
+           }
+           private static void SomeAsyncTask (Object o) {
+               Console.WriteLine(o);
+           }
+      }
+=== Упрощение 2 ===
+Без определения метода обратного вызова
+      internal sealed class AClass {
+           public static void CallbackWithoutNewingADelegateObject(){
+              ThreadPool.QueueUserWorkItem(obj => Console.WriteLine(obj), 5);
+           }
+      }
+==== Лямбда ====
+      Func<String> f =() => "Jeff" //делегат без аргументов
+      Func<Int32, String> f2 =(Int32 n) => n.ToString() //один/несколько аргументов
+      Bar b = (out Int32 n) => n =5;

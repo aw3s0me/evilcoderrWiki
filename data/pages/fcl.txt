@@ -1,0 +1,10 @@
+====== FCL ======
+Set of DLL Assemblies that contain definitions in which type exposes some functionality. Also Microsoft is producing additional lib such as the Windows Azure SDK and the DirectX SDK
+==== Apps can be created by using FCL ====
+  * Web services (ASP.NET XML Web Service/WCF(Windows Communication Foundation))
+  * Web Forms/MVC-HTML based apps (websites) - ASP.NET
+  * GUI apps
+  * Console apps
+  * Win services - services that are controllable via SCM (windows service control manager)
+  * DB stored procedures
+  * Component library (Build standalone assemblies)
