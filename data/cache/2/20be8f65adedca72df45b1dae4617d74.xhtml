@@ -1,0 +1,134 @@
+
+<h1 class="sectionedit1" id="the_most_common_errors">The Most Common Errors</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> The only one tag &lt;FORM&gt; for SERVER side (form allows to send info to server)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "The Most Common Errors" [1-118] -->
+<h2 class="sectionedit2" id="трассировка">Трассировка</h2>
+<div class="level2">
+<pre class="code">    &lt;%@ Page Trace=&quot;true&quot; ... %&gt;
+    ИЛИ
+    В Page_Load {..  Trace.IsEnabled = true; }</pre>
+
+</div>
+<!-- EDIT2 SECTION "Трассировка" [119-251] -->
+<h3 class="sectionedit3" id="trace_information">Trace Information</h3>
+<div class="level3">
+
+<p>
+Shows the stages of processing that page went through before being sent to the client
+</p>
+<hr />
+
+<p>
+Each section shows how long the processing took to complete
+</p>
+<ul>
+<li class="level1"><div class="li"> From First - first stage</div>
+</li>
+<li class="level1"><div class="li"> From Last - from the start of the previous stage</div>
+</li>
+</ul>
+<pre class="code">    Trace.Write(&quot;about to place item in session state&quot;);
+    Session[&quot;Test&quot;] = &quot;Contents&quot;;
+    Trace.Write(&quot;Placed item in session state.&quot;);</pre>
+
+</div>
+<!-- EDIT3 SECTION "Trace Information" [252-660] -->
+<h1 class="sectionedit4" id="validation">Validation</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> for the most browsers ASP.NET adds automatically JS code for client-side validation</div>
+</li>
+<li class="level1"><div class="li"> Also we can validate it on the server</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Validation" [661-815] -->
+<h2 class="sectionedit5" id="html5_validation">HTML5 Validation</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Isn&#039;t complete solution</div>
+</li>
+<li class="level1"><div class="li"> it works only with &lt;input&gt; elements, not with web controls</div>
+</li>
+</ul>
+
+<p>
+ASP.Net support type attribute validation <strong>[TextMode=«Number»]</strong>
+</p>
+<hr />
+
+<p>
+WebForms UnobtrusiveValidationMode requires a ScriptResourceMapping for &#039;jquery&#039;. Please add a ScriptResourceMapping named jquery(case-sensitive). Решение:
+</p>
+<pre class="code">    &lt;appSettings&gt;
+          &lt;add key=&quot;ValidationSettings:UnobtrusiveValidationMode&quot; value=&quot;None&quot; /&gt;
+    &lt;/appSettings&gt;</pre>
+
+</div>
+<!-- EDIT5 SECTION "HTML5 Validation" [816-1294] -->
+<h3 class="sectionedit6" id="range_validator">Range Validator</h3>
+<div class="level3">
+<pre class="code">     &lt;asp:RangeValidator runat=&quot;server&quot; ID=&quot;RangeValidator&quot; 
+          ErrorMessage=&quot;This Number is not in the Range&quot;
+          ControlToValidate=&quot;txtNotValidated&quot;
+          MaximumValue=&quot;10&quot;
+          MinimumValue=&quot;1&quot;
+          ForeColor=&quot;Red&quot;
+          Font-Bold=&quot;True&quot;
+          Type=&quot;Integer&quot;/&gt;</pre>
+
+<p>
+Not all browser support client-side validation so (C# solution):
+</p>
+<pre class="code">     if(!RangeValidator.IsValid) return;
+     // your validation code</pre>
+
+<p>
+If you don&#039;t wanna change layout of page use ValidationSummary conrol:
+</p>
+<pre class="code">     &lt;asp:ValidationSummary runat=&quot;server&quot; ID=&quot;Errors&quot; ForeColor=&quot;Red&quot;/&gt;</pre>
+
+<p>
+But we should in each validator make Text=»» or «*» so you can find where exception happened
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Range Validator" [1295-2013] -->
+<h3 class="sectionedit7" id="manual_validation">Manual Validation</h3>
+<div class="level3">
+
+<p>
+Steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> Use your own code to verify values [don&#039;t use any ASP.NET valid controls]</div>
+</li>
+<li class="level1"><div class="li"> Disable the EnableClientScript property for each valid control</div>
+</li>
+<li class="level1"><div class="li"> Add a button with CausesValidation set to false</div>
+</li>
+</ol>
+
+<p>
+        var errorMessage = »&lt;b&gt;Mistakes found: &lt;/b&gt;&lt;br/&gt;»;
+</p>
+<pre class="code">      foreach (var ctrl in this.Validators.Cast&lt;BaseValidator&gt;().Where(ctrl =&gt; !ctrl.IsValid))
+      {
+          errorMessage += string.Format(&quot;{0}&lt;br/&gt;&quot;, ctrl.ErrorMessage);
+          using (var ctrlInput = (TextBox) this.FindControl(ctrl.ControlToValidate))
+          {
+              errorMessage += &quot; * Problem is with this input: &quot;;
+              if (ctrlInput != null) errorMessage += ctrlInput.Text + &quot;&lt;br/&gt;&quot;;
+          }
+      }
+      if (lblMessage != null) lblMessage.Text = errorMessage;</pre>
+
+</div>
+<!-- EDIT7 SECTION "Manual Validation" [2014-] -->

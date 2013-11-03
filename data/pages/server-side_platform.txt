@@ -1,0 +1,9 @@
+====== ASP.NET is server-side ======
+  - Client requests a web page
+  - Server runs server-side app
+  - Server returns an html document
+It was made to avoid several problems:
+  * Isolation - client code can't access server-side resources (can't interact with db on the server
+  * Security - end users can view client-side code [malicious users can understand how it works)
+  * Thin Clients - web-enabled devices are everywhere (the may not support client-side programming platforms suc as Flash or Silverlight)
+**BUT ASP.NET ALLOWS TO COMBINE the BEST of client-side programming with server side (AJAX + JS)**

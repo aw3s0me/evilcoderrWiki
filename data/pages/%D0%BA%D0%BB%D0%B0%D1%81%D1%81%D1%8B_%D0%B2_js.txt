@@ -1,0 +1,12 @@
+===== Конструктор =====
+==== Использование ====
+Создание объекта с помощью конструктора:
+     var someObj = new Object("1","2");
+==== Создание конструктора ====
+     function Object(param1, param2) {
+         this.param1 = param1;
+         this.param2 = param2;
+     }
+===== Особенности =====
+  * Array - это объект
+  * у любого класса есть методы toString(), toHTML(), containsText()

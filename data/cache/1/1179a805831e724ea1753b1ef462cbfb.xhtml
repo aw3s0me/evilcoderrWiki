@@ -1,0 +1,39 @@
+
+<h1 class="sectionedit1" id="размеры_окна">Размеры окна</h1>
+<div class="level1">
+
+<p>
+Размер объекта может не менятся вместе с размером браузера, +юзер может заходить как с мобильного так и настолько устр-ва
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Размеры окна" [1-261] -->
+<h2 class="sectionedit2" id="ширина_окна">Ширина окна</h2>
+<div class="level2">
+<pre class="code">  document.body.clientWidth</pre>
+
+</div>
+<!-- EDIT2 SECTION "Ширина окна" [262-325] -->
+<h2 class="sectionedit3" id="высота_окна">Высота окна</h2>
+<div class="level2">
+<pre class="code">  document.body.clientHeight</pre>
+
+</div>
+<!-- EDIT3 SECTION "Высота окна" [326-390] -->
+<h2 class="sectionedit4" id="управление_размерами">Управление размерами</h2>
+<div class="level2">
+
+<p>
+неплохо бы создать динамическое изменение размеров:
+</p>
+<pre class="code"> function resizeObject() {
+     document.getElementById(&quot;ObjId&quot;).style.height = (document.body.clientHeight - 100) * 0.9;
+ }</pre>
+
+<p>
+Потом привязываем функцию к загрузчику и onresize событиям body:
+</p>
+<pre class="code"> &lt;body onload=&quot;resizeObject();&quot; onresize=&quot;resizeRock();&quot;&gt;</pre>
+
+</div>
+<!-- EDIT4 SECTION "Управление размерами" [391-] -->

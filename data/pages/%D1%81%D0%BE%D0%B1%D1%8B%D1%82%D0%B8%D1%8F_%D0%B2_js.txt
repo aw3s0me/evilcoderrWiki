@@ -1,0 +1,29 @@
+====== События в JS ======
+  * Уведомления о происходящем (пример при загрузке onload или onclick)
+===== О событиях =====
+Инициируются юзерами, обрабатываются браузером, браузер должен взять инфу и передать методу обработки
+===== Современная модель событий =====
+Существуют 2 модели : W3C и Microsoft.
+  * НЕ ДЕЛАТЬ ПРОВЕРКИ НА СОВМЕСТИМОСТЬ. нах отказаться от Microsoft вообще
+===== Регистрация ивента =====
+    element.onclick = doSomething;
+    if (element.captureEvents) element.captureEvents(Event.CLICK);
+===== Типы ивентов =====
+  - Интерфейсные ивенты (действия юзера над страницой)
+  - ивенты с мышью (mousemove, mousedown)
+  - ивенты с формой (submit, reset)
+Onblur vs onchange - при потери объекта фокуса vs изменил поле
+===== Пример =====
+==== Пример 1 ====
+**onload - событие, alert(value) - метод**
+    <body onload="alert('Hello, I am your pet rock');" >
+Пример когда обработчик поставили прямо в HTML теге
+==== Пример 2 ====
+       function touchRock(){
+			var userName = prompt("What is your name", "Please enter your name");
+			
+			if (userName) {
+				alert("Glad to see you here, " + userName + ".");
+				document.getElementById("rockImg").src = "rock_happy.png";
+			}
+		}

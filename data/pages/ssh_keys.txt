@@ -1,0 +1,23 @@
+====== Цель SSH-ключей ======
+Целью использования идентификации Identity/Pubkey является исключение использования статических паролей. Вместо того, чтобы каждый раз набирать пароли, которые могут быть перехвачены кейлоггером или просто подсмотрены, у нас на диске имеется пара ключей, которые и используются для проверки подлинности. Ваша учетная запись на сервере SSH имеет список Identities/Pubkeys, которому можно доверять и если Вы сможете доказать, что у вас есть и публичный и приватный ключ, то доступ будет предоставлен без запроса пароля. 
+  * Никто не сможет войти на сервер с Вашей учетной записью, так как им необходимо обладать приватным ключом и кодовой фразой.
+  * **Администратор сервера может вообще убрать пароль учетной записи**, дабы исключить его дискредитацию.
+  * Вы **можете использовать утилиту ssh-agent** и он будет предоставлять аутентификационные данные за Вас.
+  * Вы можете устанавливать **определенные ограничения**, например запрещая перенаправление портов, выполнение определенных программ и т.д.
+===== Создание SSH ключа в Ubuntu =====
+  * **ssh-keygen -t dsa** [для DSA шифрования
+  * **ssh-keygen -t rsa** [для RSA шифрования
+===== Копирование на удаленный сервер =====
+  * **ssh-copy-id username@remotehost**
+После выполнения команды в терминале, создается папка authorized keys, где нужно сменить уровень доступа
+  * **chmod 600 .ssh/authorized_keys**
+
+[[http://www.lessons4you.info/how-to-connect-ssh-sftp-and-ftp-servers-using-nautilus-ubuntu-13-04/|Ubuntu Nautilus way]]
+====== SSHFS ======
+  - Create a folder in ~ folder at server (mkdir remote)
+  - then make a tunneling: ssh -L 2222:ipepdvcompute1.ka.fzk.de:22 proxy@ufo.kit.edu
+  - then connect: sshfs akorovin@localhost:remote ~/remote/ -p2222 (~/remote is a local folder at ~ not server)
+====== Connect to server ======
+ssh -p 2222 akorovin@localhost
+====== Compilation ======
+gcc A.c main.c -o test -lglib-2.0 -lgobject-2.0  -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include

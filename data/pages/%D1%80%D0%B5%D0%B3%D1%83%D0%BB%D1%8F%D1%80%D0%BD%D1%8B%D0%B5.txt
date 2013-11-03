@@ -1,0 +1,4 @@
+====== Regex ======
+===== Пример =====
+    var regex = /^\d{5}$/;
+    if(!regex.test(inputField.value)) //проверка

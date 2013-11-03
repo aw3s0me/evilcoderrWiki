@@ -1,0 +1,123 @@
+
+<h2 class="sectionedit1" id="tcp_ip">TCP/IP</h2>
+<div class="level2">
+
+<p>
+4 уровня:
+</p>
+<ol>
+<li class="level1"><div class="li"> Уровень сетевого интерфейса</div>
+</li>
+<li class="level1"><div class="li"> Уровень Internet</div>
+</li>
+<li class="level1"><div class="li"> Транспортный уровень</div>
+</li>
+<li class="level1"><div class="li"> Уровень процессов/приложений</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT1 SECTION "TCP/IP" [1-223] -->
+<h3 class="sectionedit2" id="уровень_сетевого_интерфейса">Уровень сетевого интерфейса</h3>
+<div class="level3">
+
+<p>
+Передача данных м/у узлами с помощью протоколов на основании физических адресов MAC:
+</p>
+<ul>
+<li class="level1"><div class="li"> Ethernet</div>
+</li>
+<li class="level1"><div class="li"> Token Ring</div>
+</li>
+<li class="level1"><div class="li"> SLIP, PPP</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Уровень сетевого интерфейса" [224-481] -->
+<h3 class="sectionedit3" id="уровень_internet">Уровень Internet</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> ICMP - протокол обработки ошибок и обмена инф-ей му узлами сети</div>
+</li>
+<li class="level1"><div class="li"> IP - доставка пакетов для ICMP, TCP, UDP (все инф-ия в виде пакетов)</div>
+</li>
+<li class="level1"><div class="li"> ARP - для отображения адресов Internet</div>
+</li>
+<li class="level1"><div class="li"> RARP - для отображения адресов сетевого интерфейса</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="ip">IP</h4>
+<div class="level4">
+
+<p>
+IP - доставка пакетов для ICMP, TCP, UDP (все инф-ия в виде пакетов), IP содержит:
+</p>
+<ul>
+<li class="level1"><div class="li"> адрес компьютера отправителя получателя</div>
+</li>
+<li class="level1"><div class="li"> не гарантирует надежность, если испорчен то выкидывается</div>
+</li>
+<li class="level1"><div class="li"> осуществляет фрагментацию/дефраг данных</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="icmp">ICMP</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Отвечает за маршрутизацию пакетов</div>
+</li>
+<li class="level1"><div class="li"> Управлять скоростью пакетов</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Уровень Internet" [482-1447] -->
+<h2 class="sectionedit4" id="транспортный_уровень">Транспортный уровень</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "Транспортный уровень" [1448-1499] -->
+<h3 class="sectionedit5" id="tcp">TCP</h3>
+<div class="level3">
+
+<p>
+Потоковая модель передачи данных, обмен данных через пакеты
+</p>
+<ul>
+<li class="level1"><div class="li"> Отличие от UPD: более надежен так как UDP через сообщения + отправители и получатели а не узлы</div>
+</li>
+</ul>
+
+<p>
+Для каждого узла в TCP есть сокет, UDP/TCP сокеты, имеющие различные порты
+</p>
+
+</div>
+<!-- EDIT5 SECTION "TCP" [1500-1919] -->
+<h3 class="sectionedit6" id="связь">Связь</h3>
+<div class="level3">
+
+<p>
+ДЛЯ УСТАНОВЛЕНИЯ СВЯЗИ НУЖНО УКАЗАТЬ 5 ПАРАМЕТРОВ
+</p>
+<ul>
+<li class="level1"><div class="li"> Протокол (TCP/UDP)</div>
+</li>
+<li class="level1"><div class="li"> IP адрес отправителя</div>
+</li>
+<li class="level1"><div class="li"> Порт отправителя</div>
+</li>
+<li class="level1"><div class="li"> IP-адрес получателя</div>
+</li>
+<li class="level1"><div class="li"> Порт получателя</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Связь" [1920-] -->

@@ -1,0 +1,31 @@
+====== Синтакс JQuery ======
+===== Базовый синтаксис =====
+    $(selector).action()
+Символы:
+  * $ - определяет JQuery
+  * (selector) - для поиска HTML элемента
+  * action() - действие над элементом
+==== Пример ====
+Examples:
+    $(this).hide() - hides the current element.
+    $("p").hide() - hides all <p> elements.
+    $(".test").hide() - hides all elements with class="test".
+    $("#test").hide() - hides the element with id="test".
+===== Селекторы =====
+  * позволяют иметь доступ к HTML, CSS Элементам (поиск их)
+  * используются через $()
+==== Селектор элемента ====
+Можно выбрать <p>:
+    $("p")
+==== Селектор id ====
+    $("#test")
+==== Селектор класса ====
+    $(".test")
+==== Примеры ====
+  * $("*") - все элементы
+  * $(this) - текущий
+  * $("p.intro")
+  * $("ul.className") - ищет именно элемент ul с именем класса className
+  * $("p:first") - первый p
+  * $("[href]") - все эл-ы с аттрибутом
+  * $("a[target='_blank']") - если аттрибуты равны _blank

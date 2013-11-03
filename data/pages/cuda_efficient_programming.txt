@@ -1,0 +1,9 @@
+====== Efficiency in CUDA ======
+===== Minimize time spend on memory =====
+ways:
+  - Move frequently accessed memory to FAST MEMORY (local > shared >> global >> host memory (CPU mem))
+  - Coalesce (СЛИЯНИЕ, ОБЪЕДИНЕНИЕ) global access //Good, High performance
+  - Not Strided (ШАГАТЬ) - It's bad
+  - Not Randomed - VERY BAD
+===== Avoid thread divergence (РАСХОЖДЕНИЕ, ОТКЛОНЕНИЕ) =====
+if-else condition for threads

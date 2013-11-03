@@ -1,1 +1,31 @@
 Здесь представлена вся самая основная информация по технологии ASP.NET
+====== ASP.NET ======
+Platofrm for developing web applications. Microsoft created ASP.NET because, early web had two key problems:
+  - They didn't scale well
+  - They provided little more than a bare-bones programming environment (//if we wanted features such as authentication of users or reading a database, we needed to write pages of code from scratch//)
+  * Deals with controls instead a raw web page markup
+  * **[[SERVER-SIDE PLATFORM]]** - all ASP.NET code runs on the web-server [ When ASP.NET code finishes running, web server sends the user final result - ordinary page to web browser ]
+  * NOT CLIENT-SIDE - asks browser to download the code and execute it locally on the client computer.
+  * [[HTML]]
+  * [[HTML elements]]
+  * [[HTML Control classes]]
+  * **[[TEMPLATE]]**
+  * [[Rundown Templates]]
+  * [[ASP.NET Tips]]
+  * [[Web Forms]]
+  * [[ASP.NET File Types]]
+  * [[Errors]]
+  * **[[Events]]**
+  * **[[Settings]]**
+  * [[Request to server]]
+  * [[State Management]]
+==== ASP.NET MVC ====
+Core idea is that app is separated into 3 logical parts:
+  - Model - app code
+  - View - representation of the Model, converting it into HTML
+  - Controller - handling user interactions, updating the model, passing info to the view
+==== History of WEB ====
+  * **Began in the late 60a as an experiment** (goal - create resilient information network) Driven by potential scenarios (such as nuclear attack)
+  * Early Internet was limited to educational institutions and defense contractors
+  * **In the early 90s** modems was created that could work over existing phone lines -> Internet began to open up to users
+  * **93** -> First HTML browser was created -> Internet revolution began

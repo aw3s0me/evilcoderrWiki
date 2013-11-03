@@ -1,0 +1,86 @@
+
+<p>
+Представления - временные таблицы, которые хранятся в оперативной памяти и формируются при запросе
+</p>
+<pre class="code">  &lt;определение_ представления&gt; ::=
+  { CREATE| ALTER} VIEWимя_представления
+  [(имя_столбца[,...n])]
+  [WITH ENCRYPTION]
+  AS SELECT_оператор
+  [WITH CHECK OPTION];</pre>
+
+<h3 class="sectionedit1" id="поля">Поля</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> WITH ENCRYPTION - предписывает  серверу  шифровать SQL-код  запроса</div>
+</li>
+<li class="level1"><div class="li"> WITH CHECK OPTION - предписывает серверу исполнять проверку изменений, то есть если пользователь пытается выполнить изменения, приводящие к исключению  строки  из представления, при заданном аргументе WITH CHECK OPTION сервер выдаст сообщение об ошибке.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Поля" [419-989] -->
+<h2 class="sectionedit2" id="пример_маскирования_столбцов">Пример маскирования столбцов</h2>
+<div class="level2">
+<pre class="code">  CREATE VIEW Stud1 AS
+  SELECT Fio AS ФИО,
+  Data_Rozhd AS[Дата рождения],
+  Nomer_zachetki AS [Номер зачетки]
+  FROM Students;</pre>
+
+</div>
+<!-- EDIT2 SECTION "Пример маскирования столбцов" [990-1222] -->
+<h2 class="sectionedit3" id="пример_маскирования_строк">Пример маскирования строк</h2>
+<div class="level2">
+<pre class="code">  CREATE VIEW Stud2 AS
+  SELECT *
+  FROM Students
+  WHERE ID_Group = 14;</pre>
+
+</div>
+<!-- EDIT3 SECTION "Пример маскирования строк" [1223-1368] -->
+<h2 class="sectionedit4" id="модифицирование_представления">Модифицирование представления</h2>
+<div class="level2">
+
+<p>
+Stud3 - представление
+</p>
+<pre class="code">  INSERT INTO Stud3 (FIO, Nomer_zachetki, ID_Grou p, Stipendiya)
+  VALUES (&#039;»паликов А.А.&#039;, &#039;06ВП229&#039;, 4, 1200);   
+  </pre>
+
+</div>
+<!-- EDIT4 SECTION "Модифицирование представления" [1369-1610] -->
+<h2 class="sectionedit5" id="критерии_обновляемого_представления">Критерии обновляемого представления:</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> основывается только на одной базовой таблице;</div>
+</li>
+<li class="level1"><div class="li"> содержит первичный ключ этой таблицы;</div>
+</li>
+<li class="level1"><div class="li"> не  содержит DISTINCT, GROUP  BY или HAVING в  своем</div>
+</li>
+<li class="level1"><div class="li"> определении;</div>
+</li>
+<li class="level1"><div class="li"> не применяет в своем определении подзапросы;</div>
+</li>
+<li class="level1"><div class="li"> не  использует  константы  или  выражения  среди  выбранных</div>
+</li>
+<li class="level1"><div class="li"> полей вывода;</div>
+</li>
+<li class="level1"><div class="li"> в представлениедолжен быть включен каждый столбец таб-лицы, имеющий атрибут NOT NULL;</div>
+</li>
+<li class="level1"><div class="li"> оператор SELECT представления не  использует  агреги-рующие (итоговые) функции, соединения таблиц, хранимые проц е-дуры и функции, определенные пользователем;</div>
+</li>
+<li class="level1"><div class="li"> основывается  на  одиночном  запросе,  поэтому  объединение</div>
+</li>
+<li class="level1"><div class="li"> UNION не разрешено.</div>
+</li>
+</ol>
+
+<p>
+Если представление удовлетворяет этим условиям, <strong>к нему могут применяться операторы INSERT, UPDATE, DELETE.</strong>
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Критерии обновляемого представления:" [1611-] -->

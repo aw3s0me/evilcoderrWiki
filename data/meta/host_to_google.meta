@@ -1,0 +1,9 @@
+a:2:{s:7:"current";a:7:{s:4:"date";a:2:{s:7:"created";i:1380429166;s:8:"modified";i:1380429166;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1380429166;s:2:"ip";s:3:"::1";s:4:"type";s:1:"C";s:2:"id";s:14:"host_to_google";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:14:"создано";s:5:"extra";s:0:"";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:11:"description";a:1:{s:8:"abstract";s:505:"Host Your Site on Google AppEngine in 7 Easy Steps:
+
+	*   Register any $App at Google ApEngine using your Gmail Account {as if $App is you Application Name giving you url like $App.appspot.com}
+	*   Download the Python Script 'flat.py' provided on this site or from repo
+	*   Execute #python flat.py $App
+	*   It will created required structure in a dir $App
+	*   Copy all your static site to $App/flat_web/*
+	*   Download «Google AppEngine Python SDK»
+	*   Update this $App using Google AppEngine SD…";}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:4:{s:4:"date";a:1:{s:7:"created";i:1380429166;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1380429166;s:2:"ip";s:3:"::1";s:4:"type";s:1:"C";s:2:"id";s:14:"host_to_google";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:14:"создано";s:5:"extra";s:0:"";}}}

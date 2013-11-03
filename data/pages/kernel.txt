@@ -1,0 +1,86 @@
+===== Kernel =====
+==== kernel execution ====
+=== Program objects ===
+  * A program source or library
+  * list of devices
+  * list of kernel objects
+Kernel objects encapsulate:
+  * A specific kernel func in program (with __kernel identifier
+  * Argument values
+=== programming kernel ===
+kernel code can be compiled into 2 kernel objects: For CPU or GPU. So its been executed for multiple devices
+=== Compiling kernels ===
+  - Create a program [input: source code or library]
+  - Compile the program [specify devices than include compile flags]
+  - Create kernels [returns kernel objects]
+1
+
+     cl_program program;
+     program = clCreateProgramWithSource(...)
+
+2
+
+    err = clBuildProgram(...)
+    if (err) ...
+   
+3
+
+    kernel = clCreateKernel (...)
+
+4. Set kernel args (for input and output 2 ARGS!)
+
+    err = clSetKernelArg(..,0,output.)
+    err = clSetKernelArg(..,0,input.)
+    
+5. Execute it
+
+    err = clEnqueueNDRangeKernel(...) [kernel executed async!!!
+    
+.
+==== Synchronization between commands ====
+  * Queue can execute commands in-order or out-of-order.
+You must explicitly synchronize between queues:
+  * Multiple devices each have their own queues
+  * Use events to syncronize
+
+=== Events ===
+  * Commands return events and obey waitlist
+  * clEnqueue*(...)
+  * clWaitForEvents - blocks until events are complete
+  * clEnqueueMarker - returns an event for marker that moves through the queue
+  * clEnqueueWaitForEvents - inserts a waitforevents into the queue
+  * clGetEventInfo - command type and status
+  * clGetEventProfilingInfo
+===== Programming with OpenCL C =====
+  * Quiet robust code
+  * No standard C99 headers, func pointers, recursion, var length array, bit fields
+  * but + vector types, work-items/workgroups, synchronization
+  * Adress space qualifiers
+  * Optimized image access
+  * Built-in functions
+==== Data types ====
+  * Scalar data types
+char, uchar, int, uint, long, ulong, bool, intptr_t, ptrdiff_t, size_t, uint_ptr, void, half (storage)
+  * Image types
+image2d_t, image3d_t, sampler_t
+  * Vector data types
+(vector length 2,4,8,...) = char2, ushort4...
+=== Example vector ===
+  * Vector literal: int4 vi0 = (int4)-7 [It will be 4-size vector with elements {-7,-7,-7,-7}
+  * int vi1 = (int4){0,1,2,3}
+  * vector components vi0.lo = vi1.hi (so lo component equals hi component). So now vi0 = {2,3,-7,-7}
+  * int v8 = (int8) { vi0.s0123, vi1.odd } {2,3,-7,-7,0,1,1,3}
+  * vector ops: vi0+=vi1, vi0 = abs(vi0)
+==== Adress spaces ====
+  * Kernel pointer **args must use global, local, constant** - - Kernel void distance(global float8* stars, local float* bla)
+kernel void sum (private lol) [gives error, because private
+  * **Default adress space is private**
+kernel blabla(args) { float temp; .. [temp is private
+  * **image2d_t , image3d_t** are always in global adress space
+  * Program vars must be in constant space
+==== Conversion ====
+  * No conversion between implicit types [float to int 
+  * No casts for vector type [float f4 = (int4)vi
+==== Built-in functions ====
+  * single precision in 3 ways: log(x), half_log(x), native_log(x)
+  * synchronization (barrier, mem_fence, read_mem_fence, write_mem_fence)

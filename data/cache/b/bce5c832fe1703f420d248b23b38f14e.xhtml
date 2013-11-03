@@ -1,0 +1,66 @@
+
+<h1 class="sectionedit1" id="tips">TIPS</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Solution files (suo, sln) are not necessary</div>
+</li>
+<li class="level1"><div class="li"> Don&#039;t use GRID (prev versions) because we cant adjust their positioning when web page content changes, <strong>better to use &lt;div&gt;&lt;/div&gt; tag!!</strong></div>
+</li>
+<li class="level1"><div class="li"> Catching errors in Markup - Tools→Options→TextEditor→Html→Validation</div>
+</li>
+<li class="level1"><div class="li"> in adress of page, localhost:####, ####-is number of port, all request transmitted to port ####</div>
+</li>
+<li class="level1"><div class="li"> To see all files do: localhost:####/, dont have a Default.aspx [show that page instead a list], give IIS permission</div>
+</li>
+</ul>
+<hr />
+<ul>
+<li class="level1"><div class="li"> runat=«server» - to transform into server control</div>
+</li>
+<li class="level1"><div class="li"> To connect button and on_click event we should use attribute - OnServerClick</div>
+</li>
+<li class="level1"><div class="li"> Code is better in isPostBack (check whether page is rendered for the first time) </div>
+</li>
+<li class="level1"><div class="li"> It&#039;s better to hide Images (Graph.Visible = false in IsPostBack)</div>
+</li>
+</ul>
+
+<p>
+—-
+</p>
+<ul>
+<li class="level1"><div class="li"> Для удаления всех тегов - Control.InnerHtml = String.Empty!! ;]</div>
+</li>
+<li class="level1"><div class="li"> Для переброски на другую страницу - &lt;a href=«newpage.aspx»&gt;text&lt;/a&gt; ИЛИ Response.Redirect(«newpage.aspx»)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "TIPS" [1-1038] -->
+<h2 class="sectionedit2" id="fonts">Fonts</h2>
+<div class="level2">
+
+<p>
+<strong>InstalledFontCollection</strong> class to get all FONTS;
+</p>
+<pre class="code">     var fonts = new InstalledFontCollection();
+     foreach (var font in fonts.Families) { .. }</pre>
+
+</div>
+<!-- EDIT2 SECTION "Fonts" [1039-1210] -->
+<h2 class="sectionedit3" id="colors">Colors</h2>
+<div class="level2">
+<pre class="code">     var colorArray = Enum.GetNames(typeof (KnownColor));
+          lstBackColor.DataSource = colorArray;
+          lstBackColor.DataBind();</pre>
+
+</div>
+<!-- EDIT3 SECTION "Colors" [1211-1376] -->
+<h2 class="sectionedit4" id="border_styles">Border Styles</h2>
+<div class="level2">
+<pre class="code">     var borderStyleArray = Enum.GetNames(typeof (BorderStyle));
+          lstBorder.DataSource = borderStyleArray;
+          lstBorder.DataBind();</pre>
+
+</div>
+<!-- EDIT4 SECTION "Border Styles" [1377-] -->

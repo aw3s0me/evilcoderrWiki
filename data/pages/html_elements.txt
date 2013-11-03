@@ -1,0 +1,41 @@
+====== HTML elements ======
+All HTML Server Conrols Are defined in the System.Web.UI.HtmlControls
+==== Container types ====
+  * **<b>,<i>,<u>** - Bold, Italic, Underline
+  * **<h1-6>** - Headings
+  * **<p>** - Paragraph
+  * **<a>** - Anchor [LINK]
+  * **<ul>,<li>** - Unordered list, List Item
+  * **<ol>,<li>** - Ordered list, List Item
+  * **<table>,<tr>,<td>,<th>** - Table [multicolumn-multirow table]
+  * **<div>** - Division [Container for elements]
+  * **<span>** - Span(Диапазон) [Container for bits of text]
+  * **<form>** - Form [Element is used to hold all controls on a web page]
+==== Stand-alone types ====
+  * **<hr>** - horizontal rule/line [to separate content regions]
+  * **<br>** - line break
+  * **<img>** - Image
+==== Constructions ====
+This hidden fields use to store useful information. **value="text" - VIEW STATE**
+    <div class="aspNetHidden">
+        <input type="hidden" name="_VIEWSTATE" id="_VIEWSTATE" value="FEJIOjfwioj"/>
+    </div>
+    <div class="aspNetHidden">
+        <input type="hidden" name="_EVENTVALIDATION" id="_EVENTVALIDATION" value="gwegwegwegwe"/>
+    </div>
+==== Special symbols ====
+  * Nonbreakable space - &nbsp;
+  * < - &lt;
+  * > - &gt;
+  * & - &amp;
+  * " - &quot;
+ИЛИ мы можем юзать Server.HtmlEncode("Bla<bla>^");
+==== Control Prefixes ====
+  * Button - cmd (btn)
+  * Checkbox - chk
+  * Image - img
+  * Label - lbl
+  * List control - lst
+  * Panel - pnl
+  * RadioButton - opt
+  * Textbox - txt

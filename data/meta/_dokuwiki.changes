@@ -1,81 +1,71 @@
-1372077322	::1	E	cts	evilcoderr		
-1372077533	::1	C	system.object	evilcoderr	создано	
-1372077574	::1	E	cts	evilcoderr		
-1372078722	::1	C	new	evilcoderr	создано	
-1372079737	::1	E	cts	evilcoderr		
-1372085000	::1	E	cts	evilcoderr		
-1372085012	::1	E	cts	evilcoderr		
-1372085203	::1	E	cts	evilcoderr		
-1372085497	::1	E	cts	evilcoderr		
-1372088611	::1	E	cts	evilcoderr		
-1372136734	::1	E	cts	evilcoderr		
-1372136786	::1	E	cts	evilcoderr		
-1372140389	::1	E	cts	evilcoderr		
-1372140799	::1	E	cts	evilcoderr		
-1372140809	::1	E	cts	evilcoderr		
-1372140827	::1	E	cts	evilcoderr		
-1372141074	::1	E	cts	evilcoderr		
-1372156933	::1	E	стартовая_страница	evilcoderr		
-1372157079	::1	C	email_writing	evilcoderr	создано	
-1372164953	::1	E	cts	evilcoderr		
-1372165654	::1	E	cts	evilcoderr	[Cсылочные и значимые типы] 	
-1372169700	::1	E	cts	evilcoderr		
-1372170974	::1	E	cts	evilcoderr		
-1372172629	::1	E	сборки	evilcoderr		
-1372228617	::1	E	csharp	evilcoderr		
-1372230291	::1	C	методы	evilcoderr	создано	
-1372230339	::1	E	методы	evilcoderr		
-1372230363	::1	E	методы	evilcoderr		
-1372230448	::1	E	методы	evilcoderr		
-1372230739	::1	E	методы	evilcoderr		
-1372235282	::1	E	методы	evilcoderr		
-1372236018	::1	E	методы	evilcoderr		
-1372236028	::1	E	методы	evilcoderr		
-1372236041	::1	E	методы	evilcoderr		
-1372240167	::1	E	методы	evilcoderr		
-1372241611	::1	E	методы	evilcoderr		
-1372241623	::1	E	методы	evilcoderr		
-1372241651	::1	E	методы	evilcoderr	[Методы расширения] 	
-1372241718	::1	E	методы	evilcoderr		
-1372244016	::1	E	методы	evilcoderr		
-1372249132	::1	E	cts	evilcoderr		
-1372249828	::1	E	методы	evilcoderr		
-1372249839	::1	E	методы	evilcoderr		
-1372250057	::1	E	csharp	evilcoderr		
-1372250068	::1	E	csharp	evilcoderr		
-1372250081	::1	E	csharp	evilcoderr		
-1372250984	::1	C	события	evilcoderr	создано	
-1372321803	::1	E	события	evilcoderr		
-1372322761	::1	E	события	evilcoderr		
-1372324160	::1	E	cts	evilcoderr		
-1372326067	::1	E	cts	evilcoderr		
-1372326204	::1	E	csharp	evilcoderr		
-1372326252	::1	C	наследование	evilcoderr	создано	
-1372327892	::1	E	наследование	evilcoderr		
-1372406026	::1	E	csharp	evilcoderr		
-1372406047	::1	E	csharp	evilcoderr		
-1372406812	::1	C	string	evilcoderr	создано	
-1372407023	::1	C	enum	evilcoderr	создано	
-1372407036	::1	E	enum	evilcoderr		
-1372407105	::1	E	enum	evilcoderr		
-1372407119	::1	E	csharp	evilcoderr		
-1372407269	::1	C	array	evilcoderr	создано	
-1372407795	::1	E	array	evilcoderr		
-1372408205	::1	E	array	evilcoderr		
-1372426465	::1	E	csharp	evilcoderr		
-1372428916	::1	C	delegate	evilcoderr	создано	
-1372480027	::1	E	delegate	evilcoderr		
-1372580649	::1	E	delegate	evilcoderr		
-1372580728	::1	E	csharp	evilcoderr		
-1372588544	::1	C	custom_attributes	evilcoderr	создано	
-1372588558	::1	E	csharp	evilcoderr		
-1372589883	::1	C	nullable	evilcoderr	создано	
-1372654667	::1	E	csharp	evilcoderr		
-1372663140	::1	C	exceptions	evilcoderr	создано	
-1372663428	::1	E	csharp_utilities	evilcoderr		
-1372668543	::1	E	exceptions	evilcoderr		
-1372669503	::1	E	csharp	evilcoderr		
-1372673608	::1	C	contracts	evilcoderr	создано	
-1372679673	::1	E	csharp	evilcoderr		
-1372683918	::1	C	memory_management	evilcoderr	создано	
-1372685459	::1	E	csharp	evilcoderr		
+1382883838	::1	E	стартовая_страница	evilcoderr		
+1382886541	::1	E	стартовая_страница	evilcoderr	[Фильмы] 	
+1382889198	::1	E	стартовая_страница	evilcoderr	[Фильмы] 	
+1382889331	::1	E	стартовая_страница	evilcoderr	[Фильмы] 	
+1382945125	::1	E	стартовая_страница	evilcoderr		
+1382945240	::1	C	проектирование_баз_данных	evilcoderr	создано	
+1382945551	::1	C	первичный_ключ	evilcoderr	создано	
+1382945808	::1	C	связи	evilcoderr	создано	
+1382945825	::1	E	проектирование_баз_данных	evilcoderr		
+1382946379	::1	E	связи	evilcoderr		
+1382946403	::1	E	проектирование_баз_данных	evilcoderr		
+1382947368	::1	C	er-диаграмма	evilcoderr	создано	
+1382950757	::1	E	связи	evilcoderr		
+1382951771	::1	E	связи	evilcoderr		
+1382953192	::1	E	связи	evilcoderr		
+1382953216	::1	E	проектирование_баз_данных	evilcoderr		
+1382954547	::1	C	нормализация_таблиц	evilcoderr	создано	
+1383053455	::1	E	операционные_системы	evilcoderr		
+1383055693	::1	C	сети	evilcoderr	создано	
+1383059074	::1	E	сети	evilcoderr		
+1383059457	::1	E	сети	evilcoderr		
+1383207624	::1	E	dexter	evilcoderr		
+1383209856	::1	E	dexter	evilcoderr		
+1383292848	::1	E	tcp.ip_sockets	evilcoderr		
+1383293030	::1	E	tcp.ip_sockets	evilcoderr		
+1383293047	::1	C	многопоточный_сервер	evilcoderr	создано	
+1383293125	::1	C	input_output	evilcoderr	создано	
+1383293184	::1	C	сигналы	evilcoderr	создано	
+1383293248	::1	E	input_output	evilcoderr		
+1383293422	::1	C	виртуальные_файловые_системы	evilcoderr	создано	
+1383293482	::1	E	виртуальные_файловые_системы	evilcoderr		
+1383293815	::1	E	input_output	evilcoderr		
+1383293876	::1	C	устройства_драйверы	evilcoderr	создано	
+1383293900	::1	E	input_output	evilcoderr		
+1383293986	::1	E	многопоточный_сервер	evilcoderr		
+1383294095	::1	C	группы_процессов	evilcoderr	создано	
+1383295104	::1	E	группы_процессов	evilcoderr		
+1383295253	::1	E	группы_процессов	evilcoderr		
+1383295259	::1	E	группы_процессов	evilcoderr		
+1383296101	::1	E	группы_процессов	evilcoderr		
+1383296147	::1	E	группы_процессов	evilcoderr		
+1383297845	::1	E	группы_процессов	evilcoderr		
+1383299454	::1	E	группы_процессов	evilcoderr		
+1383300376	::1	E	сигналы	evilcoderr		
+1383300385	::1	E	сигналы	evilcoderr		
+1383301139	::1	E	сигналы	evilcoderr		
+1383301148	::1	E	сигналы	evilcoderr		
+1383304131	::1	E	сигналы	evilcoderr		
+1383314029	::1	E	dexter	evilcoderr		
+1383317323	::1	E	dexter	evilcoderr		
+1383369028	::1	E	dexter	evilcoderr		
+1383387745	::1	E	dexter	evilcoderr		
+1383452323	::1	E	dexter	evilcoderr		
+1383452455	::1	E	стартовая_страница	evilcoderr		
+1383452512	::1	C	болезни	evilcoderr	создано	
+1383452564	::1	C	мертвый_зуб	evilcoderr	создано	
+1383452576	::1	E	мертвый_зуб	evilcoderr		
+1383452592	::1	E	мертвый_зуб	evilcoderr		
+1383452656	::1	E	болезни	evilcoderr		
+1383452695	::1	C	глаза_при_вирусных_заболеваниях	evilcoderr	создано	
+1383452762	::1	E	болезни	evilcoderr		
+1383454259	::1	E	dexter	evilcoderr		
+1383454570	::1	C	хронический_тонзиллит	evilcoderr	создано	
+1383454599	::1	E	болезни	evilcoderr		
+1383454760	::1	C	глаза_окб	evilcoderr	создано	
+1383454774	::1	E	болезни	evilcoderr		
+1383454998	::1	C	аллергия	evilcoderr	создано	
+1383455040	::1	E	аллергия	evilcoderr		
+1383465333	::1	E	dexter	evilcoderr		
+1383474358	::1	E	english_useful_phrases	evilcoderr		
+1383474592	::1	C	assasins_creed	evilcoderr	создано	

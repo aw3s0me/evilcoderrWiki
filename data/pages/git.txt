@@ -11,3 +11,9 @@
 == Step 3: Push your commit ==
   - **git remote add origin https://github.com/username/Hello-World.git** # Creates a remote named "origin" pointing at your GitHub repository
   - **git push origin master** # Sends your commits in the "master" branch to GitHub
+=== Clone A Repo ===
+  - Open github project: https://github.com/aw3s0me/Site
+  - Push Fork button
+  - git clone https://github.com/aw3s0me/Site.git
+=== Copy To Bash Window ===
+2 times insert button )

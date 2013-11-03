@@ -1,0 +1,9 @@
+====== CSS in JS ======
+===== style =====
+У каждого объекта, существует аттрибут style
+    document.getElementById("Element").style.height == "100px"
+    document.getElementById("Element").style.width
+===== className =====
+Для того, чтобы быстро сменить у объекта стиль на другой, используется аттрибут **className**:
+    1) document.getElementById("Element").className = "newClassName";
+    2) <span onmouseover="this.className = 'newClassName';">

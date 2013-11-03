@@ -1,0 +1,7 @@
+a:16:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:37:"Структуры данных в JS";i:1;i:1;i:2;i:1;}i:2;i:1;}i:2;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:1;}i:2;i:1;}i:3;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:53;}i:4;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:14:"Массивы";i:1;i:2;i:2;i:53;}i:2;i:53;}i:5;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:2;}i:2;i:53;}i:6;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:80;}i:7;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:20:"Одномерный";i:1;i:3;i:2;i:80;}i:2;i:80;}i:8;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:3;}i:2;i:80;}i:9;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:104:"  var myArray = new Array();
+  myArray[0] = "ololo";
+  //2 способ
+  var myArray = ["1", "2", "3"];";}i:2;i:110;}i:10;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:224;}i:11;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:22:"Многомерный";i:1;i:3;i:2;i:224;}i:2;i:224;}i:12;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:3;}i:2;i:224;}i:13;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:181:"  var myArray = new Array(new Array(9), new Array(9), new Array(9));
+  myArray[0][0] = "ololo";
+  //2 способ
+  var myArray = [["1", "2", "3"],["1", "2", "3"],["1", "2", "3"]];";}i:2;i:256;}i:14;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:256;}i:15;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:256;}}

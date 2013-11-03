@@ -1,0 +1,14 @@
+====== CSS Gradient Generators ======
+  - [[http://www.colorzilla.com/gradient-editor/]]
+  - [[http://gradients.glrzad.com/]]
+====== HTML color picker ======
+  - [[http://html-color-codes.info/]]
+====== Unicode tables ======
+  - [[http://unicode-table.com/]]
+====== Free background patterns ======
+  - [[http://bgrepeat.com/]]
+  - [[http://subtlepatterns.com/]]
+====== Color designer ======
+  - [[http://colorschemedesigner.com/]]
+====== Pswd generators ======
+  - [[http://www.random.org/passwords/]]

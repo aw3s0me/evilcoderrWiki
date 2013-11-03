@@ -1,0 +1,21 @@
+====== TEMPLATE ======
+      <%@ Page Language="C#" %>
+      <!DOCTYPE html>
+==== SCRIPT PART ====
+      <script runat="server"> //run the code on server
+           private void Page_Load(object sender, EventArgs e)
+           {
+                Product saleProduct = new Product("Kitchen Garbage", 49.99M, "garbage.jpg");
+                Response.Write(saleProduct.GetHtml());
+           }
+      </script>
+==== HTML PART ====
+      <html xmlns="http://www.w3.org/1999/xhtml" >
+      <head>
+           <title>Product Test</title>
+      </head>
+      <body></body>
+      </html>
+==== DESCRIPTION ====
+  - Page_Load event for loading our page
+  - Write method for loading Html from GetHtml method

@@ -1,0 +1,24 @@
+===== Resource Setup/Alloc =====
+**Providing setup:**
+  - Get the device //multiple cores on the same devices
+  - Create a context //enable sharing of memiry b/n devices
+  - Create command queues //to talk with devices, EACH DEVICE MUST HAVE A QUEUE
+
+    // Get the platform ID
+    cl_platform_id platform;
+    clGetPlatformIDs(1, &platform, NULL);
+    // Get the first GPU device associated with the platform
+    cl_device_id device;
+    clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
+    // Create an OpenCL context for the GPU device
+    cl_context context;
+    context = clCreateContext(NULL, 1, &device, NULL, NULL, NULL);
+    
+    // Create a command-queue for a specific device
+    cl_command_queue cmd_queue = clCreateCommandQueue(context, device_id, 0, NULL);
+    
+**Rule: We can share information between devices ONLY IN THE SAME CONTEXT!**
+==== Choosing device ====
+  * The best device is algorithm and hardware based device
+  * Sometimes CPU betters, sometimes GPU (depend on algorithm)
+  * clGetDeviceInfo to check device and get info

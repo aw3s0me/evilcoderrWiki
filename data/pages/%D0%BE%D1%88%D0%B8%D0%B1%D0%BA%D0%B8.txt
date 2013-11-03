@@ -1,0 +1,5 @@
+====== Ошибки в MSSQL ======
+===== the principal does not exist =====
+    USE <DatabaseName>
+    GO
+    sp_changedbowner '<NewLogin>'

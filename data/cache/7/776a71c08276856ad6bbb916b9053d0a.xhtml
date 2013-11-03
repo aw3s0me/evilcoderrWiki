@@ -1,0 +1,245 @@
+
+<h2 class="sectionedit1" id="kernel">Kernel</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT1 SECTION "Kernel" [1-19] -->
+<h3 class="sectionedit2" id="kernel_execution">kernel execution</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="program_objects">Program objects</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> A program source or library</div>
+</li>
+<li class="level1"><div class="li"> list of devices</div>
+</li>
+<li class="level1"><div class="li"> list of kernel objects</div>
+</li>
+</ul>
+
+<p>
+Kernel objects encapsulate:
+</p>
+<ul>
+<li class="level1"><div class="li"> A specific kernel func in program (with __kernel identifier</div>
+</li>
+<li class="level1"><div class="li"> Argument values</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="programming_kernel">programming kernel</h4>
+<div class="level4">
+
+<p>
+kernel code can be compiled into 2 kernel objects: For CPU or GPU. So its been executed for multiple devices
+</p>
+
+</div>
+
+<h4 id="compiling_kernels">Compiling kernels</h4>
+<div class="level4">
+<ol>
+<li class="level1"><div class="li"> Create a program [input: source code or library]</div>
+</li>
+<li class="level1"><div class="li"> Compile the program [specify devices than include compile flags]</div>
+</li>
+<li class="level1"><div class="li"> Create kernels [returns kernel objects]</div>
+</li>
+</ol>
+
+<p>
+1
+</p>
+<pre class="code">   cl_program program;
+   program = clCreateProgramWithSource(...)</pre>
+
+<p>
+2
+</p>
+<pre class="code">  err = clBuildProgram(...)
+  if (err) ...
+ </pre>
+
+<p>
+3
+</p>
+<pre class="code">  kernel = clCreateKernel (...)</pre>
+
+<p>
+4. Set kernel args (for input and output 2 ARGS!)
+</p>
+<pre class="code">  err = clSetKernelArg(..,0,output.)
+  err = clSetKernelArg(..,0,input.)
+  </pre>
+
+<p>
+5. Execute it
+</p>
+<pre class="code">  err = clEnqueueNDRangeKernel(...) [kernel executed async!!!
+  </pre>
+
+<p>
+.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "kernel execution" [20-975] -->
+<h3 class="sectionedit3" id="synchronization_between_commands">Synchronization between commands</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Queue can execute commands in-order or out-of-order.</div>
+</li>
+</ul>
+
+<p>
+You must explicitly synchronize between queues:
+</p>
+<ul>
+<li class="level1"><div class="li"> Multiple devices each have their own queues</div>
+</li>
+<li class="level1"><div class="li"> Use events to syncronize</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="events">Events</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Commands return events and obey waitlist</div>
+</li>
+<li class="level1"><div class="li"> clEnqueue*(…)</div>
+</li>
+<li class="level1"><div class="li"> clWaitForEvents - blocks until events are complete</div>
+</li>
+<li class="level1"><div class="li"> clEnqueueMarker - returns an event for marker that moves through the queue</div>
+</li>
+<li class="level1"><div class="li"> clEnqueueWaitForEvents - inserts a waitforevents into the queue</div>
+</li>
+<li class="level1"><div class="li"> clGetEventInfo - command type and status</div>
+</li>
+<li class="level1"><div class="li"> clGetEventProfilingInfo</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Synchronization between commands" [976-1556] -->
+<h2 class="sectionedit4" id="programming_with_opencl_c">Programming with OpenCL C</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Quiet robust code</div>
+</li>
+<li class="level1"><div class="li"> No standard C99 headers, func pointers, recursion, var length array, bit fields</div>
+</li>
+<li class="level1"><div class="li"> but + vector types, work-items/workgroups, synchronization</div>
+</li>
+<li class="level1"><div class="li"> Adress space qualifiers</div>
+</li>
+<li class="level1"><div class="li"> Optimized image access</div>
+</li>
+<li class="level1"><div class="li"> Built-in functions</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Programming with OpenCL C" [1557-1841] -->
+<h3 class="sectionedit5" id="data_types">Data types</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Scalar data types</div>
+</li>
+</ul>
+
+<p>
+char, uchar, int, uint, long, ulong, bool, intptr_t, ptrdiff_t, size_t, uint_ptr, void, half (storage)
+</p>
+<ul>
+<li class="level1"><div class="li"> Image types</div>
+</li>
+</ul>
+
+<p>
+image2d_t, image3d_t, sampler_t
+</p>
+<ul>
+<li class="level1"><div class="li"> Vector data types</div>
+</li>
+</ul>
+
+<p>
+(vector length 2,4,8,…) = char2, ushort4…
+</p>
+
+</div>
+
+<h4 id="example_vector">Example vector</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Vector literal: int4 vi0 = (int4)-7 [It will be 4-size vector with elements {-7,-7,-7,-7}</div>
+</li>
+<li class="level1"><div class="li"> int vi1 = (int4){0,1,2,3}</div>
+</li>
+<li class="level1"><div class="li"> vector components vi0.lo = vi1.hi (so lo component equals hi component). So now vi0 = {2,3,-7,-7}</div>
+</li>
+<li class="level1"><div class="li"> int v8 = (int8) { vi0.s0123, vi1.odd } {2,3,-7,-7,0,1,1,3}</div>
+</li>
+<li class="level1"><div class="li"> vector ops: vi0+=vi1, vi0 = abs(vi0)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Data types" [1842-2456] -->
+<h3 class="sectionedit6" id="adress_spaces">Adress spaces</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Kernel pointer <strong>args must use global, local, constant</strong> - - Kernel void distance(global float8* stars, local float* bla)</div>
+</li>
+</ul>
+
+<p>
+kernel void sum (private lol) [gives error, because private
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Default adress space is private</strong></div>
+</li>
+</ul>
+
+<p>
+kernel blabla(args) { float temp; .. [temp is private
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>image2d_t , image3d_t</strong> are always in global adress space</div>
+</li>
+<li class="level1"><div class="li"> Program vars must be in constant space</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Adress spaces" [2457-2867] -->
+<h3 class="sectionedit7" id="conversion">Conversion</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> No conversion between implicit types [float to int </div>
+</li>
+<li class="level1"><div class="li"> No casts for vector type [float f4 = (int4)vi</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Conversion" [2868-2994] -->
+<h3 class="sectionedit8" id="built-in_functions">Built-in functions</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> single precision in 3 ways: log(x), half_log(x), native_log(x)</div>
+</li>
+<li class="level1"><div class="li"> synchronization (barrier, mem_fence, read_mem_fence, write_mem_fence)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Built-in functions" [2995-] -->

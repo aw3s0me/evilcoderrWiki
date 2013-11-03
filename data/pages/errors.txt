@@ -1,0 +1,60 @@
+====== The Most Common Errors ======
+  * The only one tag <FORM> for SERVER side (form allows to send info to server)
+===== Трассировка =====
+      <%@ Page Trace="true" ... %>
+      ИЛИ
+      В Page_Load {..  Trace.IsEnabled = true; }
+==== Trace Information ====
+Shows the stages of processing that page went through before being sent to the client
+----
+Each section shows how long the processing took to complete
+  * From First - first stage
+  * From Last - from the start of the previous stage
+
+      Trace.Write("about to place item in session state");
+      Session["Test"] = "Contents";
+      Trace.Write("Placed item in session state.");
+====== Validation ======
+  * for the most browsers ASP.NET adds automatically JS code for client-side validation
+  * Also we can validate it on the server
+===== HTML5 Validation =====
+  * Isn't complete solution
+  * it works only with <input> elements, not with web controls
+ASP.Net support type attribute validation **[TextMode="Number"]**
+----
+WebForms UnobtrusiveValidationMode requires a ScriptResourceMapping for 'jquery'. Please add a ScriptResourceMapping named jquery(case-sensitive). Решение:
+      <appSettings>
+            <add key="ValidationSettings:UnobtrusiveValidationMode" value="None" />
+      </appSettings>
+==== Range Validator ====
+       <asp:RangeValidator runat="server" ID="RangeValidator" 
+            ErrorMessage="This Number is not in the Range"
+            ControlToValidate="txtNotValidated"
+            MaximumValue="10"
+            MinimumValue="1"
+            ForeColor="Red"
+            Font-Bold="True"
+            Type="Integer"/>
+Not all browser support client-side validation so (C# solution):
+       if(!RangeValidator.IsValid) return;
+       // your validation code
+If you don't wanna change layout of page use ValidationSummary conrol:
+       <asp:ValidationSummary runat="server" ID="Errors" ForeColor="Red"/>
+But we should in each validator make Text="" or "*" so you can find where exception happened
+==== Manual Validation ====
+Steps:
+  - Use your own code to verify values [don't use any ASP.NET valid controls]
+  - Disable the EnableClientScript property for each valid control
+  - Add a button with CausesValidation set to false
+        var errorMessage = "<b>Mistakes found: </b><br/>";
+
+        foreach (var ctrl in this.Validators.Cast<BaseValidator>().Where(ctrl => !ctrl.IsValid))
+        {
+            errorMessage += string.Format("{0}<br/>", ctrl.ErrorMessage);
+            using (var ctrlInput = (TextBox) this.FindControl(ctrl.ControlToValidate))
+            {
+                errorMessage += " * Problem is with this input: ";
+                if (ctrlInput != null) errorMessage += ctrlInput.Text + "<br/>";
+            }
+        }
+        if (lblMessage != null) lblMessage.Text = errorMessage;

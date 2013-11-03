@@ -1,0 +1,9 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1378297051;s:8:"modified";i:1381836707;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1381836707;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:18:"midnight_commander";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}s:5:"title";s:18:"Midnight commander";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:18:"midnight_commander";s:5:"title";s:18:"Midnight commander";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:58:"вход_на_сервер_кухни_библиотеки";s:5:"title";s:58:"Вход на сервер кухни библиотеки";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:51:"команды_для_выполнения_лабы";s:5:"title";s:51:"Команды для выполнения лабы";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:51:"копирование_текста_из_путти";s:5:"title";s:51:"Копирование текста из путти";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:508:"Вход на сервер кухни библиотеки
+
+Пароль - Calendar1
+
+	*  Для входа на сервер kitchen.lib.tpu.ru юзать PUTTY
+	*  Хост - kitchen.lib.tpu.ru ; Порт например 22
+	*  passwd - сменить пароль, qwerty, than new password
+	*  Putty - Appearance(16 шрифт), Translation - KOI8-R (for russian) 
+	*  Создать свою сессию, то есть присвоить ей имя и нажать Save во вкладке Session…";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1378297051;s:8:"modified";i:1381836707;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1381836707;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:18:"midnight_commander";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}}}

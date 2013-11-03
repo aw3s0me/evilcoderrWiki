@@ -1,0 +1,33 @@
+===== OpenCL Executional Model =====
+3 basic components:
+  - **kernel** - basic unit of exec code (**kind of main function**). //Can be task or data parallel.//
+  - **Program** - collection of kernels (**kind of library**)
+  - **Queue** - operations are queued (**in-order or out-of-order**)
+=== Data parallelism: ===
+There is global N-D dimensional domain:
+  * N=1 - vector
+  * N=2 - image
+  * N=3 - 3D model
+  * Work-item - element of execution in N-D domain
+  * N-D domain - defines the total number of work-items that execute in parallel
+Example: 1024x1024 image:
+  - 1024x1024 = 1 kernel exec per pixel = 1 million executions
+IN DATA PARALLEL THERE ARE NO LOOP, SO NO ITERATIONS, just 1 MLN EXEC-S
+=== Rules ===
+  * kernel executed across global domain of work-items
+  * work-items grouped in work groups
+  * executed together on one device
+  * share local memory and sync
+=== Caveat ===
+GLOBAL WORK-ITEMS MUST BE INDEPENDENT (sync only in local(groups) NOT GLOBAL between work items)
+=== Problem dimensions ===
+Advice : **choose dimension that are best for your algorithm** (MAPS WELL, PERFORMS WELL)
+  * 1 Dim vector(1 mln elements):                      global_dim[3] = {1000000,1,1}
+  * 2 Dim matrix 1920x1200 hd frame(2.3 mln elements): global_dim[3] = {1920,1200,1}
+  * 3 Dim cube 256x256x256(16.7 voxels):               global_dim[3] = {256,256,256}
+=== Task parallelism: ===
+  * **Executes as one work-item**
+
+==== Synchronization ====
+  * Use barriers to syncronize execution
+  * Use memory fences to syncronize memory access

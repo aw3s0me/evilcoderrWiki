@@ -1,0 +1,14 @@
+====== Размеры окна ======
+
+Размер объекта может не менятся вместе с размером браузера, +юзер может заходить как с мобильного так и настолько устр-ва
+===== Ширина окна =====
+    document.body.clientWidth
+===== Высота окна =====
+    document.body.clientHeight
+===== Управление размерами =====
+неплохо бы создать динамическое изменение размеров:
+   function resizeObject() {
+       document.getElementById("ObjId").style.height = (document.body.clientHeight - 100) * 0.9;
+   }
+Потом привязываем функцию к загрузчику и onresize событиям body:
+   <body onload="resizeObject();" onresize="resizeRock();">

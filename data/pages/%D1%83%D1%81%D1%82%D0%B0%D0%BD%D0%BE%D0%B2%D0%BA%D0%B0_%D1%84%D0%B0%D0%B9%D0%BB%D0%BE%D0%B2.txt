@@ -1,0 +1,22 @@
+===== Blacklist =====
+sudo gedit /etc/modprobe.d/blacklist.conf
+===== .run =====
+  - Open a terminal. In Gnome the terminal is found in Applications>Accessories>Terminal.
+  - Navigate to the directory of the .run file. For this example, I have mine on the desktop so I would type in "cd ~/Desktop" and press enter.
+  - Type "chmod +x example.run" (press enter).
+  - Now type "./example.run", press enter, and the installer will run.
+===== .tar.gz =====
+  - Сначала распаковка tar -xvf /path/to/archive.tar.bz2
+  - Установка (обычно в папке install.readme)
+===== .sh =====
+  - Зайти в свойства файла
+  - Permissions->Tick Allow Executing File As Program
+  - 2 щелчка по файлу
+  - Ура
+===== Useful packages =====
+  * gcc - sudo apt-get install build-essential or gcc
+  * gpp - sudo apt-get install g++
+  * glib - sudo apt-get install libglib2.0-dev
+  * glib json - libjson-glib-1.0-0
+  * glib json docs - libjson-glib-doc
+  * glxinfo | grep OpenGL - mesa-utils

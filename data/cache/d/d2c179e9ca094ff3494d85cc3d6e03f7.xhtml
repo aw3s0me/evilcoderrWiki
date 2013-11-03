@@ -1,0 +1,127 @@
+
+<h1 class="sectionedit1" id="структуры_данных">Структуры данных</h1>
+<div class="level1">
+
+<p>
+Нету массивов, вместо них списки
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Структуры данных" [1-106] -->
+<h2 class="sectionedit2" id="списки">Списки</h2>
+<div class="level2">
+
+<p>
+<strong>Пример:</strong>
+</p>
+<pre class="code">   solnechnaya_systema = [&quot;Venera&quot;,
+    &quot;Zemlya&quot;,
+    &quot;Mars&quot;,
+    &quot;Uran&quot;,
+    &quot;Neptun&quot;]</pre>
+
+<p>
+<strong>Вывод списка (аналог foreach&#039;а):</strong>
+</p>
+<pre class="code">  for planeta in solnechnaya_systema:
+     print planeta</pre>
+
+<p>
+<strong>Обращение к элементу (индексирование):</strong>
+</p>
+<pre class="code">  solnechnaya_systema[0]
+  solnechnaya_systema[1]</pre>
+
+<p>
+<strong>Сортировка:</strong>
+</p>
+<pre class="code">  solnechnaya_systema.sort()</pre>
+
+<p>
+<strong>Нахождение индекса по значению:</strong>
+</p>
+<pre class="code">  solnechnaya_systema.index(&quot;Zemlya&quot;)</pre>
+
+<p>
+Добавление в список:
+</p>
+<pre class="code">  ljudi.append({&#039;imja&#039;: &#039;Marat Bashibuzukov&#039;, &#039;nick&#039;:&#039;CeCe&#039;, &#039;vozrast&#039;:18, &#039;jazyk&#039;:&#039;C++&#039;})</pre>
+
+</div>
+<!-- EDIT2 SECTION "Списки" [107-786] -->
+<h2 class="sectionedit3" id="tuples_кортежи">Tuples [Кортежи]</h2>
+<div class="level2">
+
+<p>
+Кортежи чаще всего, применяются для хранения нескольких различных параметров одного и того же объекта вместе, в одной переменной.
+</p>
+<hr />
+
+<p>
+<strong>Пример:</strong>
+</p>
+<pre class="code">  planeta1 = (&quot;Zemlya&quot;, 149600000, 24)
+  planeta2 = (&quot;Venera&quot;, 108210000, 5832)</pre>
+
+<p>
+<strong>Список кортежей:</strong>
+</p>
+<pre class="code">  medvedica = [(104, 195),
+                (133, 197),
+                (150, 213),
+                (171, 224),
+                (214, 227),
+                (208, 249),
+                (172, 245)]</pre>
+
+<p>
+<strong>Обращение к кортежу:</strong>
+</p>
+<pre class="code">  for element in medvedica:
+       circle(element[0],element[1],1)</pre>
+
+</div>
+<!-- EDIT3 SECTION "Tuples [Кортежи]" [787-1525] -->
+<h2 class="sectionedit4" id="map_словари">Map [Словари]</h2>
+<div class="level2">
+<hr />
+
+<p>
+<strong>Пример:</strong>
+</p>
+<pre class="code">  person2 = {&#039;imja&#039;: &#039;Prokofjev Ivan&#039;, &#039;nick&#039;:&#039;Progman&#039;, &#039;vozrast&#039;:21, &#039;jazyk&#039;:&#039;javascript&#039;}
+  #этим примером мы создали словарь, где каждому ключу соотв-ет значение
+  #Ключ imja - значение строка &#039;Prokofjev Ivan&#039;
+  #Ключ nick - значение строка &#039;Progman&#039;
+  #Ключ vozrast - значение int 21
+  #Ключ jazyk - значение строка &#039;javascript&#039;</pre>
+
+<p>
+<strong>Добавление в словарь</strong>
+Просто при индексировании по новому ключу
+</p>
+<pre class="code">  jazyki[&#039;Lisp&#039;] = {&#039;nazvanije&#039;: &#039;Lisp&#039;, &#039;avtor&#039;: &#039;John McCarthy&#039;, &#039;god_sozdanija&#039;: 1958}
+  #Lisp - такого ключа раньше не существовало</pre>
+
+<p>
+<strong>Обращение к словарю:</strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> По ключу</div>
+</li>
+</ol>
+
+<p>
+      person[&#039;jazyk&#039;] = &#039;python&#039;
+</p>
+<ol>
+<li class="level1"><div class="li"> Если список содержит словарь как элемент</div>
+</li>
+</ol>
+
+<p>
+      nazvanije_iskomogo_jazyk = ljudi[2][&#039;jazyk&#039;]
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Map [Словари]" [1526-] -->

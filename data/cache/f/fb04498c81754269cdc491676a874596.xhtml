@@ -1,0 +1,105 @@
+
+<h1 class="sectionedit1" id="ajax">AJAX</h1>
+<div class="level1">
+
+<p>
+Asyncronous Javascript and XML
+</p>
+<ul>
+<li class="level1"><div class="li"> Позволяет динамически получать данные с сервера</div>
+</li>
+<li class="level1"><div class="li"> XML непосредственно связан с JS (представление данных)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "AJAX" [1-245] -->
+<h2 class="sectionedit2" id="запрос">Запрос</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Клиентская страница запрашивает с сервера данные при помощи AJAX и ждет ответа</div>
+</li>
+<li class="level1"><div class="li"> Сервер получает запрос и отправляет ответ (может быть в виде .xml/.json)</div>
+</li>
+<li class="level1"><div class="li"> Клиент получает ответ с помощью AJAX и парсит данные и вставляет их на страницу БЕЗ ПЕРЕЗАГРУЗКИ</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "Запрос" [246-721] -->
+<h2 class="sectionedit3" id="xmlhttprequest">XMLHttpRequest</h2>
+<div class="level2">
+
+<p>
+HTTP объект запроса, минусы:
+</p>
+<ul>
+<li class="level1"><div class="li"> требует большого количества кода</div>
+</li>
+<li class="level1"><div class="li"> сложный в использовании (можно запутаться в параметрах)</div>
+</li>
+<li class="level1"><div class="li"> для каждого браузера своя реализация</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "XMLHttpRequest" [722-1042] -->
+<h3 class="sectionedit4" id="примеры">Примеры</h3>
+<div class="level3">
+<pre class="code">  var request;
+  if (window.XMLHttpRequest) {
+      try {
+          request = new XMLHttpRequest();
+      }
+      catch(e)
+          request = null;
+  }
+  else if (...) //версия для ActiveX (Microsoft, IE)
+  ///
+  теперь когда объект запроса готов, необходимо подключить его к самому запросу
+  ///
+  request.onreadystatechange = handler;
+  request.open(type, url, true);</pre>
+
+</div>
+<!-- EDIT4 SECTION "Примеры" [1043-1541] -->
+<h3 class="sectionedit5" id="тип_запроса">Тип запроса</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="get">GET</h4>
+<div class="level4">
+
+<p>
+для получения данных с сервера НЕ ВЛИЯЯ НА НИХ
+</p>
+<pre class="code">  request.open (&quot;GET&quot;, &quot;blog.xml&quot;, true);
+  request.send(null); //значит не содержит данных если null</pre>
+
+</div>
+
+<h4 id="post">POST</h4>
+<div class="level4">
+
+<p>
+отправка данных на сервер
+</p>
+<pre class="code">  request.open (&quot;POST&quot;, &quot;addblogentry.php&quot;, true);
+  request.setRequestHeader (&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;);
+  request.send(&quot;09/26/2008&amp;Blablamsg&amp;cubepart.png&quot;); //значит содержит данных</pre>
+
+</div>
+<!-- EDIT5 SECTION "Тип запроса" [1542-2115] -->
+<h2 class="sectionedit6" id="обработка_запроса">Обработка запроса</h2>
+<div class="level2">
+
+<p>
+Ответ обрабатывается при помощи функции обратного вызова
+</p>
+<pre class="code">  handleRequest();
+  getResponseText()
+  getResponseXML()</pre>
+
+</div>
+<!-- EDIT6 SECTION "Обработка запроса" [2116-] -->

@@ -1,0 +1,88 @@
+
+<h1 class="sectionedit1" id="события_в_js">События в JS</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Уведомления о происходящем (пример при загрузке onload или onclick)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "События в JS" [1-151] -->
+<h2 class="sectionedit2" id="о_событиях">О событиях</h2>
+<div class="level2">
+
+<p>
+Инициируются юзерами, обрабатываются браузером, браузер должен взять инфу и передать методу обработки
+</p>
+
+</div>
+<!-- EDIT2 SECTION "О событиях" [152-373] -->
+<h2 class="sectionedit3" id="современная_модель_событий">Современная модель событий</h2>
+<div class="level2">
+
+<p>
+Существуют 2 модели : <abbr title="World Wide Web Consortium">W3C</abbr> и Microsoft.
+</p>
+<ul>
+<li class="level1"><div class="li"> НЕ ДЕЛАТЬ ПРОВЕРКИ НА СОВМЕСТИМОСТЬ. нах отказаться от Microsoft вообще</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Современная модель событий" [374-620] -->
+<h2 class="sectionedit4" id="регистрация_ивента">Регистрация ивента</h2>
+<div class="level2">
+<pre class="code">  element.onclick = doSomething;
+  if (element.captureEvents) element.captureEvents(Event.CLICK);</pre>
+
+</div>
+<!-- EDIT4 SECTION "Регистрация ивента" [621-770] -->
+<h2 class="sectionedit5" id="типы_ивентов">Типы ивентов</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Интерфейсные ивенты (действия юзера над страницой)</div>
+</li>
+<li class="level1"><div class="li"> ивенты с мышью (mousemove, mousedown)</div>
+</li>
+<li class="level1"><div class="li"> ивенты с формой (submit, reset)</div>
+</li>
+</ol>
+
+<p>
+Onblur vs onchange - при потери объекта фокуса vs изменил поле
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Типы ивентов" [771-1103] -->
+<h2 class="sectionedit6" id="пример">Пример</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT6 SECTION "Пример" [1104-1128] -->
+<h3 class="sectionedit7" id="пример_1">Пример 1</h3>
+<div class="level3">
+
+<p>
+<strong>onload - событие, alert(value) - метод</strong>
+</p>
+<pre class="code">  &lt;body onload=&quot;alert(&#039;Hello, I am your pet rock&#039;);&quot; &gt;</pre>
+
+<p>
+Пример когда обработчик поставили прямо в <abbr title="HyperText Markup Language">HTML</abbr> теге
+</p>
+
+</div>
+<!-- EDIT7 SECTION "Пример 1" [1129-1357] -->
+<h3 class="sectionedit8" id="пример_2">Пример 2</h3>
+<div class="level3">
+<pre class="code">     function touchRock(){
+		var userName = prompt(&quot;What is your name&quot;, &quot;Please enter your name&quot;);
+		
+		if (userName) {
+			alert(&quot;Glad to see you here, &quot; + userName + &quot;.&quot;);
+			document.getElementById(&quot;rockImg&quot;).src = &quot;rock_happy.png&quot;;
+		}
+	}</pre>
+
+</div>
+<!-- EDIT8 SECTION "Пример 2" [1358-] -->

@@ -1,0 +1,4 @@
+===== Include =====
+    <html><head><title>Заголовок</title></head>
+    <body><?php include('links.html'); ?></body>
+    </html>

@@ -1,0 +1,98 @@
+====== Apache ======
+===== Установка =====
+    sudo apt-get install php5
+    sudo apt-get install apache2
+    sudo apt-get install mysql-client mysql-server
+    sudo apt-get install mc
+Для проверки работоспособности - Зайти на http://localhost (It works, если серв запущен)
+===== Настройка =====
+файл настройки:
+    /etc/apache2/sites-enabled
+    mcedit ./000-default
+В открывшемся окне отредактируем значение ServerAdmin, сохраним файл и перезапустим HTTP сервер Apache, выполнив команду
+    sudo service apache2 restart
+=== Создание сайта ===
+Для добавления на веб-сервер веб-сайта с именем mysite.aics необходимо:
+
+1. создать файл с настройками веб-сайта /etc/apache2/sites-available/mysite.aics.
+ 
+Для этого в терминале необходимо выполнить команду
+    sudo mcedit /etc/apache2/sites-available/mysite.aics
+
+2. Далее необходимо создать папку, в которой будет содержаться сайт mysite.aics (указанный в настройке виртуального хоста), а именно
+
+/var/www/mysite.aics. Это можно сделать командой:
+    mkdir /var/www/mysite.aics
+3. Создаем простую php страницу
+    mcedit /var/www/mysite.aics/index.php
+4. Код
+    <?php phpinfo(); ?>
+5. После создания страницы необходимо указать, что виртуальный сервер необходимо включить (создать ссылку в директории /etc/apache2/sites-enabled на файл /etc/apache2/sites-available/mysite.aics) командой
+    sudo ln -s /etc/apache2/sites-available/mysite.aics /etc/apache2/sites-enabled
+6. Перезапустим веб-сервер Apache командой
+    sudo service apache2 restart
+7. Веб-сервер настроен, но необходимо указать, что имя mysite.aics должно указывать на IP адрес вашего компьютера. Для этого внесем изменения в файл /etc/hosts командой
+    sudo mcedit /etc/hosts
+8. Находим строку 127.0.0.1 localhost и заменяем ее на
+    127.0.0.1 localhost mysite.aics www.mysite.aics  
+===== Настройка для аутентификации =====
+  * AuthType – тип аутентификации:
+  * AuthName – название области, требующей аутентификацию
+  * AuthUserFile – полный путь в файловой системе сервера до аутентификационного файла с именами 
+пользователей и паролями
+==== Аутентификационный файл ====
+Аутентификационный файл содержит данные в следующем формате:
+
+ПОЛЬЗОВАТЕЛЬ:ХЕШ_ПАРОЛЯ
+
+ПОЛЬЗОВАТЕЛЬ:ХЕШ_ПАРОЛЯ
+
+…
+
+ПОЛЬЗОВАТЕЛЬ:ХЕШ_ПАРОЛЯ
+
+Аутентификационный файл создается в командной строке с помощью утилиты htpasswd. Если доступ 
+к командной строке сервера отсутствует, то вычислить значение хеша для пароля можно с помощью online-
+инструмента http://www.htaccesstools.com/htpasswd-generator/
+==== Пример ====
+  * AuthType Basic
+  * AuthName "Enter your username and password"
+  * AuthUserFile /home/stud/8888/pas
+===== Настройка для аутентификации =====
+Для определения пользователей, которые имеют доступ к текущему каталогу веб-сервера, в файле 
+.htaccess, расположенному в этом каталоге, необходимо указать следующую директиву:
+    Require user user1 user2 user3
+user1, user2 и user3 – имена пользователей из аутентификационного файла.
+===== htpasswd =====
+    apt-get install apache2-utils
+If you're not logged in as root add sudo in front of the command and you're done.
+Here is an example command for using htpasswd for nginx:
+    htpasswd -c -d /path/to/file username
+
+And here is an example config file:
+
+    server {
+        listen   80 default;
+        server_name  localhost;
+        access_log  /var/log/nginx/localhost.access.log;
+        root /var/www/default;
+
+        location / {
+                auth_basic "Private area";
+                auth_basic_user_file /var/www/passwd;
+                index index.html index.html index.php;
+        }
+        if ( !-e $request_filename ) {
+                rewrite ^(.*)$ /index.php?/$1 last;
+                break;
+        }
+        location ~ \.php$ {
+                auth_basic "Private area";
+                auth_basic_user_file /var/www/passwd;
+                include /etc/nginx/fastcgi_params;
+                fastcgi_pass 127.0.0.1:9000;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME /var/www/default$fastcgi_script_name;
+        }
+     }
+Very important: Make sure you add auth_basic to every location block that you are using or you might end up with users seeing stuff that you want to keep private!

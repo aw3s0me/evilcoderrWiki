@@ -1,0 +1,91 @@
+
+<h1 class="sectionedit1" id="синтакс_jquery">Синтакс JQuery</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Синтакс JQuery" [1-36] -->
+<h2 class="sectionedit2" id="базовый_синтаксис">Базовый синтаксис</h2>
+<div class="level2">
+<pre class="code">  $(selector).action()</pre>
+
+<p>
+Символы:
+</p>
+<ul>
+<li class="level1"><div class="li"> $ - определяет JQuery</div>
+</li>
+<li class="level1"><div class="li"> (selector) - для поиска <abbr title="HyperText Markup Language">HTML</abbr> элемента</div>
+</li>
+<li class="level1"><div class="li"> action() - действие над элементом</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Базовый синтаксис" [37-276] -->
+<h3 class="sectionedit3" id="пример">Пример</h3>
+<div class="level3">
+
+<p>
+Examples:
+</p>
+<pre class="code">  $(this).hide() - hides the current element.
+  $(&quot;p&quot;).hide() - hides all &lt;p&gt; elements.
+  $(&quot;.test&quot;).hide() - hides all elements with class=&quot;test&quot;.
+  $(&quot;#test&quot;).hide() - hides the element with id=&quot;test&quot;.</pre>
+
+</div>
+<!-- EDIT3 SECTION "Пример" [277-521] -->
+<h2 class="sectionedit4" id="селекторы">Селекторы</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> позволяют иметь доступ к <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> Элементам (поиск их)</div>
+</li>
+<li class="level1"><div class="li"> используются через $()</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Селекторы" [522-693] -->
+<h3 class="sectionedit5" id="селектор_элемента">Селектор элемента</h3>
+<div class="level3">
+
+<p>
+Можно выбрать &lt;p&gt;:
+</p>
+<pre class="code">  $(&quot;p&quot;)</pre>
+
+</div>
+<!-- EDIT5 SECTION "Селектор элемента" [694-779] -->
+<h3 class="sectionedit6" id="селектор_id">Селектор id</h3>
+<div class="level3">
+<pre class="code">  $(&quot;#test&quot;)</pre>
+
+</div>
+<!-- EDIT6 SECTION "Селектор id" [780-824] -->
+<h3 class="sectionedit7" id="селектор_класса">Селектор класса</h3>
+<div class="level3">
+<pre class="code">  $(&quot;.test&quot;)</pre>
+
+</div>
+<!-- EDIT7 SECTION "Селектор класса" [825-879] -->
+<h3 class="sectionedit8" id="примеры">Примеры</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> $(«*») - все элементы</div>
+</li>
+<li class="level1"><div class="li"> $(this) - текущий</div>
+</li>
+<li class="level1"><div class="li"> $(«p.intro»)</div>
+</li>
+<li class="level1"><div class="li"> $(«ul.className») - ищет именно элемент ul с именем класса className</div>
+</li>
+<li class="level1"><div class="li"> $(«p:first») - первый p</div>
+</li>
+<li class="level1"><div class="li"> $(»[href]») - все эл-ы с аттрибутом</div>
+</li>
+<li class="level1"><div class="li"> $(«a[target=&#039;_blank&#039;]») - если аттрибуты равны _blank</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Примеры" [880-] -->

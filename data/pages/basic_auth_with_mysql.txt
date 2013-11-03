@@ -1,0 +1,89 @@
+[[http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL]]
+====== Database ======
+===== Create mysql db =====
+    CREATE DATABASE `users`;
+===== Create user =====
+    CREATE USER 'sec_user'@'localhost' IDENTIFIED BY '9xAF3BbKFrLe';
+    GRANT SELECT, INSERT, UPDATE ON `users`.* TO 'sec_user'@'localhost';
+===== Create table =====
+    CREATE TABLE `secure_login`.`members` (
+       `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+       `username` VARCHAR(30) NOT NULL, 
+       `email` VARCHAR(50) NOT NULL, 
+       `password` CHAR(128) NOT NULL, 
+       `salt` CHAR(128) NOT NULL
+    ) ENGINE = InnoDB;
+===== Create login attempts table to stop brute force =====
+    CREATE TABLE `secure_login`.`login_attempts` (
+         `user_id` int(11) NOT NULL,
+         `time` VARCHAR(30) NOT NULL 
+    ) ENGINE=InnoDB
+===== Insert data =====
+INSERT INTO `secure_login`.`members` VALUES(1, 'test_user', 'test@example.com', '00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc', 'f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef');
+===== Define data to connect =====
+Define info about connection in connectdb.php
+    define("HOST", "localhost"); // The host you want to connect to.
+    define("USER", "sec_user"); // The database username.
+    define("PASSWORD", "eKcGZr59zAa2BEWU"); // The database password. 
+    define("DATABASE", "secure_login"); // The database name.
+     
+    $mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
+====== PHP functions ======
+===== Secure start session =====
+    function sec_session_start() {
+        $session_name = 'sec_session_id'; // Set a custom session name
+        $secure = false; // Set to true if using https.
+        $httponly = true; // This stops javascript being able to access the session id. 
+        
+        ini_set('session.use_only_cookies', 1); // Forces sessions to only use cookies. 
+        $cookieParams = session_get_cookie_params(); // Gets current cookies params.
+        session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly); 
+        session_name($session_name); // Sets the session name to the one set above.
+        session_start(); // Start the php session
+        session_regenerate_id(); // regenerated the session, delete the old one.  
+    }
+===== Secure login =====
+    function login($email, $password, $mysqli) {
+     // Using prepared Statements means that SQL injection is not possible. 
+     if ($stmt = $mysqli->prepare("SELECT id, username, password, salt FROM members WHERE email = ? LIMIT 1")) { 
+      $stmt->bind_param('s', $email); // Bind "$email" to parameter.
+      $stmt->execute(); // Execute the prepared query.
+      $stmt->store_result();
+      $stmt->bind_result($user_id, $username, $db_password, $salt); // get variables from result.
+      $stmt->fetch();
+      $password = hash('sha512', $password.$salt); // hash the password with the unique salt.
+       
+      if($stmt->num_rows == 1) { // If the user exists
+         // We check if the account is locked from too many login attempts
+         if(checkbrute($user_id, $mysqli) == true) { 
+            // Account is locked
+            // Send an email to user saying their account is locked
+            return false;
+         } else {
+         if($db_password == $password) { // Check if the password in the database matches the password the user submitted. 
+            // Password is correct!
+          
+             
+               $user_browser = $_SERVER['HTTP_USER_AGENT']; // Get the user-agent string of the user.
+          
+               $user_id = preg_replace("/[^0-9]+/", "", $user_id); // XSS protection as we might print this value
+               $_SESSION['user_id'] = $user_id; 
+               $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // XSS protection as we might print this value
+               $_SESSION['username'] = $username;
+               $_SESSION['login_string'] = hash('sha512', $password.$user_browser);
+               // Login successful.
+               return true;    
+         } else {
+            // Password is not correct
+            // We record this attempt in the database
+            $now = time();
+            $mysqli->query("INSERT INTO login_attempts (user_id, time) VALUES ('$user_id', '$now')");
+            return false;
+         }
+      }
+      } else {
+         // No user exists. 
+         return false;
+      }
+    }
+    }

@@ -1,0 +1,42 @@
+
+<h1 class="sectionedit1" id="template">TEMPLATE</h1>
+<div class="level1">
+<pre class="code">    &lt;%@ Page Language=&quot;C#&quot; %&gt;
+    &lt;!DOCTYPE html&gt;</pre>
+
+</div>
+<!-- EDIT1 SECTION "TEMPLATE" [1-77] -->
+<h3 class="sectionedit2" id="script_part">SCRIPT PART</h3>
+<div class="level3">
+<pre class="code">    &lt;script runat=&quot;server&quot;&gt; //run the code on server
+         private void Page_Load(object sender, EventArgs e)
+         {
+              Product saleProduct = new Product(&quot;Kitchen Garbage&quot;, 49.99M, &quot;garbage.jpg&quot;);
+              Response.Write(saleProduct.GetHtml());
+         }
+    &lt;/script&gt;</pre>
+
+</div>
+<!-- EDIT2 SECTION "SCRIPT PART" [78-406] -->
+<h3 class="sectionedit3" id="html_part">HTML PART</h3>
+<div class="level3">
+<pre class="code">    &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; &gt;
+    &lt;head&gt;
+         &lt;title&gt;Product Test&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+</div>
+<!-- EDIT3 SECTION "HTML PART" [407-577] -->
+<h3 class="sectionedit4" id="description">DESCRIPTION</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Page_Load event for loading our page</div>
+</li>
+<li class="level1"><div class="li"> Write method for loading Html from GetHtml method</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT4 SECTION "DESCRIPTION" [578-] -->

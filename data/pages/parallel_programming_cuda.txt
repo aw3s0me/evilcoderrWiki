@@ -1,0 +1,10 @@
+====== Parallel Programming with CUDA ======
+  * CUDA (aka Compute Unified Device Architecture) is a parallel computing platform and programming model created by NVIDIA and implemented by the graphics processing units (GPUs) that they produce
+  * CUDA provides both a low level API and a higher level API
+==== Plan ====
+  * [[History of parallel computing]]
+  * [[Cuda Program]]
+  * [[Grayscale filter]]
+  * [[Communication between threads]]
+  * [[Memory model]]
+  * [[CUDA efficient programming]]

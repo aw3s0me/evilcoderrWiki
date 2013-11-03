@@ -1,0 +1,12 @@
+====== Циклы ======
+===== Цикл FOR =====
+**Пример цикла for:**
+    for i in range(0,5):
+        move(3)
+        turn(-90)
+        fire()
+        turn(90)
+===== Цикл WHILE =====
+**Пример цикла while:**
+    While True:
+       DoSmth()

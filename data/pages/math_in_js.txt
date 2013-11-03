@@ -1,0 +1,9 @@
+====== Math in JS ======
+  * PI /returns 3.14 :)
+  * round() / round(11.625) = 12
+  * floor() / floor(11.625) = 11 /отбрасывает дробчасть
+  * ceiling()
+  * random() /от 0 до 1 возвращает
+  * min()
+  * max()
+  * abs()

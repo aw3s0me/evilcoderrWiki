@@ -1,0 +1,16 @@
+===== Vorstellung (представление) =====
+==== Fragen (вопросы) ====
+  - Wie heißen Sie? – Как Вас зовут?
+  - Wie alt sind Sie? – Сколько Вам лет?  
+  - Woher kommen Sie? – Откуда Вы?  
+  - Wo wohnen Sie? – Где Вы живете?  
+  - Was sind Sie von Beruf? – Кто Вы по профессии?  
+  - Welche Sprachen können (sprechen) Sie? – На каких языках Вы говорите? 
+==== Antworten (ответы) ====
+  - Name (намэ) - ich heiße ..
+  - Alter (возраст Алтэ) - ich bin .. Jahre alt (Jahre alt - лет старости)
+  - Land (страна) - ich komme aus ..
+  - Wohnhort (место жительства) - ich wohne in ..
+  - Beruf (професиия) - ich bin ... von Beruf
+  - Sprache (язык) - ich spreche
+  - Hobby - mein Hobby ist

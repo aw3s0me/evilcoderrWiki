@@ -1,0 +1,126 @@
+
+<h1 class="sectionedit1" id="html_как_js_object">HTML как JS object</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> <abbr title="HyperText Markup Language">HTML</abbr> документ = DOM объект (Document - вершина, потом Elements с их Text)</div>
+</li>
+<li class="level1"><div class="li"> Весь <abbr title="HyperText Markup Language">HTML</abbr> документ разделен на ноды </div>
+</li>
+</ul>
+
+<p>
+А свойства узлов помогают перемещаться по узлам:
+</p>
+
+</div>
+<!-- EDIT1 SECTION "HTML как JS object" [1-300] -->
+<h3 class="sectionedit2" id="перемещение_по_узлам">Перемещение по узлам</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> nodeValue - Зн-ия в текстовых узлах, но не в узлах элементов/ <strong>НЕФОРМАТИРОВАННЫЙ ТЕКСТ</strong></div>
+</li>
+<li class="level1"><div class="li"> nodeType - тип узла (Document или Text) выраженные числом</div>
+</li>
+<li class="level1"><div class="li"> childNodes - массив всех дочерних узлов в порядке появления их на странице</div>
+</li>
+<li class="level1"><div class="li"> firstChild - первый дочерний узел</div>
+</li>
+<li class="level1"><div class="li"> lastChild - последний дочерний узел</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Перемещение по узлам" [301-839] -->
+<h3 class="sectionedit3" id="изменение_узла">Изменение узла</h3>
+<div class="level3">
+
+<p>
+3 шага:
+</p>
+<ol>
+<li class="level1"><div class="li"> removeChild</div>
+</li>
+<li class="level1"><div class="li"> createTextNode()</div>
+</li>
+<li class="level1"><div class="li"> appendChild()</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="пример">Пример</h4>
+<div class="level4">
+<pre class="code">   var node = document.getElementById(&quot;story&quot;);
+   while (node.firstChild)
+       node.removeChild(node.firstChild);
+   node.appendChild(document.createTextNode(&quot;OK&quot;));</pre>
+
+</div>
+<!-- EDIT3 SECTION "Изменение узла" [840-1142] -->
+<h2 class="sectionedit4" id="getelementbyid">getElementById</h2>
+<div class="level2">
+
+<p>
+Для доступа к <abbr title="HyperText Markup Language">HTML</abbr> объектам, сперва необходимо их получить как JS объект.
+</p>
+<ul>
+<li class="level1"><div class="li"> Это можно сделать с помощью метода getElementById()</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "getElementById" [1143-1382] -->
+<h2 class="sectionedit5" id="доступ_к_form">доступ к Form</h2>
+<div class="level2">
+
+<p>
+Каждому ПОЛЮ формы соотв-ет объект form, к-ый можно передать функции, проверяющий корректность
+</p>
+<pre class="code">  &lt;form&gt; 
+      &lt;input id=&quot;ololo&quot; type=&quot;text&quot; onclick=&quot;showIt(this.form)&quot;/&gt;
+  &lt;/form&gt;
+  
+  function showIt(theForm) {
+      alert(theForm[&quot;ololo&quot;].value);
+  };</pre>
+
+<p>
+АЛЬТЕРНАТИВА НАХ:
+</p>
+<pre class="code">  &lt;form&gt; 
+      &lt;input id=&quot;ololo&quot; type=&quot;text&quot; onclick=&quot;showIt(this)&quot;/&gt;
+  &lt;/form&gt;
+  
+  function showIt(field) {
+      alert(field.value);
+  };</pre>
+
+</div>
+<!-- EDIT5 SECTION "доступ к Form" [1383-1948] -->
+<h2 class="sectionedit6" id="получение_html_кода_объекта">Получение HTML кода объекта</h2>
+<div class="level2">
+
+<p>
+innerHTML - применяется только для контейнеров div,span,p итд
+</p>
+<pre class="code">   document.getElementById(&quot;&quot;).innerHtml = &quot;Меняем HTML&quot;</pre>
+
+</div>
+<!-- EDIT6 SECTION "Получение HTML кода объекта" [1949-2169] -->
+<h2 class="sectionedit7" id="создание_нового_элемента">Создание нового элемента</h2>
+<div class="level2">
+
+<p>
+Для создания нового элемента &lt;p&gt; нужно использовать метод <strong>createElement(«p»)</strong>, шаги:
+</p>
+<ol>
+<li class="level1"><div class="li"> var newElem = document.createElement(«p») /создаем элемент</div>
+</li>
+<li class="level1"><div class="li"> newElem.appendChild(«myText») /Добавляем текстовой node к элементу &lt;p&gt;</div>
+</li>
+<li class="level1"><div class="li"> document.getElementById(«myDiv»).appendChild(newElem) / добавляем &lt;p&gt; к уже существующему &lt;div&gt;</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT7 SECTION "Создание нового элемента" [2170-] -->

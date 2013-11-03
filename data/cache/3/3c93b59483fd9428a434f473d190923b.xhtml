@@ -1,0 +1,100 @@
+
+<h1 class="sectionedit1" id="xampp">XAMPP</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "XAMPP" [1-20] -->
+<h2 class="sectionedit2" id="запуск">Запуск</h2>
+<div class="level2">
+
+<p>
+sudo /opt/lampp/lampp start
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Запуск" [21-73] -->
+<h2 class="sectionedit3" id="рестарт">Рестарт</h2>
+<div class="level2">
+
+<p>
+sudo /opt/lampp/lampp restart
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Рестарт" [74-130] -->
+<h2 class="sectionedit4" id="остановить">Остановить</h2>
+<div class="level2">
+
+<p>
+sudo /opt/lampp/lampp stop
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Остановить" [131-190] -->
+<h2 class="sectionedit5" id="web_интерфейс">Web интерфейс</h2>
+<div class="level2">
+
+<p>
+To access the XAMPP web interface, paste this link in your browser: <a href="http://localhost/xampp" class="urlextern" title="http://localhost/xampp"  rel="nofollow">http://localhost/xampp</a>
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Web интерфейс" [191-316] -->
+<h2 class="sectionedit6" id="ошибка">Ошибка</h2>
+<div class="level2">
+
+<p>
+Access forbidden!
+</p>
+
+<p>
+New XAMPP security concept:
+</p>
+
+<p>
+Access to the requested directory is only available from the local network.
+</p>
+
+<p>
+This setting can be configured in the file “httpd-xampp.conf”.
+</p>
+
+<p>
+To fix this, open the /opt/lampp/etc/extra/httpd-xampp.conf file with sudo priviledges:
+</p>
+
+<p>
+$ gksudo gedit /opt/lampp/etc/extra/httpd-xampp.conf
+</p>
+
+<p>
+And replace this code:
+</p>
+
+<p>
+&lt;Directory “/opt/lampp/phpmyadmin”&gt;
+AllowOverride AuthConfig Limit
+Order allow,deny
+Allow from all
+&lt;/Directory&gt;
+</p>
+
+<p>
+With this one:
+</p>
+
+<p>
+&lt;Directory “/opt/lampp/phpmyadmin”&gt;
+AllowOverride AuthConfig Limit
+Order allow,deny
+Allow from all
+Require all granted
+&lt;/Directory&gt;
+</p>
+
+<p>
+Actually, all you have to do is add the Require all granted line, on the second last line of the block code.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Ошибка" [317-] -->

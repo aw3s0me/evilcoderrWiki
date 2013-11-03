@@ -1,0 +1,138 @@
+
+<h1 class="sectionedit1" id="ruby">Ruby</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Ruby" [1-19] -->
+<h2 class="sectionedit2" id="характеристики">Характеристики</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> имеет хорошее OOP, </div>
+</li>
+<li class="level1"><div class="li"> медленный,</div>
+</li>
+<li class="level1"><div class="li"> Простой синтакс</div>
+</li>
+<li class="level1"><div class="li"> Исп-ет принцип <strong>TMTOWTDI</strong>\</div>
+</li>
+<li class="level1"><div class="li"> Динам типизация (<strong>var</strong>)</div>
+</li>
+<li class="level1"><div class="li"> +ВСЕ ОБЪЕКТЫ, например можно округлить <strong>10.61.round</strong> (метод round)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Характеристики" [20-353] -->
+<h2 class="sectionedit3" id="особенности">Особенности</h2>
+<div class="level2">
+
+<p>
+require «название либы» #подключение либы
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Особенности" [354-457] -->
+<h2 class="sectionedit4" id="работа_с_файлами">Работа с файлами</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "Работа с файлами" [458-500] -->
+<h3 class="sectionedit5" id="открытие_сайта">Открытие сайта</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> file = open(«<a href="http://tpu.ru" class="urlextern" title="http://tpu.ru"  rel="nofollow">http://tpu.ru</a>»)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Открытие сайта" [501-571] -->
+<h3 class="sectionedit6" id="кодировка">Кодировка</h3>
+<div class="level3">
+
+<p>
+file = File.new(«rasp.txt»,»w:UTF-8»)
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Кодировка" [572-638] -->
+<h3 class="sectionedit7" id="открытие_сайта1">открытие сайта</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> получение контента content = file.read</div>
+</li>
+<li class="level1"><div class="li"> файл создается методом file = File.new</div>
+</li>
+<li class="level1"><div class="li"> запись file.write(text)</div>
+</li>
+<li class="level1"><div class="li"> чтение file.read</div>
+</li>
+</ul>
+
+<p>
+CTRL + SPACE - автозаполнение
+</p>
+
+</div>
+<!-- EDIT7 SECTION "открытие сайта" [639-904] -->
+<h3 class="sectionedit8" id="поиск">Поиск</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> поиск по регулярным выражениям - ОБЪЕКТ_СТРОКА.scan(/РЕГУЛЯРНОЕ_ВЫРАЖЕНИЕ/)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Поиск" [905-1063] -->
+<h2 class="sectionedit9" id="массивы">Массивы</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT9 SECTION "Массивы" [1064-1090] -->
+<h3 class="sectionedit10" id="создание">Создание</h3>
+<div class="level3">
+<pre class="code">   names = Array.new #пустой
+   digits Array.new(20) #20 элементов</pre>
+
+</div>
+<!-- EDIT10 SECTION "Создание" [1091-1203] -->
+<h3 class="sectionedit11" id="методы">Методы</h3>
+<div class="level3">
+<pre class="code">   puts names.size  # This returns 20
+   puts names.length # This also returns 20
+   array.clear #чистит массив</pre>
+
+</div>
+<!-- EDIT11 SECTION "Методы" [1204-1356] -->
+<h3 class="sectionedit12" id="инициализирование">Инициализирование</h3>
+<div class="level3">
+<pre class="code">   names = Array.new(4, &quot;mac&quot;) #все до пятого элемент == mac
+   nums = Array.new(10) { |e| e = e * 2 } #в блоке
+   nums = Array[1, 2, 3, 4,5]</pre>
+
+</div>
+<!-- EDIT12 SECTION "Инициализирование" [1357-1573] -->
+<h3 class="sectionedit13" id="получение_элемента">Получение элемента</h3>
+<div class="level3">
+<pre class="code">   num = digits.at(6)</pre>
+
+</div>
+<!-- EDIT13 SECTION "Получение элемента" [1574-1643] -->
+<h2 class="sectionedit14" id="условия">Условия</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT14 SECTION "Условия" [1644-1670] -->
+<h3 class="sectionedit15" id="прямой">Прямой</h3>
+<div class="level3">
+<pre class="code"> if expression
+    ...code block...
+ elsif another expression
+    ...code block...
+ elsif another expression
+    ...code block...
+ else
+    ...code block...
+ end</pre>
+
+</div>
+<!-- EDIT15 SECTION "Прямой" [1671-] -->

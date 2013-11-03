@@ -1,0 +1,3 @@
+===== Before installation =====
+  - type **su -** a
+  - type your password

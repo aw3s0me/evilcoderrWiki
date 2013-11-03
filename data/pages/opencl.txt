@@ -1,0 +1,8 @@
+====== OpenCL ======
+  * Leverage (use to obtain result/effect) GPU/CPU to accelerate parallel computations
+  * accelerated portable code
+===== Plan =====
+  * [[OpenCL Execution Model]]
+  * [[Platform and Memory model]]
+  * [[Resource Setup/Alloc]]
+  * [[Kernel]]

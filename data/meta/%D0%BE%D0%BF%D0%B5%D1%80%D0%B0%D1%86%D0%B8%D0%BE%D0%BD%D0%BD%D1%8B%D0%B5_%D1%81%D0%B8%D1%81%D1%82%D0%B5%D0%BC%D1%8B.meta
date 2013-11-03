@@ -1,0 +1,24 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1380030744;s:8:"modified";i:1383053455;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1383053455;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:39:"операционные_системы";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}s:5:"title";s:18:"Навигация";s:11:"description";a:2:{s:15:"tableofcontents";a:3:{i:0;a:4:{s:3:"hid";s:18:"навигация";s:5:"title";s:18:"Навигация";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:18:"структура";s:5:"title";s:18:"Структура";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:58:"вход_на_сервер_кухни_библиотеки";s:5:"title";s:58:"Вход на сервер кухни библиотеки";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:552:"<http://fet.aics.ru/>
+
+Структура
+
+Лабораторные
+
+	*  Midnight Commander
+	*  Процессы
+	*  Pipe/Fifo
+	*  System V IPC, память, threads
+	*  Файлы в Linux
+	*  TCP.IP, Sockets
+	*  Input/Output
+
+Лекции
+
+	*  Основы операционных систем
+	*  Процессы лекция
+	*  Планирование процессов
+	*  Взаимодействие процессов
+	*  Алгоритмы синхронизации
+	*  Тупики
+	*  Память компьютера
+	*  Сети…";}s:8:"relation";a:2:{s:10:"references";a:15:{s:18:"midnight_commander";b:1;s:16:"процессы";b:1;s:9:"pipe_fifo";b:1;s:33:"system_v_ipc_память_threads";b:1;s:19:"файлы_в_linux";b:1;s:14:"tcp.ip_sockets";b:1;s:12:"input_output";b:1;s:50:"основы_операционных_систем";b:1;s:29:"процессы_лекция";b:1;s:43:"планирование_процессов";b:1;s:47:"взаимодействие_процессов";b:0;s:45:"алгоритмы_синхронизации";b:0;s:12:"тупики";b:0;s:33:"память_компьютера";b:0;s:8:"сети";b:1;}s:10:"firstimage";s:0:"";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1380030744;s:8:"modified";i:1383053455;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1383053455;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:39:"операционные_системы";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}}}

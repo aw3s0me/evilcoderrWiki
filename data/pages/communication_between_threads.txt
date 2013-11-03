@@ -1,0 +1,38 @@
+====== Patterns of communication ======
+Example: Find average value of array:
+==== 1) Map (План) READS AND WRITES MULTIPLE one-to-one ====
+  * 1 task for all piece of DATA. 
+  * READ FROM AND WRITE TO SPECIFIC PLACE OF MEMORY
+
+
+     output[i] = function(input[i]);
+
+Operation is Map, if input and output index are same.
+MINUS: FLEXIBILITY
+==== 2) Gather (СБОР) READS MULTIPLE one-to-many ====
+  * **Read from many pieces** of memory and **write into A SINGLE PLACE**
+1) Find a sum of elements 2) Divide sum to quantity
+
+     output[ scatterLoc[i] ] = input[i];
+
+Operation is Gather, if threads compute their input index
+==== 3) Scatter (РАЗБРОС) WRITES MULTIPLE many-to-one ====
+add 1/3 of each element
+  * Read FROM many places and write to neighbouring places
+Problem: attempting to write to the same place several times
+
+     output[i] = input[ gatherLoc[i] ];
+
+Operation is Scatter, if threads compute their output index
+==== 4) Stencil (Наносить узор по трафарету) several-to-one ====
+  * **READ FROM FIXED NEIGBERHOOD**
+  * it uses special pattern - STENCIL (**data structure 2D VON NEUMANN STENCIL**)
+  * also 2D Moore and 3D von neumann stencil
+MINUS: DATA REUSE
+  * 2D von neumann - 5 times will be read
+  * 3D von neumann - 7 times will be read
+  * 2D Moore - 9 times will be read
+==== 5) Transpose (Переставлять, Транспонировать) one-to-one ====
+REORDER ELEMENTS IN MEMORY
+==== 6) Reduce (Уменьшать, сокращать) all-to-one ====
+==== 7) Scan/Sort all-to-all ====

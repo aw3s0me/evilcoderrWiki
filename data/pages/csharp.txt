@@ -28,6 +28,13 @@ But C# allows you to make apps very rapidly [easy to control COM and DB]
   * [[Contracts]]
   * [[Memory management]]
   * [[AppDomain]]
+  * [[Serialization]]
+.NET Framework includes:
+  * A lot of languages: C#, VB.NET, Managed C++
+  * Engine for hosting programmable web pages
+  * ADO.NET - model for interacting with databases
+  * LINQ and Entity Framework - for performing queries
+  * FCL
 ====== Definition ======
 C#(pronounced see sharp) is a multi-paradigm programming language encompassing:
   * **strong typing** - every variable has a type and if there are two variables of different types, you have to cast them, to make an operation executable.

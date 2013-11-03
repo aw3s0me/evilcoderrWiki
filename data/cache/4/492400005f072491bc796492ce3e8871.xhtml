@@ -1,0 +1,69 @@
+
+<h1 class="sectionedit1" id="методы">Методы</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Методы" [1-27] -->
+<h2 class="sectionedit2" id="основные">Основные</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "Основные" [28-56] -->
+<h3 class="sectionedit3" id="ready">ready()</h3>
+<div class="level3">
+
+<p>
+<strong>НЕ ИСПОЛЬЗУЕТСЯ ВМЕСТЕ С &lt;body onload=»»&gt;</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> метод, который исполняется, когда DOM готов (Document Object Model)</div>
+</li>
+<li class="level1"><div class="li"> + когда страница полностью загружена</div>
+</li>
+<li class="level1"><div class="li"> может использоваться чтобы спрятать элементы к-ые не загружены</div>
+</li>
+<li class="level1"><div class="li"> получение изображения, к-ое еще не загружено</div>
+</li>
+</ul>
+<pre class="code">  $(document).ready(function() {
+     // Handler for .ready() called.
+  });</pre>
+
+<p>
+ЭКВИВАЛЕНТНО
+</p>
+<pre class="code">  $(function() {
+      // Handler for .ready() called.
+  });</pre>
+
+</div>
+<!-- EDIT3 SECTION "ready()" [57-700] -->
+<h3 class="sectionedit4" id="children">children()</h3>
+<div class="level3">
+
+<p>
+Берет объект ребенок от родителя
+</p>
+
+</div>
+<!-- EDIT4 SECTION "children()" [701-782] -->
+<h3 class="sectionedit5" id="пример">Пример</h3>
+<div class="level3">
+<pre class="code">    var ulImgList = $(&quot;.imgList&quot;).children();
+    если ul, то берет массив &lt;li&gt;</pre>
+
+</div>
+<!-- EDIT5 SECTION "Пример" [783-906] -->
+<h3 class="sectionedit6" id="each">each()</h3>
+<div class="level3">
+
+<p>
+Проходит по каждому элементу   
+</p>
+<pre class="code">      ulImgList.each(function(){
+     $(this).children().css(&quot;width&quot;,&quot;5px&quot;);
+     $(this).children().css(&quot;height&quot;,&quot;5px&quot;);
+});</pre>
+
+</div>
+<!-- EDIT6 SECTION "each()" [907-] -->

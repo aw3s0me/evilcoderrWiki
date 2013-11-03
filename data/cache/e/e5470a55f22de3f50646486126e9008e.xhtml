@@ -1,0 +1,147 @@
+
+<h1 class="sectionedit1" id="сессии">Сессии</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Сессии - механизм для идентификации браузера и для создания файла в котором хранятся переменные сеанса для него</div>
+</li>
+<li class="level1"><div class="li"> для сохранения состояния между переходами</div>
+</li>
+<li class="level1"><div class="li"> То есть если юзер перешел на другую страницу, то хттп протокол не позволяет узнать тот же человек или нет</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Сессии" [1-516] -->
+<h2 class="sectionedit2" id="создание">Создание</h2>
+<div class="level2">
+
+<p>
+Технология создана, потому что сервер не держит ПОСТОЯННУЮ связь с клиентом и каждый раз создается новый запрос и НЕТ связи с предыдущим
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Создание" [517-796] -->
+<h2 class="sectionedit3" id="как_работают">Как работают</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> идентификация браузера [даем ему уник id и теперь он его всегда юзает</div>
+</li>
+</ul>
+
+<p>
+Идентификатор - это обычная переменная. По умолчанию ее имя - PHPSESSID. 
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Как работают" [797-1084] -->
+<h3 class="sectionedit4" id="запросы">Запросы</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> для связи с браузером отправляет запрос с id 2мя способами:</div>
+</li>
+</ul>
+<ol>
+<li class="level1"><div class="li"> Cookie или [Привязать к IP надо]</div>
+</li>
+<li class="level1"><div class="li"> <abbr title="Uniform Resource Locator">URL</abbr> [НЕ БЕЗОПАСНО]</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="способ_настройки">Способ настройки</h4>
+<div class="level4">
+<ol>
+<li class="level1"><div class="li"> (php.ini)</div>
+</li>
+<li class="level1"><div class="li"> ini_set()</div>
+</li>
+<li class="level1"><div class="li"> в файлах настроек сервера</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT4 SECTION "Запросы" [1085-1427] -->
+<h3 class="sectionedit5" id="cookies">Cookies</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> при каждом вызове session_start() клиенту устанавливается кука</div>
+</li>
+<li class="level1"><div class="li"> браузер при запросе возвращает эту куку и имеет id</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "Cookies" [1428-1648] -->
+<h3 class="sectionedit6" id="url">URL</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> кука не ставится</div>
+</li>
+<li class="level1"><div class="li"> дописывает к каждой ссылке: &lt;a href=»/index.php?PHPSESSID=4823905823905230efuerifg4»&gt;Index&lt;/a&gt;</div>
+</li>
+<li class="level1"><div class="li"> к формам добавляет скрытое поле &lt;input type=«hidden»…&gt;</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "URL" [1649-1907] -->
+<h2 class="sectionedit7" id="привязка_файла">Привязка файла</h2>
+<div class="level2">
+
+<p>
+Происходит через массив $_SESSION
+</p>
+<pre class="code">  $_SESSION[&#039;test&#039;]=&quot;Hello world!&quot;; 
+* В этом массиве хранятся переменные которые доступны в различных скриптах
+* Сам занимается сборкой мусора</pre>
+
+</div>
+<!-- EDIT7 SECTION "Привязка файла" [1908-2241] -->
+<h2 class="sectionedit8" id="зачем_юзать">Зачем юзать?</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Применяется когда нужно пользователю, а не для того чтобы делать препятствия (в любой момент избавиться от ID) ДЛЯ ОГРАНИЧЕНИЯ ЗАПРОСА сессия не годится</div>
+</li>
+<li class="level1"><div class="li"> Сессия - СЕАНС РАБОТЫ С САЙТОМ, хочешь поработать - новая сессия</div>
+</li>
+</ul>
+
+<p>
+Если надо запомнить пользователя, то ему ставится кука, с его ID. При след входе опознать по куке
+</p>
+
+</div>
+<!-- EDIT8 SECTION "Зачем юзать?" [2242-2852] -->
+<h2 class="sectionedit9" id="работа_с_сессией">Работа с сессией</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Открытие сессии - session_start()</div>
+</li>
+<li class="level1"><div class="li"> Удаление переменных - unset($_SESSION[&#039;username&#039;]); при register_globals = off</div>
+</li>
+<li class="level1"><div class="li"> Удаление переменных - session_unregister(&#039;var&#039;); при register_globals = on</div>
+</li>
+<li class="level1"><div class="li"> Регистрация переменных - $_SESSION[&#039;name&#039;] = «value»;</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "Работа с сессией" [2853-3230] -->
+<h2 class="sectionedit10" id="отличия_кук_от_сессий">Отличия кук от сессий</h2>
+<div class="level2">
+
+<p>
+Почти тоже самое, только сессии хранятся в файле, куки в браузере
+</p>
+<ul>
+<li class="level1"><div class="li"> Время жизни сессии - 15 минут</div>
+</li>
+<li class="level1"><div class="li"> Считывает ID из сессии</div>
+</li>
+<li class="level1"><div class="li"> Нельзя юзать чистые куки, небезопасно, лучше сессии</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "Отличия кук от сессий" [3231-] -->

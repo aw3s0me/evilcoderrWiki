@@ -1,0 +1,12 @@
+====== Структуры данных в JS ======
+===== Массивы =====
+==== Одномерный ====
+    var myArray = new Array();
+    myArray[0] = "ololo";
+    //2 способ
+    var myArray = ["1", "2", "3"];
+==== Многомерный ====
+    var myArray = new Array(new Array(9), new Array(9), new Array(9));
+    myArray[0][0] = "ololo";
+    //2 способ
+    var myArray = [["1", "2", "3"],["1", "2", "3"],["1", "2", "3"]];

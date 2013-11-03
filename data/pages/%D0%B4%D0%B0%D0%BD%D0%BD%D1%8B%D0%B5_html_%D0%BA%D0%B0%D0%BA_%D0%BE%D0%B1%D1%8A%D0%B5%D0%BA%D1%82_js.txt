@@ -1,0 +1,48 @@
+====== HTML как JS object ======
+  * HTML документ = DOM объект (Document - вершина, потом Elements с их Text)
+  * Весь HTML документ разделен на ноды 
+А свойства узлов помогают перемещаться по узлам:
+==== Перемещение по узлам ====
+  * nodeValue - Зн-ия в текстовых узлах, но не в узлах элементов/ **НЕФОРМАТИРОВАННЫЙ ТЕКСТ**
+  * nodeType - тип узла (Document или Text) выраженные числом
+  * childNodes - массив всех дочерних узлов в порядке появления их на странице
+  * firstChild - первый дочерний узел
+  * lastChild - последний дочерний узел
+==== Изменение узла ====
+3 шага:
+  - removeChild
+  - createTextNode()
+  - appendChild()
+=== Пример ===
+     var node = document.getElementById("story");
+     while (node.firstChild)
+         node.removeChild(node.firstChild);
+     node.appendChild(document.createTextNode("OK"));
+===== getElementById =====
+Для доступа к HTML объектам, сперва необходимо их получить как JS объект.
+  * Это можно сделать с помощью метода getElementById()
+===== доступ к Form =====
+Каждому ПОЛЮ формы соотв-ет объект form, к-ый можно передать функции, проверяющий корректность
+    <form> 
+        <input id="ololo" type="text" onclick="showIt(this.form)"/>
+    </form>
+    
+    function showIt(theForm) {
+        alert(theForm["ololo"].value);
+    };
+АЛЬТЕРНАТИВА НАХ:
+    <form> 
+        <input id="ololo" type="text" onclick="showIt(this)"/>
+    </form>
+    
+    function showIt(field) {
+        alert(field.value);
+    };
+===== Получение HTML кода объекта =====
+innerHTML - применяется только для контейнеров div,span,p итд
+     document.getElementById("").innerHtml = "Меняем HTML"
+===== Создание нового элемента =====
+Для создания нового элемента <p> нужно использовать метод **createElement("p")**, шаги:
+  - var newElem = document.createElement("p") /создаем элемент
+  - newElem.appendChild("myText") /Добавляем текстовой node к элементу <p>
+  - document.getElementById("myDiv").appendChild(newElem) / добавляем <p> к уже существующему <div>

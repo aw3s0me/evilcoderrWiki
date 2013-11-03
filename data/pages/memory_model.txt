@@ -1,0 +1,46 @@
+====== Memory Model ======
+RULE: CPU THREAD LAUNCHES THE WORK ON GPU
+===== Local memory =====
+THREAD CAN STORE VARIABLES IN LOCAL MEMORY
+  * Thread can access to **local memory**
+===== Shared memory =====
+SHARED AMONG THREADS IN BLOCK
+  * Thread block can access to **shared memory**
+..
+    __shared__ int array[128];
+
+===== Global memory =====
+  * Thread can read and write to global memory ANY TIME [in later and early kernel]
+  * Host memory for CPU, and host memory gets info only from GLOBAL MEMORY
+=== Using of global memory ===
+    float h_arr[128];
+    float *d_arr;
+    
+    cudaMalloc((void **)&d_arr, sizeof(float)*128);
+    cudaMemCpy((void *)d_arr, (void *)h_arr, sizeof(float)*128, cudaMemCpyHostToDevice);
+    
+    use_global_GPU_mem<<<>>>(d_arr);
+    cudaMemCpy((void *)h_arr, (void *)d_arr, sizeof(float)*128, cudaMemCpyHostToDevice);
+===== Syncronization =====
+Problem: thread reads before another tries to try -> need to sync
+==== Forms of syncronization ====
+=== Barrier ===
+  * Point in the programm where threads stop and wait
+  * When all threads reach the barrier, the can PROCEED
+.
+    __syncthreads();
+.
+    __shared__ int array[128];
+    int i = threadIdx.x;
+    s[i]=s[i-1] //WRONG FOR SYNC COS COLLISION
+    //NEED TO int temp = s[i-1];  __syncthread();   s[i] = temp; 
+===== Problems =====
+  - Read and write to the same location (пример - 1000 потоков одновременно читает и пишет данные в массив, в итоге жесть)
+Solution is to use **ATOMIC MEMORY OPERATIONS**
+    Instead of: g[i]++;
+    Use AtomicAdd(g[i])
+Minus: Costs productivity
+==== Limitations of atomic variables  ====
+  * Only certain operation (add, min, xor, not mod, not exponentiate)
+  * Only certain data types (mostly int types)
+  * NO Ordering constraints (принуждения, ограничения)

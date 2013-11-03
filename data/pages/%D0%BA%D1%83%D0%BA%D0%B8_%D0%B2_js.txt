@@ -1,0 +1,34 @@
+====== Куки в JS ======
+Нужны для сохранения данных о юзере, т.к. переменные после закрытия браузера очищаются.
+  * У куки есть зато срок хранения
+  * Не слишком безопасны, пароль туда не стоит сохранять
+  * Не источники вирусов
+  * Нет вечных куки
+  * Сохранение только небольших фрагментов
+===== Особенности =====
+    if(navigator.cookieEnabled) {} - проверка на поддержку куки
+===== Пример записи =====
+    function writeCookie(name, value, days) {
+        var expires = ""; // временные
+        if(days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expore=" + date.toGMTString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+===== Пример чтения куки =====
+    function readCookie(name) {
+        var searchName = name + "=";
+        var cookies = document.cookie.split(';');
+        for (var i=0; i<cookies.length; i++) {
+            var c = cookies[i];
+            while(c.charAt(0) == ' ')
+               c = c.substring(1, c.length);
+            if (c.indexOf(searchName) == 0)
+               return c.substring(searchName.lenght, c.length);
+        }
+        return null;
+    }
+===== Пример удаления куки =====
+    writeCookie(name, "", -1);

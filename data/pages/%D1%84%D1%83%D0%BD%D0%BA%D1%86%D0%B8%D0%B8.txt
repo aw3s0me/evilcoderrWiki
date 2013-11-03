@@ -1,0 +1,6 @@
+   def drawstupen(x, y, shirina, visota):
+      line(x,    y,    x+shirina, y)
+      line(x,    y+visota, x+shirina, y+visota)
+      line(x,    y,    x,    y+visota)
+      line(x+shirina, y,    x+shirina, y+visota)
+      circle(x+shirina/2, y+visota/2, visota/4)

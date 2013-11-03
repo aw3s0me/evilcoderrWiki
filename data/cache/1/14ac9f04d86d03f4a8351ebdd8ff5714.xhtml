@@ -1,0 +1,84 @@
+
+<h1 class="sectionedit1" id="процедуры">Процедуры</h1>
+<div class="level1">
+
+<p>
+Хранимая процедура - программа выполняющаяся внутри базы, к-ая принимает данные от пользователя и выполняет действия
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Процедуры" [1-249] -->
+<h2 class="sectionedit2" id="типы_процедур">Типы процедур</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Системные хранимые процедуры (для адиминистративных действий)</div>
+</li>
+<li class="level1"><div class="li"> Пользовательские хранимые процедуры (любые действия)</div>
+</li>
+<li class="level1"><div class="li"> Временные хранимые  процедуры (временные потом уничтожаются)</div>
+</li>
+<li class="level1"><div class="li"> Локальные временные хранимые процедуры (только в том соединении в к-ом созданы)</div>
+</li>
+<li class="level1"><div class="li"> Глобальные временные хранимые процедуры (в любом)</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "Типы процедур" [250-873] -->
+<h2 class="sectionedit3" id="структура_запроса">Структура запроса</h2>
+<div class="level2">
+<pre class="code">   &lt;определение_процедуры&gt;::=
+   {CREATE| ALTER} PROC[EDURE]имя_процедуры
+   [;номер]
+   [{@имя_параметра тип_данных } [VARYING ]
+   [=значение_по_умолчанию][OUTPUT] ][,...n]
+   [WITH { RECOMPILE | ENCRYPTION | RECOMPILE,
+   ENCRYPTION }]
+   [FOR REPLICATION]
+   AS
+   Тело процедуры;</pre>
+
+</div>
+<!-- EDIT3 SECTION "Структура запроса" [874-1314] -->
+<h3 class="sectionedit4" id="обозначения">Обозначения</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Номер  в  имени – это  идентификационный  номер хранимой процедуры</div>
+</li>
+<li class="level1"><div class="li"> OUTPUT - параметр для возвращения данных</div>
+</li>
+<li class="level1"><div class="li"> VARYING - значение по умолчанию</div>
+</li>
+<li class="level1"><div class="li"> DEFAULT - параметр по умолчанию</div>
+</li>
+<li class="level1"><div class="li"> RECOMPILE - для перекомпиляции при каждом вызове</div>
+</li>
+<li class="level1"><div class="li"> ENCRYPTION - шифрование</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Обозначения" [1315-1779] -->
+<h2 class="sectionedit5" id="выполнение_процедуры">Выполнение процедуры</h2>
+<div class="level2">
+<pre class="code">  EXEC [ UTE]имя_процедуры [;номер]
+  [[@имя_параметра=]{значение | @имя_переменной}
+  [OUTPUT]|[DEFAULT]][,...n]</pre>
+
+</div>
+<!-- EDIT5 SECTION "Выполнение процедуры" [1780-2001] -->
+<h2 class="sectionedit6" id="пример_процедуры">Пример процедуры</h2>
+<div class="level2">
+<pre class="code">  CREATE Procedure ExamResults
+  AS
+  SELECT s.FIO AS &#039;ФИО&#039;, l.Nazvanie AS &#039;Дисциплина&#039;,
+  p.Examen AS &#039;Оценка за экзамен&#039;
+  FROM Students AS s INNER JOIN
+  Progress AS p ON p.ID_Student = s.ID_Student INNER JOIN
+  Lessons AS l ON l.ID_Lesson = p.ID_Lesson
+  WHERE s.FIO = &#039;Иванчуков А.Г.&#039;;
+  /Для обращения к процедуреможно использовать команду
+  EXECUTE ExamResults;</pre>
+
+</div>
+<!-- EDIT6 SECTION "Пример процедуры" [2002-] -->

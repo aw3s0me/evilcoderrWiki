@@ -1,0 +1,28 @@
+  - sudo apt-get clean
+  - cd /var/lib/apt
+  - sudo mv lists lists.old
+  - sudo mkdir -p lists/partial
+  - sudo apt-get clean
+  - sudo apt-get update
+
+----
+  * 4) Отсутствует публичный ключ для сторонних источников.
+  * 
+  * Откройте терминал (Ctrl+Alt+T) и выполните в нем следующую команду:
+  * 
+  * sudo apt-get update
+  * 
+  * Теперь дождитесь окончания работы команды, после чего должен появится следующий текст:
+  * 
+  * W: GPG error: http:/something.something Release: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY XXXXXXXXXXXXXXXX
+  * 
+  * Скопируйте все числа, которые будут отображаться после фразы NO_PUBKEY. Эта ошибка вызвана отсутствием публичного ключа для добавленного стороннего источника. Чтобы решить эту проблему введите следующую команду в терминал:
+  * 
+  * sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com XXXXXXX XXXXXXXXX
+  * 
+  * После добавления отсутствующего ключа запустите еще раз команду на обновление:
+  * 
+  * sudo apt-get update
+===== Полное обновление =====
+  - sudo apt-get update        # Fetches the list of available updates
+  - sudo apt-get dist-upgrade  # Installs updates

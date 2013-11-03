@@ -1,0 +1,135 @@
+
+<h1 class="sectionedit1" id="memory_model">Memory Model</h1>
+<div class="level1">
+
+<p>
+RULE: CPU THREAD LAUNCHES THE WORK ON GPU
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Memory Model" [1-69] -->
+<h2 class="sectionedit2" id="local_memory">Local memory</h2>
+<div class="level2">
+
+<p>
+THREAD CAN STORE VARIABLES IN LOCAL MEMORY
+</p>
+<ul>
+<li class="level1"><div class="li"> Thread can access to <strong>local memory</strong></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Local memory" [70-179] -->
+<h2 class="sectionedit3" id="shared_memory">Shared memory</h2>
+<div class="level2">
+
+<p>
+SHARED AMONG THREADS IN BLOCK
+</p>
+<ul>
+<li class="level1"><div class="li"> Thread block can access to <strong>shared memory</strong></div>
+</li>
+</ul>
+
+<p>
+..
+</p>
+<pre class="code">  __shared__ int array[128];</pre>
+
+</div>
+<!-- EDIT3 SECTION "Shared memory" [180-319] -->
+<h2 class="sectionedit4" id="global_memory">Global memory</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Thread can read and write to global memory ANY TIME [in later and early kernel]</div>
+</li>
+<li class="level1"><div class="li"> Host memory for CPU, and host memory gets info only from GLOBAL MEMORY</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="using_of_global_memory">Using of global memory</h4>
+<div class="level4">
+<pre class="code">  float h_arr[128];
+  float *d_arr;
+  
+  cudaMalloc((void **)&amp;d_arr, sizeof(float)*128);
+  cudaMemCpy((void *)d_arr, (void *)h_arr, sizeof(float)*128, cudaMemCpyHostToDevice);
+  
+  use_global_GPU_mem&lt;&lt;&lt;&gt;&gt;&gt;(d_arr);
+  cudaMemCpy((void *)h_arr, (void *)d_arr, sizeof(float)*128, cudaMemCpyHostToDevice);</pre>
+
+</div>
+<!-- EDIT4 SECTION "Global memory" [320-852] -->
+<h2 class="sectionedit5" id="syncronization">Syncronization</h2>
+<div class="level2">
+
+<p>
+Problem: thread reads before another tries to try → need to sync
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Syncronization" [853-945] -->
+<h3 class="sectionedit6" id="forms_of_syncronization">Forms of syncronization</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="barrier">Barrier</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Point in the programm where threads stop and wait</div>
+</li>
+<li class="level1"><div class="li"> When all threads reach the barrier, the can PROCEED</div>
+</li>
+</ul>
+
+<p>
+.
+</p>
+<pre class="code">  __syncthreads();</pre>
+
+<p>
+.
+</p>
+<pre class="code">  __shared__ int array[128];
+  int i = threadIdx.x;
+  s[i]=s[i-1] //WRONG FOR SYNC COS COLLISION
+  //NEED TO int temp = s[i-1];  __syncthread();   s[i] = temp; </pre>
+
+</div>
+<!-- EDIT6 SECTION "Forms of syncronization" [946-1299] -->
+<h2 class="sectionedit7" id="problems">Problems</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> Read and write to the same location (пример - 1000 потоков одновременно читает и пишет данные в массив, в итоге жесть)</div>
+</li>
+</ol>
+
+<p>
+Solution is to use <strong>ATOMIC MEMORY OPERATIONS</strong>
+</p>
+<pre class="code">  Instead of: g[i]++;
+  Use AtomicAdd(g[i])</pre>
+
+<p>
+Minus: Costs productivity
+</p>
+
+</div>
+<!-- EDIT7 SECTION "Problems" [1300-1626] -->
+<h3 class="sectionedit8" id="limitations_of_atomic_variables">Limitations of atomic variables</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Only certain operation (add, min, xor, not mod, not exponentiate)</div>
+</li>
+<li class="level1"><div class="li"> Only certain data types (mostly int types)</div>
+</li>
+<li class="level1"><div class="li"> NO Ordering constraints (принуждения, ограничения)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Limitations of atomic variables" [1627-] -->

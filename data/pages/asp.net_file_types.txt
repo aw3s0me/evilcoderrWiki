@@ -1,0 +1,16 @@
+====== ASP.NET File Types ======
+  * .aspx - web pages [UI+Code-behind]
+  * .ascx - user controls [similar to web pages]
+  * web.config - cfg file
+  * global.asax - global application file [to define global variables/events]
+  * .cs - code behind files
+====== ASP.NET Folders ======
+  * App_Browsers - .browser files that ASP.NET uses to identify the browsers that are used your app
+  * App_Code - source code files
+  * App_GlobalResources - stores global resources which are accessible to every page
+  * App_LocalResources - to specific page
+  * App_WebReferences - stores references to web services
+  * App_Data - stores data [maybe SQL db files]
+  * App_Themes - stores the themes
+  * Bin - Contains all the compiled .Net components [DLL's]
+

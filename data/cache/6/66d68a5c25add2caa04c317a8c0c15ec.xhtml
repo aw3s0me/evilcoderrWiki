@@ -1,0 +1,51 @@
+<ol>
+<li class="level1"><div class="li"> sudo apt-get clean</div>
+</li>
+<li class="level1"><div class="li"> cd /var/lib/apt</div>
+</li>
+<li class="level1"><div class="li"> sudo mv lists lists.old</div>
+</li>
+<li class="level1"><div class="li"> sudo mkdir -p lists/partial</div>
+</li>
+<li class="level1"><div class="li"> sudo apt-get clean</div>
+</li>
+<li class="level1"><div class="li"> sudo apt-get update</div>
+</li>
+</ol>
+<hr />
+<ul>
+<li class="level1"><div class="li"> 4) Отсутствует публичный ключ для сторонних источников.</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> Откройте терминал (Ctrl+Alt+T) и выполните в нем следующую команду:</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> sudo apt-get update</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> Теперь дождитесь окончания работы команды, после чего должен появится следующий текст:</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> W: GPG error: http:/something.something Release: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY XXXXXXXXXXXXXXXX</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> Скопируйте все числа, которые будут отображаться после фразы NO_PUBKEY. Эта ошибка вызвана отсутствием публичного ключа для добавленного стороннего источника. Чтобы решить эту проблему введите следующую команду в терминал:</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> sudo apt-key adv –recv-key –keyserver keyserver.ubuntu.com XXXXXXX XXXXXXXXX</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> После добавления отсутствующего ключа запустите еще раз команду на обновление:</div>
+</li>
+<li class="level1"><div class="li"> </div>
+</li>
+<li class="level1"><div class="li"> sudo apt-get update</div>
+</li>
+</ul>

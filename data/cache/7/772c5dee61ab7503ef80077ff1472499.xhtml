@@ -1,0 +1,113 @@
+
+<h1 class="sectionedit1" id="basic_html">Basic HTML</h1>
+<div class="level1">
+<pre class="code">    &lt;!DOCTYPE html&gt; //Every respectable html doc should begin with doctype, code indicate what flavor of html follows
+    &lt;html&gt;
+         &lt;head&gt;
+              &lt;title&gt;Sample Web Page&lt;/title&gt;
+         &lt;/head&gt;
+         &lt;body&gt;
+              &lt;h1&gt;Sample Web Page Heading&lt;/h1&gt; //Heading 1 style
+              &lt;p&gt;This is a Sample Web Page&lt;/p&gt; //p means paragraph
+         &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+<p>
+<abbr title="HyperText Markup Language">HTML</abbr> contains 2 types of content:
+</p>
+<ol>
+<li class="level1"><div class="li"> TEXT</div>
+</li>
+<li class="level1"><div class="li"> TAGS (how to format text, easy to recognise &lt;&gt;)</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT1 SECTION "Basic HTML" [1-525] -->
+<h1 class="sectionedit2" id="html_forms">HTML Forms</h1>
+<div class="level1">
+
+<p>
+Not only formatting text but also tags for graphical widgets/controls
+</p>
+<pre class="code">    &lt;!DOCTYPE html&gt; //Every respectable html doc should begin with doctype, code indicate what flavor of html follows
+    &lt;html&gt;
+         &lt;head&gt;
+              &lt;title&gt;Sample Web Page&lt;/title&gt;
+         &lt;/head&gt;
+         &lt;body&gt;
+              &lt;form&gt;
+                   &lt;input type=&quot;checkbox&quot; /&gt;
+                   This is choice #1 &lt;br/&gt;
+                   &lt;input type=&quot;checkbox&quot; /&gt;
+                   This is choice #2 &lt;br/&gt;
+                   &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+              &lt;/form&gt;
+         &lt;/body&gt;
+    &lt;/html&gt;</pre>
+
+</div>
+<!-- EDIT2 SECTION "HTML Forms" [526-1180] -->
+<h3 class="sectionedit3" id="page_directive">Page directive</h3>
+<div class="level3">
+
+<p>
+ASPX file consists of 3 sections : first - page directive
+</p>
+<pre class="code">    &lt;%@ Page Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot;
+    CodeFile = &quot;Default.aspx.cs&quot; Inherits=&quot;_Default&quot; %&gt;</pre>
+
+<p>
+This directive gives ASP.NET basic information about how to COMPILE page.
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>language</strong> (C#)</div>
+</li>
+<li class="level1"><div class="li"> The way we connect our<strong> event handlers</strong> [autoEventWireup]</div>
+</li>
+<li class="level1"><div class="li"> <strong>Where the code is located</strong></div>
+</li>
+<li class="level1"><div class="li"> <strong>The name of our custom page class</strong></div>
+</li>
+</ul>
+
+<p>
+<em>THIS DIRECTIVE DOESNT APPEAR IN THE <abbr title="HyperText Markup Language">HTML</abbr> THATS SENTS TO THE BROWSER</em>
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Page directive" [1181-1681] -->
+<h3 class="sectionedit4" id="doctype">Doctype</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Indicates the type of markup (XHMTL or HTML5)</div>
+</li>
+<li class="level1"><div class="li"> But XHTML is fizzling out (терпеть неудачу, выдыхаться) (very strict)</div>
+</li>
+<li class="level1"><div class="li"> So It&#039;s best to use HTML5</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Doctype" [1682-1877] -->
+<h1 class="sectionedit5" id="compiling">Compiling</h1>
+<div class="level1">
+
+<p>
+ASP.NET controls mingles with ordinary <abbr title="HyperText Markup Language">HTML</abbr> content:
+</p>
+<ul>
+<li class="level1"><div class="li"> When the web page is processed by the web server:</div>
+</li>
+</ul>
+<ol>
+<li class="level1"><div class="li"> Web controls are converted to <abbr title="HyperText Markup Language">HTML</abbr> markup (RENDERING)</div>
+</li>
+<li class="level1"><div class="li"> Insert them into the web page</div>
+</li>
+<li class="level1"><div class="li"> Sent to browser</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "Compiling" [1878-] -->

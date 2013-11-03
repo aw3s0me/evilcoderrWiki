@@ -1,0 +1,35 @@
+====== Settings ======
+cfg files have advantages:
+  * We can update them at any point anytime
+  * Easily accessed
+  * Easy to edit/understand
+===== web.config =====
+Simple XML document, root - configuration
+      <configuration>
+         <appSettings>...</appSettings>
+         <connectionStrings>...</connectionStrings>
+         <system.web>
+            <compilation debug="true" targetFramework="4.5"/> //the most important
+            <httpRuntime targetFramework="4.5"/>
+         </system.web>
+      </configuration>
+Description:
+  * **appSettings** - our own information
+  * **connectionStrings** - allows to define connection information for accessing a database
+  * **system.web** - all info we need to configure
+=== appSettings ===
+  * to centaliza an important setting that important for all pages
+  * switch between modes of operation (enum, debug variables)
+  * To set initial values (default or const)
+
+      <appSettings>
+           <add key="DataFilePath" value="e:/fewf/erg"
+      </appSettings>
+**ОБРАЩЕНИЕ К НИМ:**
+      WebConfigurationManager.AppSettings["DataFilePath"]
+===== Website Administration Tool =====
+Allows to configure web.config file.
+----
+localhost:port/asp.netwebadminfiles/..
+----
+WEBSITE->ASP.NET Configuration

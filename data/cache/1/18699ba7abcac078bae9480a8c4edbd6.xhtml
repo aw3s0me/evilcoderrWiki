@@ -1,0 +1,143 @@
+
+<h1 class="sectionedit1" id="протокол_передачи_гипертекста">Протокол передачи гипертекста</h1>
+<div class="level1">
+
+<p>
+Работа по принципу клиент-сервер:
+</p>
+<ol>
+<li class="level1"><div class="li"> В адресной строке вводится адрес (например google.com)</div>
+</li>
+<li class="level1"><div class="li"> Программа клиент (браузер) устанавливает TCP-соединение с сервером и отсылает запрос (POST/GET)</div>
+</li>
+<li class="level1"><div class="li"> Сервер обрабатывает запрос и возвращает HTTP-ответ клиенту</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT1 SECTION "Протокол передачи гипертекста" [1-507] -->
+<h2 class="sectionedit2" id="состав_http_запроса">Состав HTTP запроса</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Заголовок запроса</div>
+</li>
+<li class="level1"><div class="li"> Тело запроса (может отсутствовать)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Состав HTTP запроса" [508-658] -->
+<h3 class="sectionedit3" id="строка_запроса">Строка запроса</h3>
+<div class="level3">
+
+<p>
+Имя_параметра: значение_параметра
+</p>
+
+</div>
+
+<h4 id="пример">Пример</h4>
+<div class="level4">
+
+<p>
+GET / HTTP/1.1 - первая строка заголовка запроса
+Host: ya.ru - вторая строка заголовка запроса
+- пустая строка
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Строка запроса" [659-959] -->
+<h3 class="sectionedit4" id="методы_запроса">Методы запроса</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> GET - запрос данных (вместе с HTTP-заголовками)</div>
+</li>
+<li class="level1"><div class="li"> HEAD - запрос HTTP-заголовков без данных</div>
+</li>
+<li class="level1"><div class="li"> POST - отправка данных на сервер</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Методы запроса" [960-1208] -->
+<h3 class="sectionedit5" id="параметры_http_запроса">Параметры HTTP запроса</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Connection - [Keep-Alive, close]</div>
+</li>
+<li class="level1"><div class="li"> User-Agent - [Кодовое обозначение браузера]</div>
+</li>
+<li class="level1"><div class="li"> Accept - [Список поддерживаемых браузером типы содержимого]</div>
+</li>
+<li class="level1"><div class="li"> Referer - [<abbr title="Uniform Resource Locator">URL</abbr> с к-ой юзер перешел на данный ресурс]</div>
+</li>
+<li class="level1"><div class="li"> Host - [Имя хоста где находится запрашиваемый ресурс]</div>
+</li>
+<li class="level1"><div class="li"> Accept-Language - [язык]</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Параметры HTTP запроса" [1209-1692] -->
+<h2 class="sectionedit6" id="состав_http_ответа">Состав HTTP ответа</h2>
+<div class="level2">
+
+<p>
+Формат такой же как и у запроса
+Основная строка запроса состоит из трех полей разделенных пробелами:
+</p>
+<ul>
+<li class="level1"><div class="li"> версия протокола, </div>
+</li>
+<li class="level1"><div class="li"> код ошибки (кодовое обозначение «успешности» выполнения запроса)</div>
+</li>
+<li class="level1"><div class="li"> словесное описание ошибки.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Состав HTTP ответа" [1693-2136] -->
+<h3 class="sectionedit7" id="коды_ошибок">Коды ошибок</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 2xx означают успешное выполнение запроса, </div>
+</li>
+<li class="level1"><div class="li"> 3xx - соответствуют той или иной форме перенаправления, </div>
+</li>
+<li class="level1"><div class="li"> 4xx - означает ошибку по вине клиента, </div>
+</li>
+<li class="level1"><div class="li"> 5xx - ошибку на сервере.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Коды ошибок" [2137-2467] -->
+<h3 class="sectionedit8" id="параметры_http_ответа">Параметры HTTP ответа</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Date – дата обработки запроса.</div>
+</li>
+<li class="level1"><div class="li"> Server – название веб-сервера.</div>
+</li>
+<li class="level1"><div class="li"> ETag – для статических документов метка ресурса. Она обычно аналогична контрольной сумме или подписи файла.</div>
+</li>
+<li class="level1"><div class="li"> X-Powered-By – для динамических документов приложение, сформировавшее документ. Пример: X-Powered-By: PHP/5.0.3</div>
+</li>
+<li class="level1"><div class="li"> Connection – аналогичен соответствующему параметру запроса.</div>
+</li>
+<li class="level1"><div class="li"> Content-Type («тип содержимого») – содержит обозначение типа содержимого ответа. В зависимости от значения Content-Type браузер воспринимает ответ как <abbr title="HyperText Markup Language">HTML</abbr>-страницу, картинку gif или jpeg, как файл, который необходимо сохранить на диске, или как что-либо еще и предпринимает соответствующие действия. Некоторые типы содержимого: text/html - текст в формате <abbr title="HyperText Markup Language">HTML</abbr> (веб-страница); text/plain - простой текст; image/jpeg - картинка в формате JPEG; image/gif - то же, в формате GIF; application/octet-stream - поток данных для записи на диск. Часто в параметре Content-Type через точку с запятой указывается кодировка документа. Например:</div>
+</li>
+</ul>
+
+<p>
+Content-Type: text/html; charset=windows-1251
+</p>
+<ul>
+<li class="level1"><div class="li"> Content-Length («длина содержимого») – длина содержимого ответа в байтах.</div>
+</li>
+<li class="level1"><div class="li"> Last-Modified («Модифицирован в последний раз») – дата последнего изменения документа</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Параметры HTTP ответа" [2468-] -->

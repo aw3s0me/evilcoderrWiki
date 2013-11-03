@@ -1,0 +1,143 @@
+
+<h1 class="sectionedit1" id="управление_пользователями">Управление пользователями</h1>
+<div class="level1">
+
+<p>
+В SQL Server двухуровневая настройка ограничения доступа к данным:
+</p>
+<ol>
+<li class="level1"><div class="li"> На первом уровне создаем учетную запись (login), дает подключение к серверу но не дает автоматического доступа к БД</div>
+</li>
+<li class="level1"><div class="li"> На втором, выдать права как пользователю (user)</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT1 SECTION "Управление пользователями" [1-475] -->
+<h3 class="sectionedit2" id="понятия_на_уровне_сервера">Понятия на уровне сервера</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> аутентификация</div>
+</li>
+<li class="level1"><div class="li"> учетная запись</div>
+</li>
+<li class="level1"><div class="li"> встроенные роли сервера</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Понятия на уровне сервера" [476-647] -->
+<h3 class="sectionedit3" id="понятия_на_уровне_базы">Понятия на уровне базы</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> пользователь БД</div>
+</li>
+<li class="level1"><div class="li"> роль для БД</div>
+</li>
+<li class="level1"><div class="li"> юзер роль для БД</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Понятия на уровне базы" [648-792] -->
+<h3 class="sectionedit4" id="режимы_аутентификации">Режимы аутентификации</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> Windows Auth</div>
+</li>
+<li class="level1"><div class="li"> SQL Server Auth</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT4 SECTION "Режимы аутентификации" [793-881] -->
+<h2 class="sectionedit5" id="создание_пользователя">Создание пользователя</h2>
+<div class="level2">
+
+<p>
+Действия:
+</p>
+<ol>
+<li class="level1"><div class="li"> Создать уч. запись, указав пароль и по умолчанию имя БД (процедура <strong>sp_addlogin</strong>)</div>
+</li>
+<li class="level1"><div class="li"> Добавить этого юзера во все БД (процедура <strong>sp_adduser</strong>)</div>
+</li>
+<li class="level1"><div class="li"> предоставить привелегии (команда GRANT)</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "Создание пользователя" [882-1263] -->
+<h3 class="sectionedit6" id="пример_первого_действия">Пример первого действия</h3>
+<div class="level3">
+<pre class="code">   sp_addlogin
+   [@login=] &#039;учетная запись&#039;
+   [,[@password=] &#039;пароль&#039;]
+   [,[@defdb=] &#039;база_данных_по_умолчанию&#039;]
+   ..
+   sp_addlogin &#039;student&#039;, &#039;stud&#039;, Institute</pre>
+
+</div>
+<!-- EDIT6 SECTION "Пример первого действия" [1264-1536] -->
+<h3 class="sectionedit7" id="добавление_юзера_в_бд">Добавление юзера в БД</h3>
+<div class="level3">
+<pre class="code">   sp_adduser
+   [@loginame=] &#039;учетная запись&#039;
+   [,[@name_in_db=] &#039;имя_пользователя&#039;]
+   [,[@grpname] &#039;имя_роли&#039;]
+   ..
+   USE Institute;
+   sp_adduser &#039;student&#039;;</pre>
+
+</div>
+<!-- EDIT7 SECTION "Добавление юзера в БД" [1537-1799] -->
+<h2 class="sectionedit8" id="роли">Роли</h2>
+<div class="level2">
+
+<p>
+Объекты которые определяют уровень доступа к объектам SQL Server.
+</p>
+
+<p>
+2 вида ролей:
+</p>
+<ul>
+<li class="level1"><div class="li"> на уровне сервера</div>
+</li>
+<li class="level1"><div class="li"> на уровне БД</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Роли" [1800-2021] -->
+<h3 class="sectionedit9" id="создание_новой_роли">Создание новой роли</h3>
+<div class="level3">
+<pre class="code">   sp_addrole
+   [@rolename=] &#039;имя_роли&#039;
+   [,[@ownername=] &#039;имя_владельца&#039;]</pre>
+
+</div>
+<!-- EDIT9 SECTION "Создание новой роли" [2022-2170] -->
+<h3 class="sectionedit10" id="добавление_пользователя_к_роли">Добавление пользователя к роли</h3>
+<div class="level3">
+<pre class="code">   sp_addrolemember
+   [@rolename=] &#039;имя_роли&#039;
+   [,[@membername=] &#039;имя_пользователя&#039;]   </pre>
+
+</div>
+<!-- EDIT10 SECTION "Добавление пользователя к роли" [2171-2358] -->
+<h3 class="sectionedit11" id="удаление_пользователя_из_роли">Удаление пользователя из роли</h3>
+<div class="level3">
+<pre class="code">   sp_droprolemember
+   [@rolename=] &#039;имя_роли&#039;,
+   [@membername=] &#039;имя_пользователя&#039;</pre>
+
+</div>
+<!-- EDIT11 SECTION "Удаление пользователя из роли" [2359-2549] -->
+<h3 class="sectionedit12" id="удаление_роли">Удаление роли</h3>
+<div class="level3">
+<pre class="code">   sp_droprole
+   [@rolename=] &#039;имя_роли&#039;</pre>
+
+</div>
+<!-- EDIT12 SECTION "Удаление роли" [2550-] -->

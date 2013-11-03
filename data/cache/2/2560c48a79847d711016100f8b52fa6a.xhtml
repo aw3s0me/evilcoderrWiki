@@ -1,0 +1,52 @@
+
+<p>
+Созданы для взаимодействия между потоками
+</p>
+<ul>
+<li class="level1"><div class="li"> фд[0] - чтение fd [1] -запись</div>
+</li>
+</ul>
+
+<h1 class="sectionedit1" id="pipe">Pipe</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> можно писать но не выше родителского</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Pipe" [128-218] -->
+<h1 class="sectionedit2" id="fifo">Fifo</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT2 SECTION "Fifo" [219-237] -->
+<h2 class="sectionedit3" id="отличия_pipe_от_fifo">Отличия Pipe от Fifo</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Для взаимодействия Fifo использует специальный файл с расширением .fifo, который не имеет физического размера и не хранится в файловой системе</div>
+</li>
+<li class="level1"><div class="li"> Pipe Хранится в адресном пространстве</div>
+</li>
+<li class="level1"><div class="li"> Все после считывания из pipe удаляется, то есть pipe повторная инф-ия не может быть прочитана повторно</div>
+</li>
+<li class="level1"><div class="li"> Если FIFO открыт для чтения, то блокируется пока не запишутся данные</div>
+</li>
+<li class="level1"><div class="li"> чтение блокирует pipe пока данные не досутпны</div>
+</li>
+<li class="level1"><div class="li"> The kernel maintains exactly one pipe object for each FIFO special file that is opened by at least one process.</div>
+</li>
+<li class="level1"><div class="li"> Opening a FIFO for reading normally blocks until some other process opens the same FIFO for writing, and vice versa.</div>
+</li>
+<li class="level1"><div class="li"> проверка на выход, когда размер считывания равен 0, то break, поток пуст</div>
+</li>
+<li class="level1"><div class="li"> когда у пайпа доходит до конца размер, то есть он забит, пайп блокируется\но ошибка не выводится</div>
+</li>
+<li class="level1"><div class="li"> У пайпа нет имени, и фифо - имя == файл</div>
+</li>
+<li class="level1"><div class="li"> Взаимодействие у пайпа только через родственные процессы</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Отличия Pipe от Fifo" [238-] -->

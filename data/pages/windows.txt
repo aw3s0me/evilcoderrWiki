@@ -7,3 +7,7 @@ Reasons:
   * New app corrupts an already-installed app [DLL HELL]
   * Installation complexity [files to be copied in various directories -> registry, settings, shortcuts ]
   * Security [apps allows to do many forbidden things]
+===== КОДИРОВКА В CMD =====
+Запись: ipconfig /all > filename.txt
+
+Просто в блокноте сменить шрифт на Terminal

@@ -2,9 +2,9 @@
 <h1 class="sectionedit1" id="c_утилиты">C# Утилиты</h1>
 <div class="level1">
 <ul>
-<li class="level1"><div class="li"> ILDasm.exe - дизассемблер IL кода (для exe и dll)</div>
+<li class="level1"><div class="li"> <strong>ILDasm.exe</strong> - дизассемблер IL кода (для exe и dll)</div>
 </li>
-<li class="level1"><div class="li"> AL.exe - компоновщик сборок (для создания сборок вместо компилятора)</div>
+<li class="level1"><div class="li"> <strong>AL.exe</strong> - компоновщик сборок (для создания сборок вместо компилятора)</div>
 </li>
 </ul>
 
@@ -13,7 +13,7 @@ al /out:NewSborkaTypes.dll /t:library lib1.netmodule lib2.netmodule
 В NewSborkaTypes.dll отсутствует IL код и метаданные. В .netmodule НЕТУ МАНИФЕСТОВ
 </p>
 <ul>
-<li class="level1"><div class="li"> SN.exe (Strong Name) - утилита для получения ключа для сборки</div>
+<li class="level1"><div class="li"> <strong>SN.exe</strong> (Strong Name) - утилита для получения ключа для сборки</div>
 </li>
 </ul>
 
@@ -21,9 +21,11 @@ al /out:NewSborkaTypes.dll /t:library lib1.netmodule lib2.netmodule
     SN -k MyCompany.snk <em>создаем файл, содержащий открытый/закрытый ключи. параметры -p и -tp</em>/ для компилятора csc /keyfile:MyCompany.snk Program.cs
 </p>
 <ul>
-<li class="level1"><div class="li"> GACUtil.exe - Для тестирования и разработки сборок применяют утилиту - </div>
+<li class="level1"><div class="li"> <strong>GACUtil.exe</strong> - Для тестирования и разработки сборок применяют утилиту - </div>
 </li>
-<li class="level1"><div class="li"> FxCop - позволяет находить блоки catch(Exception) в к-ых нету throw;</div>
+<li class="level1"><div class="li"> <strong>FxCop</strong> - позволяет находить блоки catch(Exception) в к-ых нету throw;</div>
+</li>
+<li class="level1"><div class="li"> <strong>Telerik converter</strong> - позволяет транслировать код из VB.NET в C# и обратно :EEEE</div>
 </li>
 </ul>
 

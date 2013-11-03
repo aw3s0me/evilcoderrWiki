@@ -1,3 +1,8 @@
 profileoptimization
 assemblydescription
 dictionarystringkey
+statenetworktimeout
+sqlconnectionstring
+clenqueuereadbuffer
+clenqueuecopybuffer
+colorschemedesigner

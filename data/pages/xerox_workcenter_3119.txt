@@ -1,0 +1,18 @@
+  * I ran into the same problem as you and I was urgently seeking a remedy as I need my printer as an undergraduate. 
+  * Problem was I upgraded to Windows 7 x64 without checking if Xerox released the driver already or not.
+  * Anyway I am here to report my success in getting my WC3119 working under Windows 7. Please try it and see if it works for you too.
+
+  - Obtain the Vista drivers from Xerox. Extract and do not install.
+  - Obtain the (latest) Vista drivers from SAMSUNG for the model SCX-4200 .. I suspected this as the xrxe1u config file as provided by GDI Xerox actually references to the samsung driver.
+  - Go to the GDI folder of the samsung package, then your OS(x32 or x64) folder and open suge1. I cross-referenced to xrxe1u and did the following modification:
+
+    ; Model section for Windows 2000 and XP
+    [MODEL.ntamd64.6.0]
+    "Samsung SCX-4200 Series" = DRVINSTALL, LPTENUM\SamsungSCX-4200_SeriD388
+    "Samsung SCX-4200 Series" = DRVINSTALL, USBPRINT\SamsungSCX-4200_SeriD388
+    "Xerox WorkCentre 3119 Series" = DRVINSTALL, LPTENUM\XeroxWorkCentre_3119C525
+    "Xerox WorkCentre 3119 Series" = DRVINSTALL, USBPRINT\XeroxWorkCentre_3119C525
+
+this will make your Xerox be regconisable (pardon my spelling) by the installation.
+
+  - Do a manual installation via the "Have Disk" method, pointing to the samsung installation. I got a unsigned warning (expected) but the installation went through without the "kernel-mode" error.

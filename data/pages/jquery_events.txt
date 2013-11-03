@@ -1,0 +1,23 @@
+====== События ======
+===== Mouse Events =====
+  * click	         		
+  * dblclick			
+  * mouseenter			
+  * mouseleave	 		
+
+===== Keyboard Events =====
+  * keypress
+  * keydown
+  * keyup
+
+===== Form Events =====
+  * submit
+  * change
+  * blur
+  * focus
+
+===== Document/Window Events =====
+  * load
+  * resize
+  * scroll
+  * unload

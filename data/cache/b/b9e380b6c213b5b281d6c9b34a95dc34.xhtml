@@ -1,0 +1,211 @@
+
+<h1 class="sectionedit1" id="apache">Apache</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Apache" [1-21] -->
+<h2 class="sectionedit2" id="установка">Установка</h2>
+<div class="level2">
+<pre class="code">  sudo apt-get install php5
+  sudo apt-get install apache2
+  sudo apt-get install mysql-client mysql-server
+  sudo apt-get install mc</pre>
+
+<p>
+Для проверки работоспособности - Зайти на <a href="http://localhost" class="urlextern" title="http://localhost"  rel="nofollow">http://localhost</a> (It works, если серв запущен)
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Установка" [22-333] -->
+<h2 class="sectionedit3" id="настройка">Настройка</h2>
+<div class="level2">
+
+<p>
+файл настройки:
+</p>
+<pre class="code">  /etc/apache2/sites-enabled
+  mcedit ./000-default</pre>
+
+<p>
+В открывшемся окне отредактируем значение ServerAdmin, сохраним файл и перезапустим HTTP сервер Apache, выполнив команду
+</p>
+<pre class="code">  sudo service apache2 restart</pre>
+
+</div>
+
+<h4 id="создание_сайта">Создание сайта</h4>
+<div class="level4">
+
+<p>
+Для добавления на веб-сервер веб-сайта с именем mysite.aics необходимо:
+</p>
+
+<p>
+1. создать файл с настройками веб-сайта /etc/apache2/sites-available/mysite.aics.
+</p>
+
+<p>
+Для этого в терминале необходимо выполнить команду
+</p>
+<pre class="code">  sudo mcedit /etc/apache2/sites-available/mysite.aics</pre>
+
+<p>
+2. Далее необходимо создать папку, в которой будет содержаться сайт mysite.aics (указанный в настройке виртуального хоста), а именно
+</p>
+
+<p>
+/var/www/mysite.aics. Это можно сделать командой:
+</p>
+<pre class="code">  mkdir /var/www/mysite.aics</pre>
+
+<p>
+3. Создаем простую php страницу
+</p>
+<pre class="code">  mcedit /var/www/mysite.aics/index.php</pre>
+
+<p>
+4. Код
+</p>
+<pre class="code">  &lt;?php phpinfo(); ?&gt;</pre>
+
+<p>
+5. После создания страницы необходимо указать, что виртуальный сервер необходимо включить (создать ссылку в директории /etc/apache2/sites-enabled на файл /etc/apache2/sites-available/mysite.aics) командой
+</p>
+<pre class="code">  sudo ln -s /etc/apache2/sites-available/mysite.aics /etc/apache2/sites-enabled</pre>
+
+<p>
+6. Перезапустим веб-сервер Apache командой
+</p>
+<pre class="code">  sudo service apache2 restart</pre>
+
+<p>
+7. Веб-сервер настроен, но необходимо указать, что имя mysite.aics должно указывать на IP адрес вашего компьютера. Для этого внесем изменения в файл /etc/hosts командой
+</p>
+<pre class="code">  sudo mcedit /etc/hosts</pre>
+
+<p>
+8. Находим строку 127.0.0.1 localhost и заменяем ее на
+</p>
+<pre class="code">  127.0.0.1 localhost mysite.aics www.mysite.aics  </pre>
+
+</div>
+<!-- EDIT3 SECTION "Настройка" [334-2532] -->
+<h2 class="sectionedit4" id="настройка_для_аутентификации">Настройка для аутентификации</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> AuthType – тип аутентификации:</div>
+</li>
+<li class="level1"><div class="li"> AuthName – название области, требующей аутентификацию</div>
+</li>
+<li class="level1"><div class="li"> AuthUserFile – полный путь в файловой системе сервера до аутентификационного файла с именами </div>
+</li>
+</ul>
+
+<p>
+пользователей и паролями
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Настройка для аутентификации" [2533-2965] -->
+<h3 class="sectionedit5" id="аутентификационный_файл">Аутентификационный файл</h3>
+<div class="level3">
+
+<p>
+Аутентификационный файл содержит данные в следующем формате:
+</p>
+
+<p>
+ПОЛЬЗОВАТЕЛЬ:ХЕШ_ПАРОЛЯ
+</p>
+
+<p>
+ПОЛЬЗОВАТЕЛЬ:ХЕШ_ПАРОЛЯ
+</p>
+
+<p>
+…
+</p>
+
+<p>
+ПОЛЬЗОВАТЕЛЬ:ХЕШ_ПАРОЛЯ
+</p>
+
+<p>
+Аутентификационный файл создается в командной строке с помощью утилиты htpasswd. Если доступ 
+к командной строке сервера отсутствует, то вычислить значение хеша для пароля можно с помощью online-
+инструмента <a href="http://www.htaccesstools.com/htpasswd-generator/" class="urlextern" title="http://www.htaccesstools.com/htpasswd-generator/"  rel="nofollow">http://www.htaccesstools.com/htpasswd-generator/</a>
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Аутентификационный файл" [2966-3698] -->
+<h3 class="sectionedit6" id="пример">Пример</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> AuthType Basic</div>
+</li>
+<li class="level1"><div class="li"> AuthName «Enter your username and password»</div>
+</li>
+<li class="level1"><div class="li"> AuthUserFile /home/stud/8888/pas</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Пример" [3699-3825] -->
+<h2 class="sectionedit7" id="настройка_для_аутентификации1">Настройка для аутентификации</h2>
+<div class="level2">
+
+<p>
+Для определения пользователей, которые имеют доступ к текущему каталогу веб-сервера, в файле 
+.htaccess, расположенному в этом каталоге, необходимо указать следующую директиву:
+</p>
+<pre class="code">  Require user user1 user2 user3</pre>
+
+<p>
+user1, user2 и user3 – имена пользователей из аутентификационного файла.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "Настройка для аутентификации" [3826-4364] -->
+<h2 class="sectionedit8" id="htpasswd">htpasswd</h2>
+<div class="level2">
+<pre class="code">  apt-get install apache2-utils</pre>
+
+<p>
+If you&#039;re not logged in as root add sudo in front of the command and you&#039;re done.
+Here is an example command for using htpasswd for nginx:
+</p>
+<pre class="code">  htpasswd -c -d /path/to/file username</pre>
+
+<p>
+And here is an example config file:
+</p>
+<pre class="code">  server {
+      listen   80 default;
+      server_name  localhost;
+      access_log  /var/log/nginx/localhost.access.log;
+      root /var/www/default;</pre>
+<pre class="code">      location / {
+              auth_basic &quot;Private area&quot;;
+              auth_basic_user_file /var/www/passwd;
+              index index.html index.html index.php;
+      }
+      if ( !-e $request_filename ) {
+              rewrite ^(.*)$ /index.php?/$1 last;
+              break;
+      }
+      location ~ \.php$ {
+              auth_basic &quot;Private area&quot;;
+              auth_basic_user_file /var/www/passwd;
+              include /etc/nginx/fastcgi_params;
+              fastcgi_pass 127.0.0.1:9000;
+              fastcgi_index index.php;
+              fastcgi_param SCRIPT_FILENAME /var/www/default$fastcgi_script_name;
+      }
+   }</pre>
+
+<p>
+Very important: Make sure you add auth_basic to every location block that you are using or you might end up with users seeing stuff that you want to keep private!
+</p>
+
+</div>
+<!-- EDIT8 SECTION "htpasswd" [4365-] -->

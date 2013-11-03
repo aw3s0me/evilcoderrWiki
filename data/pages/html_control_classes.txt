@@ -1,0 +1,16 @@
+====== HTML Control Classes ======
+{{ :wiki:fig154_01.jpg?600 |}}
+===== Description =====
+This classes provides 2 possible events:
+  - ServerClick**[Anchor,Button,InpButton,InpImage,InpReset]**
+  - ServerChange**[InpText,InpCheckBox,InpRadioButton,InpHidden,Select,TextArea]**
+===== Attributes =====
+  * Attributes - collection of all atributes
+  * Controls - gets set of controls inside the current control
+  * Disabled - disables the control (Disabled=true)
+  * EnableViewState - true=control stores state in hidden field
+  * Page - ref to page
+  * Parent - ref to the conrol that is contained ours
+  * Style - collection of CSS style
+  * TagName - indicates the name of HTML element (img/div/...)
+  * Visible

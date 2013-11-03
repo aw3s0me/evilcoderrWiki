@@ -1,0 +1,111 @@
+
+<h1 class="sectionedit1" id="patterns_of_communication">Patterns of communication</h1>
+<div class="level1">
+
+<p>
+Example: Find average value of array:
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Patterns of communication" [1-78] -->
+<h3 class="sectionedit2" id="map_план_reads_and_writes_multiple_one-to-one">1) Map (План) READS AND WRITES MULTIPLE one-to-one</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 1 task for all piece of DATA. </div>
+</li>
+<li class="level1"><div class="li"> READ FROM AND WRITE TO SPECIFIC PLACE OF MEMORY</div>
+</li>
+</ul>
+<pre class="code">   output[i] = function(input[i]);</pre>
+
+<p>
+Operation is Map, if input and output index are same.
+MINUS: FLEXIBILITY
+</p>
+
+</div>
+<!-- EDIT2 SECTION "1) Map (План) READS AND WRITES MULTIPLE one-to-one" [79-343] -->
+<h3 class="sectionedit3" id="gather_сбор_reads_multiple_one-to-many">2) Gather (СБОР) READS MULTIPLE one-to-many</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong>Read from many pieces</strong> of memory and <strong>write into A SINGLE PLACE</strong></div>
+</li>
+</ul>
+
+<p>
+1) Find a sum of elements 2) Divide sum to quantity
+</p>
+<pre class="code">   output[ scatterLoc[i] ] = input[i];</pre>
+
+<p>
+Operation is Gather, if threads compute their input index
+</p>
+
+</div>
+<!-- EDIT3 SECTION "2) Gather (СБОР) READS MULTIPLE one-to-many" [344-628] -->
+<h3 class="sectionedit4" id="scatter_разброс_writes_multiple_many-to-one">3) Scatter (РАЗБРОС) WRITES MULTIPLE many-to-one</h3>
+<div class="level3">
+
+<p>
+add 1/3 of each element
+</p>
+<ul>
+<li class="level1"><div class="li"> Read FROM many places and write to neighbouring places</div>
+</li>
+</ul>
+
+<p>
+Problem: attempting to write to the same place several times
+</p>
+<pre class="code">   output[i] = input[ gatherLoc[i] ];</pre>
+
+<p>
+Operation is Scatter, if threads compute their output index
+</p>
+
+</div>
+<!-- EDIT4 SECTION "3) Scatter (РАЗБРОС) WRITES MULTIPLE many-to-one" [629-940] -->
+<h3 class="sectionedit5" id="stencil_наносить_узор_по_трафарету_several-to-one">4) Stencil (Наносить узор по трафарету) several-to-one</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> <strong>READ FROM FIXED NEIGBERHOOD</strong></div>
+</li>
+<li class="level1"><div class="li"> it uses special pattern - STENCIL (<strong>data structure 2D VON NEUMANN STENCIL</strong>)</div>
+</li>
+<li class="level1"><div class="li"> also 2D Moore and 3D von neumann stencil</div>
+</li>
+</ul>
+
+<p>
+MINUS: DATA REUSE
+</p>
+<ul>
+<li class="level1"><div class="li"> 2D von neumann - 5 times will be read</div>
+</li>
+<li class="level1"><div class="li"> 3D von neumann - 7 times will be read</div>
+</li>
+<li class="level1"><div class="li"> 2D Moore - 9 times will be read</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "4) Stencil (Наносить узор по трафарету) several-to-one" [941-1329] -->
+<h3 class="sectionedit6" id="transpose_переставлять_транспонировать_one-to-one">5) Transpose (Переставлять, Транспонировать) one-to-one</h3>
+<div class="level3">
+
+<p>
+REORDER ELEMENTS IN MEMORY
+</p>
+
+</div>
+<!-- EDIT6 SECTION "5) Transpose (Переставлять, Транспонировать) one-to-one" [1330-1449] -->
+<h3 class="sectionedit7" id="reduce_уменьшать_сокращать_all-to-one">6) Reduce (Уменьшать, сокращать) all-to-one</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT7 SECTION "6) Reduce (Уменьшать, сокращать) all-to-one" [1450-1521] -->
+<h3 class="sectionedit8" id="scan_sort_all-to-all">7) Scan/Sort all-to-all</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT8 SECTION "7) Scan/Sort all-to-all" [1522-] -->

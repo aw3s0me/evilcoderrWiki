@@ -1,0 +1,47 @@
+
+<h1 class="sectionedit1" id="smtp">SMTP</h1>
+<div class="level1">
+
+<p>
+Протокол для передачи сообщений в TCP/IP
+</p>
+<ul>
+<li class="level1"><div class="li"> Протокол SMTP используется для передачи почтового сообщения от отправителя SMTP-серверу, а также для передачи почтовых сообщений между SMTP-серверами.</div>
+</li>
+<li class="level1"><div class="li"> Для получения почтовых сообщений клиентские приложения используют другие протоколы: POP (Post Office Protocol) или IMAP (Internet Message Access Protocol).</div>
+</li>
+</ul>
+
+<p>
+Работа по протоколу SMTP происходит по принципу клиент/сервер:
+</p>
+<ol>
+<li class="level1"><div class="li"> программа-клиент устанавливает TCP-соединение с сервером (стандартный номер порта – 25) и </div>
+</li>
+<li class="level1"><div class="li"> отправляет ему SMTP-команды в текстовом виде. </div>
+</li>
+<li class="level1"><div class="li"> Сервер обрабатывает команды и выдает отправителю SMTP-ответы. </div>
+</li>
+<li class="level1"><div class="li"> Взаимодействие продолжается, пока клиент или сервер не разорвет TCP-соединение.</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT1 SECTION "SMTP" [1-1226] -->
+<h2 class="sectionedit2" id="пример">Пример</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> в cmd набираем telnet alt2.gmail-smtp-in.l.google.com 25</div>
+</li>
+<li class="level1"><div class="li"> потом HELO sender.example.com</div>
+</li>
+<li class="level1"><div class="li"> он пишет 250 mx.google.com at your service</div>
+</li>
+<li class="level1"><div class="li"> потом набираем MAIL FROM: <a href="mailto:&#x73;&#x65;&#x6e;&#x64;&#x65;&#x72;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x73;&#x65;&#x6e;&#x64;&#x65;&#x72;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x65;&#x6e;&#x64;&#x65;&#x72;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></div>
+</li>
+<li class="level1"><div class="li"> пишем потом EHLO username_base64</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "Пример" [1227-] -->

@@ -1,0 +1,55 @@
+====== Управление состоянием ======
+===== View State Collection =====
+For saving state there is a **View State Collection**
+       this.ViewState["Counter"] = 1;
+==== Making it secure ====
+       <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value"fergjeriogher4..." />
+DATA ISNT ECNRYPTED!!, patched together in memory in Base64 string!
+ВРУБАЕМ:
+       <%Page ViewStateEncryptionMode="Always" or in system.web cfg
+default is auto :(
+===== To store objects in View State you need SERIALIZABLE FLAG =====
+===== Transferring info b/n pages =====
+==== Cross-Page Posting ====
+Extends PostBack mechanism
+  * PostBackUri property (is defined by IButtonControl)
+Simply set PostBackUri to the name of another Web Form
+        var prevPage = PreviousPage as CrossPage1;
+        if (prevPage != null)
+        {
+            //Do some action
+        }
+DON'T FORGET in HTML:
+        <%@ PreviousPageType VirtualPath="~/CrossPage1.aspx" %>
+==== Query String ====
+q - variable, that contain "organic+gardening" string
+      http://www.google.ca/search?q=organic+gardening
+LIMITATIONS:
+  * info is limited to strings, which must contain URL-legal characters
+  * info is visible to the user to anyone else
+  * user can insert new values
+  * many browser have limits on the length of a URL
+Пример:
+      Response.Redirect("newpage.aspx?recordID=10&mode=full");
+      //receiving
+      string ID = Request.QueryString["recordID"];
+==== By Using Cookies (DONT DO THIS) ====
+Cookies - small files that are created in the web browser memory or on the client hard drive. 
+      var cookie = new HttpCookie("Preferences")
+===== Session Tracking =====
+2 Ways:
+  * Using Cookie
+  * Modified URL (Example: ID)
+==== Config session state ====
+  * cookieless; - cookies in some sessions are bad choice
+  * cookieName; 
+  * regenerateExpiredSessionId; 
+  * timeout; - wait without receiving request, before session ends
+  * mode; 
+  * stateConnectionString; 
+  * stateNetworkTimeout;
+  * sqlConnectionString
+  * sqlCommandTimeout
+  * allowCustomSqlDatabase
+  * customProvider
+  * compressionEnabled

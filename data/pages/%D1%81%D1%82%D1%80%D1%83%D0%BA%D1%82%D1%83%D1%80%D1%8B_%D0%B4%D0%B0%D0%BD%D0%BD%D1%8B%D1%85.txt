@@ -1,0 +1,58 @@
+====== Структуры данных ======
+Нету массивов, вместо них списки
+===== Списки =====
+**Пример:** 
+
+     solnechnaya_systema = ["Venera",
+      "Zemlya",
+      "Mars",
+      "Uran",
+      "Neptun"]
+
+**Вывод списка (аналог foreach'а):**
+    for planeta in solnechnaya_systema:
+       print planeta
+**Обращение к элементу (индексирование):**
+    solnechnaya_systema[0]
+    solnechnaya_systema[1]
+**Сортировка:**
+    solnechnaya_systema.sort()
+**Нахождение индекса по значению:**
+    solnechnaya_systema.index("Zemlya")
+Добавление в список:
+    ljudi.append({'imja': 'Marat Bashibuzukov', 'nick':'CeCe', 'vozrast':18, 'jazyk':'C++'})
+===== Tuples [Кортежи] =====
+Кортежи чаще всего, применяются для хранения нескольких различных параметров одного и того же объекта вместе, в одной переменной.
+----
+**Пример:**
+    planeta1 = ("Zemlya", 149600000, 24)
+    planeta2 = ("Venera", 108210000, 5832)
+**Список кортежей:**
+    medvedica = [(104, 195),
+                  (133, 197),
+                  (150, 213),
+                  (171, 224),
+                  (214, 227),
+                  (208, 249),
+                  (172, 245)]
+**Обращение к кортежу:**
+    for element in medvedica:
+         circle(element[0],element[1],1)
+===== Map [Словари] =====
+----
+**Пример:**
+    person2 = {'imja': 'Prokofjev Ivan', 'nick':'Progman', 'vozrast':21, 'jazyk':'javascript'}
+    #этим примером мы создали словарь, где каждому ключу соотв-ет значение
+    #Ключ imja - значение строка 'Prokofjev Ivan'
+    #Ключ nick - значение строка 'Progman'
+    #Ключ vozrast - значение int 21
+    #Ключ jazyk - значение строка 'javascript'
+**Добавление в словарь**
+Просто при индексировании по новому ключу
+    jazyki['Lisp'] = {'nazvanije': 'Lisp', 'avtor': 'John McCarthy', 'god_sozdanija': 1958}
+    #Lisp - такого ключа раньше не существовало
+**Обращение к словарю:**
+  - По ключу
+      person['jazyk'] = 'python'
+  - Если список содержит словарь как элемент
+      nazvanije_iskomogo_jazyk = ljudi[2]['jazyk']

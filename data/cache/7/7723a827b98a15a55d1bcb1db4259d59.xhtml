@@ -1,0 +1,41 @@
+
+<h1 class="sectionedit1" id="cookies_in_php">Cookies in PHP</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Позволяют сохранять информацию о пользователе на жестком диске</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Cookies in PHP" [1-151] -->
+<h2 class="sectionedit2" id="пример_использования">Пример использования</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Для того чтобы юзер не вводил данные много раз</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Пример использования" [152-292] -->
+<h2 class="sectionedit3" id="установка_куки">Установка куки</h2>
+<div class="level2">
+<pre class="code">  setcookie(ключ, значение, время)
+  setcookie($name, $password, time() - 3600, &quot;/&quot;); //если авторизация то имя юзера, время - час, сохранять в нашей папке куки для всех адресов в этом домене</pre>
+
+</div>
+<!-- EDIT3 SECTION "Установка куки" [293-627] -->
+<h2 class="sectionedit4" id="вывод_куки_на_экран">Вывод куки на экран</h2>
+<div class="level2">
+<pre class="code">  if(isset($_COOKIE[$name])){ print $_COOKIE[$name]; }</pre>
+
+</div>
+<!-- EDIT4 SECTION "Вывод куки на экран" [628-732] -->
+<h2 class="sectionedit5" id="удалить_куки">Удалить куки</h2>
+<div class="level2">
+
+<p>
+Способ - задать отрицательное время в функции setcookie
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Удалить куки" [733-] -->

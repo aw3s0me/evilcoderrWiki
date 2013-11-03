@@ -1,0 +1,15 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1373102833;s:8:"modified";i:1373105572;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1373105572;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:20:"html_control_classes";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}s:5:"title";s:20:"HTML Control Classes";s:11:"description";a:2:{s:15:"tableofcontents";a:3:{i:0;a:4:{s:3:"hid";s:20:"html_control_classes";s:5:"title";s:20:"HTML Control Classes";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:11:"description";s:5:"title";s:11:"Description";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:10:"attributes";s:5:"title";s:10:"Attributes";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:503:"Description
+
+This classes provides 2 possible events:
+
+	*  ServerClick[Anchor,Button,InpButton,InpImage,InpReset]
+	*  ServerChange[InpText,InpCheckBox,InpRadioButton,InpHidden,Select,TextArea]
+
+Attributes
+
+	*  Attributes - collection of all atributes
+	*  Controls - gets set of controls inside the current control
+	*  Disabled - disables the control (Disabled=true)
+	*  EnableViewState - true=control stores state in hidden field
+	*  Page - ref to page
+	*  Parent - ref to the conrol that is containe…";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:18:"wiki:fig154_01.jpg";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1373102833;s:8:"modified";i:1373105572;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1373105572;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:20:"html_control_classes";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}}}

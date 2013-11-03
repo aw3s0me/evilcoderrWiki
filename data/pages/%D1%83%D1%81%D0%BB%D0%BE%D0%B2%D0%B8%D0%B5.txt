@@ -1,0 +1,13 @@
+====== Условие ======
+Пример условия:
+     if front > 3:
+        move(3)
+     elif left > 3:
+        turn(-90)
+        move(3)
+===== Составное условие =====
+    def check(x):
+        if x >= 10 and x <= 90:
+            print u"Попал"
+        else:
+            print u"Не попал"

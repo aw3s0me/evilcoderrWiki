@@ -1,0 +1,15 @@
+====== ASP.NET WebForms ======
+Choose separate file option:
+  * **.aspx** - Web page markup
+  * **.aspx.cs** - code behind
+==== Designing a web page ====
+VS gives 3 ways to look:
+  * Design view - graphical representation
+  * Source view - underlying markup (HTML+asp control tags)
+  * Split View - combined view
+**CTRL+S - TO change VIEW!!**
+==== Access to style ====
+We have access to style by using indexes (C#) (font,family,size,color):
+      Result.Style["color"] = "Red";
+====== Web Controls ======
+{{ :wiki:nfe3_0703.gif?600 |}}

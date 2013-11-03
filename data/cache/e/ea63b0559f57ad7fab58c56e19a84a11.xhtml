@@ -1,0 +1,87 @@
+
+<h1 class="sectionedit1" id="settings">Settings</h1>
+<div class="level1">
+
+<p>
+cfg files have advantages:
+</p>
+<ul>
+<li class="level1"><div class="li"> We can update them at any point anytime</div>
+</li>
+<li class="level1"><div class="li"> Easily accessed</div>
+</li>
+<li class="level1"><div class="li"> Easy to edit/understand</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Settings" [1-142] -->
+<h2 class="sectionedit2" id="webconfig">web.config</h2>
+<div class="level2">
+
+<p>
+Simple XML document, root - configuration
+</p>
+<pre class="code">    &lt;configuration&gt;
+       &lt;appSettings&gt;...&lt;/appSettings&gt;
+       &lt;connectionStrings&gt;...&lt;/connectionStrings&gt;
+       &lt;system.web&gt;
+          &lt;compilation debug=&quot;true&quot; targetFramework=&quot;4.5&quot;/&gt; //the most important
+          &lt;httpRuntime targetFramework=&quot;4.5&quot;/&gt;
+       &lt;/system.web&gt;
+    &lt;/configuration&gt;</pre>
+
+<p>
+Description:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>appSettings</strong> - our own information</div>
+</li>
+<li class="level1"><div class="li"> <strong>connectionStrings</strong> - allows to define connection information for accessing a database</div>
+</li>
+<li class="level1"><div class="li"> <strong>system.web</strong> - all info we need to configure</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="appsettings">appSettings</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> to centaliza an important setting that important for all pages</div>
+</li>
+<li class="level1"><div class="li"> switch between modes of operation (enum, debug variables)</div>
+</li>
+<li class="level1"><div class="li"> To set initial values (default or const)</div>
+</li>
+</ul>
+<pre class="code">    &lt;appSettings&gt;
+         &lt;add key=&quot;DataFilePath&quot; value=&quot;e:/fewf/erg&quot;
+    &lt;/appSettings&gt;</pre>
+
+<p>
+<strong>ОБРАЩЕНИЕ К НИМ:</strong>
+</p>
+<pre class="code">    WebConfigurationManager.AppSettings[&quot;DataFilePath&quot;]</pre>
+
+</div>
+<!-- EDIT2 SECTION "web.config" [143-1103] -->
+<h2 class="sectionedit3" id="website_administration_tool">Website Administration Tool</h2>
+<div class="level2">
+
+<p>
+Allows to configure web.config file.
+</p>
+<hr />
+
+<p>
+localhost:port/asp.netwebadminfiles/..
+</p>
+<hr />
+
+<p>
+WEBSITE→ASP.NET Configuration
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Website Administration Tool" [1104-] -->

@@ -1,0 +1,44 @@
+====== AJAX ======
+Asyncronous Javascript and XML
+  * Позволяет динамически получать данные с сервера
+  * XML непосредственно связан с JS (представление данных)
+
+===== Запрос =====
+  - Клиентская страница запрашивает с сервера данные при помощи AJAX и ждет ответа
+  - Сервер получает запрос и отправляет ответ (может быть в виде .xml/.json)
+  - Клиент получает ответ с помощью AJAX и парсит данные и вставляет их на страницу БЕЗ ПЕРЕЗАГРУЗКИ
+===== XMLHttpRequest =====
+HTTP объект запроса, минусы:
+  * требует большого количества кода
+  * сложный в использовании (можно запутаться в параметрах)
+  * для каждого браузера своя реализация
+==== Примеры ====
+    var request;
+    if (window.XMLHttpRequest) {
+        try {
+            request = new XMLHttpRequest();
+        }
+        catch(e)
+            request = null;
+    }
+    else if (...) //версия для ActiveX (Microsoft, IE)
+    ///
+    теперь когда объект запроса готов, необходимо подключить его к самому запросу
+    ///
+    request.onreadystatechange = handler;
+    request.open(type, url, true);
+==== Тип запроса ====
+=== GET ===
+для получения данных с сервера НЕ ВЛИЯЯ НА НИХ
+    request.open ("GET", "blog.xml", true);
+    request.send(null); //значит не содержит данных если null
+=== POST ===
+отправка данных на сервер
+    request.open ("POST", "addblogentry.php", true);
+    request.setRequestHeader ("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    request.send("09/26/2008&Blablamsg&cubepart.png"); //значит содержит данных
+===== Обработка запроса =====
+Ответ обрабатывается при помощи функции обратного вызова
+    handleRequest();
+    getResponseText()
+    getResponseXML()

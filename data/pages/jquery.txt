@@ -1,0 +1,20 @@
+====== JQuery ======
+Библиотека готовых функций методов для javascript, которая позволяет упростить написание программ
+
+2 версии:
+  - производственная (Production) версия (укороченная) - для живых сайтов
+  - Девелопмент - для разработки
+==== Встраивание ====
+С помощью тега script, где jquery лежит ЛОКАЛЬНО
+    <head>
+         <script type="text/javascript" src="путь к jQuery.js"></script>
+    </head>
+jquery находится на хосте (**лучше такой способ, тк либа загружается в кэше**)!!
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+===== Structure =====
+  * [[JQuery Syntax]]
+  * [[JQuery useful methods]]
+  * [[JQuery events]]
+  * [

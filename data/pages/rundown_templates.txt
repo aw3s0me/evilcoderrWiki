@@ -1,0 +1,16 @@
+====== RUNDOWN TEMPLATES ======
+  * **ASP.NET Web Forms Site** - website with basic infrastructure in place [master page(layout), 2 web pages, accounts folder
+  * **Web Site RAZOR** - website uses **ASP.NET MVC**
+  * **Empty web site** - only cfg
+  * **Dynamic Data Entities web site** - uses Dynamic Data feature[2 dynamic templates]
+  * **WCF Service** - creates library of server-side methods that clients can call
+  * **Reports Web Site** - uses ReportView Control
+==== Difference b/w **web site** AND **web project** ====
+  - Different purposes - web site dynamically changes all the time/project-just application
+  - code behind model (WEB APP)
+  - Need to generate one assembly for each page (WEB SITE)
++FOR PROJECTS:
+  - HAVE AN OLD PROJECT (BEFORE 2005)
+  - 2 PROJECTS IN ONE FOLDER
+  - A LOT OF RESOURCES FILES
+  - MSBuild feature

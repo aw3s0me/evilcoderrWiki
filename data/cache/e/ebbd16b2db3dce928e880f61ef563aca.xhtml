@@ -1,0 +1,193 @@
+
+<h1 class="sectionedit1" id="файлы_в_linux">Файлы в Linux</h1>
+<div class="level1">
+
+<p>
+1) диск делится на partition
+2) Все схема представлена в виде графа, где ребра связаны с именем файла
+3) файловая система содержит - заголовки разделов, логические блоки (инф-ия о файлах и инф-ия о размещении файлов)
+3) Индекс узла - содержит аттрибуты файлов (имя, тип, права, Id юзера
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Файлы в Linux" [1-531] -->
+<h2 class="sectionedit2" id="операции_над_файлами">Операции над файлами</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "Операции над файлами" [532-582] -->
+<h3 class="sectionedit3" id="файлы_двух_типов">Файлы двух типов:</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> файлы последовательного доступа и </div>
+</li>
+<li class="level1"><div class="li"> файлы прямого доступа</div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> Для последовательного доступа: чтение очередной порции данных (<strong>read</strong>), запись очередной порции данных (<strong>write</strong>) и позиционирование на начале файла (<strong>rewind</strong>).</div>
+</li>
+<li class="level1"><div class="li"> Для прямого доступа: чтение очередной порции данных (read), запись очередной порции данных (write) и позиционирование на требуемой части данных (seek).</div>
+</li>
+<li class="level1"><div class="li"> Работа с объектами этих абстрактных типов подразумевает наличие еще двух необходимых операций: создание нового объекта (new) и уничтожение существующего объекта (free).</div>
+</li>
+<li class="level1"><div class="li"> прочитать атрибуты (get attribute) и установить их значения (set attribute).</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Файлы двух типов:" [583-1712] -->
+<h3 class="sectionedit4" id="операции_над_файлом">Операции над файлом</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Вся информация о файле при первом считывании хранится в адресном пространстве</div>
+</li>
+<li class="level1"><div class="li"> Файл = набор байт снабженный указателем</div>
+</li>
+<li class="level1"><div class="li"> Совместное использование файла возможно только для родственных процессов</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Операции над файлом" [1713-2127] -->
+<h3 class="sectionedit5" id="директория">Директория:</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> операции new, free, set attribute и get attribute</div>
+</li>
+<li class="level1"><div class="li"> прочитать запись, соответствующую имени файла, – get record;</div>
+</li>
+<li class="level1"><div class="li"> добавить новую запись – add record;</div>
+</li>
+<li class="level1"><div class="li"> удалить запись, соответствующую имени файла, – delete record.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Директория:" [2128-2496] -->
+<h2 class="sectionedit6" id="создание_файла">Создание файла</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> int creat(char *path, int mode); </div>
+</li>
+<li class="level1"><div class="li"> -1 если ошибка</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Создание файла" [2497-2603] -->
+<h2 class="sectionedit7" id="чтение_аттрибутов">Чтение аттрибутов</h2>
+<div class="level2">
+
+<p>
+struct stat *buf - в нее будут помещены эти аттрибуты
+</p>
+<ul>
+<li class="level1"><div class="li"> int stat(char *filename, struct stat *buf);</div>
+</li>
+<li class="level1"><div class="li"> int fstat(int fd, struct stat *buf);</div>
+</li>
+<li class="level1"><div class="li"> int lstat(char *filename, struct stat *buf);</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Чтение аттрибутов" [2604-2870] -->
+<h2 class="sectionedit8" id="запись_аттрибутов">Запись аттрибутов</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> int ftruncate(int fd, size_t length); - изменение длины файла</div>
+</li>
+<li class="level1"><div class="li"> off_t lseek(int fd, off_t offset, int whence); - для изменения положения указателя текущей позиции в открытом регулярном файле.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Запись аттрибутов" [2871-3201] -->
+<h2 class="sectionedit9" id="связывание">Связывание</h2>
+<div class="level2">
+
+<p>
+Для создания новых ребер без добавления новых файлов
+</p>
+<ul>
+<li class="level1"><div class="li"> Созданы для того чтобы не было дублирования, что то типа ярлыка</div>
+</li>
+</ul>
+
+<p>
+2 способы связывания:
+</p>
+
+</div>
+<!-- EDIT9 SECTION "Связывание" [3202-3491] -->
+<h3 class="sectionedit10" id="жесткая_связь">Жесткая связь</h3>
+<div class="level3">
+
+<p>
+Новое ребро
+</p>
+<ul>
+<li class="level1"><div class="li"> ln [options] source [dest]</div>
+</li>
+<li class="level1"><div class="li"> ln [options] source … directory</div>
+</li>
+</ul>
+
+<p>
+просто ln - жесткие
+</p>
+<ul>
+<li class="level1"><div class="li"> int link(char *pathname, char *linkpathname);</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "Жесткая связь" [3492-3701] -->
+<h3 class="sectionedit11" id="мягкая_связь">Мягкая связь</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> ln -s - мягкие связи,</div>
+</li>
+<li class="level1"><div class="li"> int symlink(char *pathname, char *linkpathname);</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "Мягкая связь" [3702-3825] -->
+<h3 class="sectionedit12" id="удаление_связей">Удаление связей</h3>
+<div class="level3">
+
+<p>
+int unlink(char *pathname);
+</p>
+
+</div>
+<!-- EDIT12 SECTION "Удаление связей" [3826-3893] -->
+<h2 class="sectionedit13" id="отображаемые_в_память_файлы">Отображаемые в память файлы</h2>
+<div class="level2">
+
+<p>
+Этапы:
+</p>
+<ol>
+<li class="level1"><div class="li"> Открыть open()</div>
+</li>
+<li class="level1"><div class="li"> Отображение из диск простр-ва в адресное простр-во mmap()</div>
+</li>
+</ol>
+
+<p>
+void *mmap (void *start, size_t length, int prot, int flags, int fd, off_t offset);
+</p>
+<ul>
+<li class="level1"><div class="li"> возвращает начальный адрес памяти</div>
+</li>
+</ul>
+
+<p>
+для освобождения - int munmap (void *start, size_t length);
+</p>
+
+</div>
+<!-- EDIT13 SECTION "Отображаемые в память файлы" [3894-] -->

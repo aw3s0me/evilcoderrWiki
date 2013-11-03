@@ -1,0 +1,51 @@
+
+<h2 class="sectionedit1" id="resource_setup_alloc">Resource Setup/Alloc</h2>
+<div class="level2">
+
+<p>
+<strong>Providing setup:</strong>
+</p>
+<ol>
+<li class="level1"><div class="li"> Get the device <em>multiple cores on the same devices
+  - Create a context </em>enable sharing of memiry b/n devices</div>
+</li>
+<li class="level1"><div class="li"> Create command queues <em>to talk with devices, EACH DEVICE MUST HAVE A QUEUE
+
+    </em> Get the platform ID</div>
+</li>
+</ol>
+
+<p>
+    cl_platform_id platform;
+</p>
+<pre class="code">  clGetPlatformIDs(1, &amp;platform, NULL);
+  // Get the first GPU device associated with the platform
+  cl_device_id device;
+  clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &amp;device, NULL);
+  // Create an OpenCL context for the GPU device
+  cl_context context;
+  context = clCreateContext(NULL, 1, &amp;device, NULL, NULL, NULL);
+  
+  // Create a command-queue for a specific device
+  cl_command_queue cmd_queue = clCreateCommandQueue(context, device_id, 0, NULL);
+  </pre>
+
+<p>
+<strong>Rule: We can share information between devices ONLY IN THE SAME CONTEXT!</strong>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Resource Setup/Alloc" [1-868] -->
+<h3 class="sectionedit2" id="choosing_device">Choosing device</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> The best device is algorithm and hardware based device</div>
+</li>
+<li class="level1"><div class="li"> Sometimes CPU betters, sometimes GPU (depend on algorithm)</div>
+</li>
+<li class="level1"><div class="li"> clGetDeviceInfo to check device and get info</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Choosing device" [869-] -->

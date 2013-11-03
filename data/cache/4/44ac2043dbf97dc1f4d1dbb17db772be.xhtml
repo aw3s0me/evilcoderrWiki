@@ -1,0 +1,26 @@
+
+<h1 class="sectionedit1" id="efficiency_in_cuda">Efficiency in CUDA</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Efficiency in CUDA" [1-33] -->
+<h2 class="sectionedit2" id="minimize_time_spend_on_memory">Minimize time spend on memory</h2>
+<div class="level2">
+
+<p>
+ways:
+</p>
+<ol>
+<li class="level1"><div class="li"> Move frequently accessed memory to FAST MEMORY (local &gt; shared » global » host memory (CPU mem))</div>
+</li>
+<li class="level1"><div class="li"> Coalesce (СЛИЯНИЕ, ОБЪЕДИНЕНИЕ) global access <em>Good, High performance
+  - Not Strided (ШАГАТЬ) - It&#039;s bad
+  - Not Randomed - VERY BAD
+===== Avoid thread divergence (РАСХОЖДЕНИЕ, ОТКЛОНЕНИЕ) =====
+if-else condition for threads
+</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "Minimize time spend on memory" [34-] -->

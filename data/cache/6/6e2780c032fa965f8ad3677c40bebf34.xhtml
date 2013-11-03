@@ -1,0 +1,109 @@
+
+<h1 class="sectionedit1" id="lighttpd_for_ubuntu">lighttpd for UBUNTU</h1>
+<div class="level1">
+
+<p>
+Проверить работоспособность тестовой страницы 
+</p>
+<pre class="code">  http://192.168.0.100/index.lighttpd.html</pre>
+
+</div>
+<!-- EDIT1 SECTION "lighttpd for UBUNTU" [1-168] -->
+<h1 class="sectionedit2" id="установка">Установка</h1>
+<div class="level1">
+<pre class="code">  sudo su
+  apt-get install mysql-server mysql-client
+  apt-get install lighttpd</pre>
+
+</div>
+<!-- EDIT2 SECTION "Установка" [169-288] -->
+<h2 class="sectionedit3" id="конфигурация">Конфигурация</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> root is <strong>/var/www</strong></div>
+</li>
+<li class="level1"><div class="li"> the configuration file <strong>/etc/lighttpd/lighttpd.conf</strong></div>
+</li>
+<li class="level1"><div class="li"> Additional configurations in <strong>/etc/lighttpd/conf-available</strong></div>
+</li>
+<li class="level1"><div class="li"> these configurations can be enabled with the <strong>lighttpd-enable-mod</strong> command which creates a symlink from the <strong>/etc/lighttpd/conf-enabled</strong> directory to the appropriate configuration file in <strong>/etc/lighttpd/conf-available</strong>.</div>
+</li>
+<li class="level1"><div class="li"> You can disable configurations with the <strong>lighttpd-disable-mod</strong> command.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Конфигурация" [289-783] -->
+<h1 class="sectionedit4" id="установка_php">Установка PHP</h1>
+<div class="level1">
+<pre class="code">  apt-get install php5-fpm php5</pre>
+
+<p>
+<strong>/etc/init.d/php5-fpm</strong> that runs a FastCGI server on the socket /var/run/php5-fpm.sock.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Установка PHP" [784-944] -->
+<h1 class="sectionedit5" id="настройка_php">Настройка PHP</h1>
+<div class="level1">
+
+<p>
+To enable PHP5 in Lighttpd, we must modify /etc/php5/fpm/php.ini and uncomment the line cgi.fix_pathinfo=1:
+</p>
+<pre class="code">   vi /etc/php5/fpm/php.ini
+   
+   
+   cd /etc/lighttpd/conf-available/
+   cp 15-fastcgi-php.conf 15-fastcgi-php-spawnfcgi.conf
+   vi 15-fastcgi-php.conf
+   fastcgi.server += ( &quot;.php&quot; =&gt;
+      ((
+              &quot;socket&quot; =&gt; &quot;/var/run/php5-fpm.sock&quot;,
+              &quot;broken-scriptfilename&quot; =&gt; &quot;enable&quot;
+      ))
+   )</pre>
+
+<p>
+enable changes
+</p>
+<pre class="code">   lighttpd-enable-mod fastcgi
+   lighttpd-enable-mod fastcgi-php</pre>
+
+<p>
+then reload
+</p>
+<pre class="code">   /etc/init.d/lighttpd force-reload</pre>
+
+</div>
+<!-- EDIT5 SECTION "Настройка PHP" [945-1561] -->
+<h1 class="sectionedit6" id="поддержка_php-mysql">Поддержка PHP-MySQL</h1>
+<div class="level1">
+<pre class="code">   apt-cache search php5
+   
+   apt-get install php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
+   apt-get install php5-xcache
+   /etc/init.d/php5-fpm reload</pre>
+
+</div>
+<!-- EDIT6 SECTION "Поддержка PHP-MySQL" [1562-1916] -->
+<h1 class="sectionedit7" id="tcp_ip_connection">TCP/IP Connection</h1>
+<div class="level1">
+<pre class="code">   vi /etc/php5/fpm/pool.d/www.conf
+   
+   
+   [...]
+   ;listen = /var/run/php5-fpm.sock
+   listen = 127.0.0.1:9000
+   [...]
+   /etc/init.d/php5-fpm reload
+   fastcgi.server += ( &quot;.php&quot; =&gt;
+      ((
+              &quot;host&quot; =&gt; &quot;127.0.0.1&quot;,
+              &quot;port&quot; =&gt; &quot;9000&quot;,
+              &quot;broken-scriptfilename&quot; =&gt; &quot;enable&quot;
+      ))
+    )
+   </pre>
+
+</div>
+<!-- EDIT7 SECTION "TCP/IP Connection" [1917-] -->

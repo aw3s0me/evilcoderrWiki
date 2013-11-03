@@ -1,0 +1,112 @@
+
+<h2 class="sectionedit1" id="opencl_executional_model">OpenCL Executional Model</h2>
+<div class="level2">
+
+<p>
+3 basic components:
+</p>
+<ol>
+<li class="level1"><div class="li"> <strong>kernel</strong> - basic unit of exec code (<strong>kind of main function</strong>). <em>Can be task or data parallel.</em></div>
+</li>
+<li class="level1"><div class="li"> <strong>Program</strong> - collection of kernels (<strong>kind of library</strong>)</div>
+</li>
+<li class="level1"><div class="li"> <strong>Queue</strong> - operations are queued (<strong>in-order or out-of-order</strong>)</div>
+</li>
+</ol>
+
+</div>
+
+<h4 id="data_parallelism">Data parallelism:</h4>
+<div class="level4">
+
+<p>
+There is global N-D dimensional domain:
+</p>
+<ul>
+<li class="level1"><div class="li"> N=1 - vector</div>
+</li>
+<li class="level1"><div class="li"> N=2 - image</div>
+</li>
+<li class="level1"><div class="li"> N=3 - 3D model</div>
+</li>
+<li class="level1"><div class="li"> Work-item - element of execution in N-D domain</div>
+</li>
+<li class="level1"><div class="li"> N-D domain - defines the total number of work-items that execute in parallel</div>
+</li>
+</ul>
+
+<p>
+Example: 1024&times;1024 image:
+</p>
+<ol>
+<li class="level1"><div class="li"> 1024&times;1024 = 1 kernel exec per pixel = 1 million executions</div>
+</li>
+</ol>
+
+<p>
+IN DATA PARALLEL THERE ARE NO LOOP, SO NO ITERATIONS, just 1 MLN EXEC-S
+</p>
+
+</div>
+
+<h4 id="rules">Rules</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> kernel executed across global domain of work-items</div>
+</li>
+<li class="level1"><div class="li"> work-items grouped in work groups</div>
+</li>
+<li class="level1"><div class="li"> executed together on one device</div>
+</li>
+<li class="level1"><div class="li"> share local memory and sync</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="caveat">Caveat</h4>
+<div class="level4">
+
+<p>
+GLOBAL WORK-ITEMS MUST BE INDEPENDENT (sync only in local(groups) NOT GLOBAL between work items)
+</p>
+
+</div>
+
+<h4 id="problem_dimensions">Problem dimensions</h4>
+<div class="level4">
+
+<p>
+Advice : <strong>choose dimension that are best for your algorithm</strong> (MAPS WELL, PERFORMS WELL)
+</p>
+<ul>
+<li class="level1"><div class="li"> 1 Dim vector(1 mln elements):                      global_dim[3] = {1000000,1,1}</div>
+</li>
+<li class="level1"><div class="li"> 2 Dim matrix 1920&times;1200 hd frame(2.3 mln elements): global_dim[3] = {1920,1200,1}</div>
+</li>
+<li class="level1"><div class="li"> 3 Dim cube 256x256x256(16.7 voxels):               global_dim[3] = {256,256,256}</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="task_parallelism">Task parallelism:</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <strong>Executes as one work-item</strong></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "OpenCL Executional Model" [1-1423] -->
+<h3 class="sectionedit2" id="synchronization">Synchronization</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Use barriers to syncronize execution</div>
+</li>
+<li class="level1"><div class="li"> Use memory fences to syncronize memory access</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Synchronization" [1424-] -->

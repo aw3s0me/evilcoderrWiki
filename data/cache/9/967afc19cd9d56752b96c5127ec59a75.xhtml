@@ -1,0 +1,91 @@
+
+<h2 class="sectionedit1" id="udp">UDP</h2>
+<div class="level2">
+
+<p>
+Процесс сервер создает:
+</p>
+<ol>
+<li class="level1"><div class="li"> UDP сокет</div>
+</li>
+<li class="level1"><div class="li"> Связывает его с портом и IP адресом, настраивает адрес сокета</div>
+</li>
+</ol>
+
+<p>
+Процесс сервер должен сделать то же самое
+</p>
+
+</div>
+<!-- EDIT1 SECTION "UDP" [1-271] -->
+<h2 class="sectionedit2" id="проблемы">Проблемы</h2>
+<div class="level2">
+
+<p>
+Для сообщения, длина одного символа - 1 байт, проблем нет, но когда в разных системах по разному все, то есть старший &gt; меньшего, или меньший &gt; старшего, то проблема. Поэтому введен сетевой порядок байт
+</p>
+<ul>
+<li class="level1"><div class="li"> для перевода байт</div>
+</li>
+</ul>
+
+<p>
+#include &lt;netinet/in.h&gt;
+</p>
+<pre class="code">  unsigned long int htonl(unsigned long int hostlong); //целое длинное
+  unsigned short int htons(unsigned short int hostshort); //короткое длинное
+  unsigned long int ntohl(unsigned long int netlong); //обратно длинное
+  unsigned short int ntohs(unsigned short int netshort); //</pre>
+
+</div>
+<!-- EDIT2 SECTION "Проблемы" [272-1051] -->
+<h2 class="sectionedit3" id="преобразование_ip_адресов">Преобразование IP адресов</h2>
+<div class="level2">
+
+<p>
+char в int
+</p>
+<pre class="code">  int inet_aton(const char *strptr, struct in_addr *addrptr);
+  char *inet_ntoa(struct in_addr *addrptr);</pre>
+
+</div>
+<!-- EDIT3 SECTION "Преобразование IP адресов" [1052-1232] -->
+<h2 class="sectionedit4" id="заполнение_адреса_нулями">Заполнение адреса нулями</h2>
+<div class="level2">
+
+<p>
+Заполняет n байт нулями 
+</p>
+<pre class="code">  void bzero(void *addr, int n);</pre>
+
+</div>
+<!-- EDIT4 SECTION "Заполнение адреса нулями" [1233-1373] -->
+<h2 class="sectionedit5" id="создание_socket">Создание socket()</h2>
+<div class="level2">
+<pre class="code">  int socket(int domain, int type, int protocol);</pre>
+
+<p>
+Параметры
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>PF_INET</strong> – для семейства протоколов TCP/IP; <strong>PF_UNIX</strong> – для семейства внутренних протоколов UNIX, иначе называемого еще UNIX domain.</div>
+</li>
+<li class="level1"><div class="li"> <strong>SOCK_STREAM</strong> – для связи с помощью установления виртуального соединения; <strong>SOCK_DGRAM</strong> – для обмена информацией через сообщения.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Создание socket()" [1374-1927] -->
+<h3 class="sectionedit6" id="настройка_сокета">Настройка сокета</h3>
+<div class="level3">
+<pre class="code">   int bind(int sockd, struct sockaddr *my_addr, int addrlen);</pre>
+
+</div>
+<!-- EDIT6 SECTION "Настройка сокета" [1928-2034] -->
+<h3 class="sectionedit7" id="отправка">Отправка</h3>
+<div class="level3">
+<pre class="code">   int sendto(int sockd, char *buff, int nbytes, int flags, struct sockaddr *to, int addrlen);
+   int recvfrom(int sockd, char *buff, int nbytes, int flags, struct sockaddr *from, int *addrlen);</pre>
+
+</div>
+<!-- EDIT7 SECTION "Отправка" [2035-] -->

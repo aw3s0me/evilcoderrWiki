@@ -1,0 +1,177 @@
+
+<h2 class="sectionedit1" id="platform_and_memory_model">Platform and Memory model</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT1 SECTION "Platform and Memory model" [1-38] -->
+<h3 class="sectionedit2" id="platform_model">Platform model</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> host is connected to one or more OpenCL Devices</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="opencl_devics">OpenCL Devics</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Collection of one or more computer units (CORES)</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="memory_model">Memory model</h4>
+<div class="level4">
+
+<p>
+4 types of memory (sync):
+</p>
+<ol>
+<li class="level1"><div class="li"> Private (per work item)</div>
+</li>
+<li class="level1"><div class="li"> Local (shared among group)</div>
+</li>
+<li class="level1"><div class="li"> Global/Constant (Not sync)</div>
+</li>
+<li class="level1"><div class="li"> Host (on CPU)</div>
+</li>
+</ol>
+
+<p>
+Rule : Must move data from host to global to local and back
+</p>
+
+</div>
+
+<h4 id="buffers">Buffers</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Simple chunks of memory (Buffers = simple structs, arrays, pointers)</div>
+</li>
+<li class="level1"><div class="li"> kernels have access to buffers by arrays,structs,pointers</div>
+</li>
+<li class="level1"><div class="li"> kernels can read and write buffers</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="images">Images</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> 2D or 3D formatted data structures</div>
+</li>
+<li class="level1"><div class="li"> kernels have access only via read_image(), write_image()</div>
+</li>
+<li class="level1"><div class="li"> can be read and written in kernel</div>
+</li>
+</ul>
+
+</div>
+
+<h5 id="image_formats">Image formats</h5>
+<div class="level5">
+
+<p>
+Formats:
+</p>
+<ul>
+<li class="level1"><div class="li"> Channel orders: CL_A, CL_RGB, CL_RG etc [[alpha channel, or rgb channel</div>
+</li>
+<li class="level1"><div class="li"> Channel data type: CL_UNORM_INTS, CL_FLOAT etc</div>
+</li>
+<li class="level1"><div class="li"> clGetSupportedImageFormats() - returns supported format</div>
+</li>
+</ul>
+
+<p>
+Samplers(for reading):
+</p>
+<ul>
+<li class="level1"><div class="li"> Filter mode: linear or nearest <em>liner or nearest interpolation
+  * Adressing: clamp, clamp-edge, repeat or none
+  * Normalizing: true | false </em>normalized coordinates or not</div>
+</li>
+</ul>
+
+<p>
+.
+</p>
+<pre class="code">  cl_image_format format;
+  format.image_channel_data_type = CL_FLOAT;
+  format.image_channel_order = CL_RGBA;
+  
+  cl_mem input_image;
+  input_image = clCreateImage2D (context...)
+  cl_mem ouput_image;
+  output_image = clCreateImage2D (context...)
+  
+  cl_mem input_buffer;
+  input_buffer = clCreateBuffer(context,..)
+  cl_mem ouput_buffer;
+  ouput_buffer = clCreateBuffer(context,..)
+  </pre>
+
+</div>
+
+<h4 id="access_to_memory_object_data">Access to memory object data</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> clEnqueueReadBuffer(…) <em>read buffer in memory obj to host memory
+  * clEnqueueWriteBuffer(…) </em>write from host memory</div>
+</li>
+<li class="level1"><div class="li"> clEnqueueMapBuffer(…) <em>map region in mem obj to host
+  * clEnqueueCopyBuffer(…) </em>copy region of mem obj</div>
+</li>
+</ul>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Platform model" [39-1874] -->
+<h2 class="sectionedit3" id="opencl_objects">OpenCL Objects</h2>
+<div class="level2">
+
+<p>
+Setup
+</p>
+<ol>
+<li class="level1"><div class="li"> Devices - GPU/CPU/CELL</div>
+</li>
+<li class="level1"><div class="li"> Contexts - Collection of Devices</div>
+</li>
+<li class="level1"><div class="li"> Queues - Submit work to the device</div>
+</li>
+</ol>
+
+<p>
+Memory
+</p>
+<ol>
+<li class="level1"><div class="li"> Buffers - Blocks of memory </div>
+</li>
+<li class="level1"><div class="li"> Images - 2D or 3D formatted image</div>
+</li>
+</ol>
+
+<p>
+Execution
+</p>
+<ol>
+<li class="level1"><div class="li"> Programs - collection of kernels</div>
+</li>
+<li class="level1"><div class="li"> Kernel - exectuion instance</div>
+</li>
+</ol>
+
+<p>
+Syncronization/Profiling
+</p>
+<ol>
+<li class="level1"><div class="li"> Events</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT3 SECTION "OpenCL Objects" [1875-] -->

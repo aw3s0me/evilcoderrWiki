@@ -1,0 +1,85 @@
+
+<h2 class="sectionedit1" id="названия_переменных">Названия переменных</h2>
+<div class="level2">
+
+<p>
+Имена переменных могут состоять из следующих элементов:
+</p>
+<ul>
+<li class="level1"><div class="li"> букв латинского алфавита (заглавные и строчные буквы, опять же, различаются),</div>
+</li>
+<li class="level1"><div class="li"> знаков подчеркивания</div>
+</li>
+<li class="level1"><div class="li"> цифр (однако начинаться с цифры названия переменных не могут)</div>
+</li>
+</ul>
+
+<p>
+Правильные имена переменных:
+</p>
+<ul>
+<li class="level1"><div class="li"> x</div>
+</li>
+<li class="level1"><div class="li"> y</div>
+</li>
+<li class="level1"><div class="li"> luna2</div>
+</li>
+<li class="level1"><div class="li"> kak_sebya_chuvstvuete</div>
+</li>
+</ul>
+
+<p>
+Неправильные имена переменных:
+</p>
+<ul>
+<li class="level1"><div class="li"> 2x</div>
+</li>
+<li class="level1"><div class="li"> хьюстон у нас проблеммы</div>
+</li>
+<li class="level1"><div class="li"> pribori otkazali</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Названия переменных" [1-697] -->
+<h2 class="sectionedit2" id="string">STRING</h2>
+<div class="level2">
+
+<p>
+В string Можно использовать и двойные кавычки, и одинарные:
+</p>
+<ul>
+<li class="level1"><div class="li"> «laboratorka»</div>
+</li>
+<li class="level1"><div class="li"> &#039;2021&#039;</div>
+</li>
+</ul>
+
+<p>
+Перед русскоязычными строчками надо ставить букву u (это значит используется кодирование unicode), иначе Python не поймет этих букв:
+</p>
+<ul>
+<li class="level1"><div class="li"> u»Прикольные картинки!!!»</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "STRING" [698-1127] -->
+<h2 class="sectionedit3" id="глобальные_переменные">Глобальные переменные</h2>
+<div class="level2">
+<pre class="code">   x = 0
+   def inc2():
+      x = x + 1
+      print x</pre>
+
+<p>
+Выдает ошибку, надо добавить дополнительное слово <strong>global</strong>:
+</p>
+<pre class="code">   x = 0
+   def inc2():
+      global x
+      x = x + 1
+      print x</pre>
+
+</div>
+<!-- EDIT3 SECTION "Глобальные переменные" [1128-] -->

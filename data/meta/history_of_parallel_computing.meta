@@ -1,0 +1,13 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1377269201;s:8:"modified";i:1377276066;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1377276066;s:2:"ip";s:13:"46.161.167.72";s:4:"type";s:1:"E";s:2:"id";s:29:"history_of_parallel_computing";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}s:5:"title";s:16:"About processors";s:11:"description";a:2:{s:15:"tableofcontents";a:5:{i:0;a:4:{s:3:"hid";s:16:"about_processors";s:5:"title";s:16:"About processors";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:12:"why_parallel";s:5:"title";s:12:"Why parallel";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:3:"gpu";s:5:"title";s:3:"GPU";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:10:"processors";s:5:"title";s:10:"Processors";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:12:"optimization";s:5:"title";s:12:"Optimization";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:402:"Why parallel
+
+3 approaches of doing something better:
+
+	*  Doing faster
+	*  Buy a better instrument [is too expensive
+	*  Hire more workers
+
+HIRE WORKERS = NOT FASTER, BUT MORE WORK PER STEP
+
+GPU
+
+A graphics processing unit (GPU), is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1377269201;s:8:"modified";i:1377276066;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1377276066;s:2:"ip";s:13:"46.161.167.72";s:4:"type";s:1:"E";s:2:"id";s:29:"history_of_parallel_computing";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}}}

@@ -1,0 +1,19 @@
+So anyway, I had to setup a **LAMP server:**
+   sudo apt-get update
+   sudo apt-get upgrade
+**MySQL**
+   sudo apt-get install mysql-server mysql-client
+**Apache**
+   sudo apt-get install apache2
+**PHP**
+   sudo apt-get install php5 libapache2-mod-php5 php5-mysql
+**Restart Apache**
+   /etc/init.d/apache2 restart
+**phpMyAdmin**
+   sudo apt-get install phpmyadmin
+I don’t like to use Apache’s default http folder /var/www so I need to update the apache2.conf file:
+   sudo nano /etc/apache2/apache2.conf
+Changing the default location will require me to make sure phpMyAdmin continues to load on http://localhost/phpMyAdmin so at the end of the same file I ll add the virtual host configuration for phpMyAdmin
+   Include /etc/phpmyadmin/apache.conf
+**Restart Apache**
+   /etc/init.d/apache2 restart

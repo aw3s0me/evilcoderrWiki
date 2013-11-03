@@ -1,1 +1,4 @@
 serializableattribute
+stateconnectionstring
+scriptresourcemapping
+cudadevicesynchronize

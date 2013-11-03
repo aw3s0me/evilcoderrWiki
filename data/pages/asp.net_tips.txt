@@ -1,0 +1,28 @@
+====== TIPS ======
+  * Solution files (suo, sln) are not necessary
+  * Don't use GRID (prev versions) because we cant adjust their positioning when web page content changes, **better to use <div></div> tag!!**
+  * Catching errors in Markup - Tools->Options->TextEditor->Html->Validation
+  * in adress of page, localhost:####, ####-is number of port, all request transmitted to port ####
+  * To see all files do: localhost:####/, dont have a Default.aspx [show that page instead a list], give IIS permission
+
+----
+  * runat="server" - to transform into server control
+  * To connect button and on_click event we should use attribute - OnServerClick
+  * Code is better in isPostBack (check whether page is rendered for the first time) 
+  * It's better to hide Images (Graph.Visible = false in IsPostBack)
+----
+  * Для удаления всех тегов - Control.InnerHtml = String.Empty!! ;]
+  * Для переброски на другую страницу - <a href="newpage.aspx">text</a> ИЛИ Response.Redirect("newpage.aspx")
+===== Fonts =====
+**InstalledFontCollection** class to get all FONTS;
+       var fonts = new InstalledFontCollection();
+       foreach (var font in fonts.Families) { .. }
+
+===== Colors =====
+       var colorArray = Enum.GetNames(typeof (KnownColor));
+            lstBackColor.DataSource = colorArray;
+            lstBackColor.DataBind();
+===== Border Styles =====          
+       var borderStyleArray = Enum.GetNames(typeof (BorderStyle));
+            lstBorder.DataSource = borderStyleArray;
+            lstBorder.DataBind();

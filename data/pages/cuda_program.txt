@@ -1,0 +1,45 @@
+====== CUDA Program ======
+{{:wiki:cuda_diagram.png?600|}}
+===== typical GPU program =====
+  - GPU Alloc storage on GPU [**cudaMalloc**
+  - CPU copies input data from CPU to GPU [**cudaMemCpy**
+  - CPU launches kernel(S) on GPU to PROCESS DATA [**Kernel launch**
+  - CPU copies results back to CPU fro GPU [**cudaMemCpy**
+===== BIG IDEA (Defining a computation on a GPU) =====
+Computation = series of one or more KERNELS
+  * You write a program as it will run ON ONE THREAD
+  * AND EACH THREAD RUNS A KERNEL
+**CPU LUNCHES THE KERNEL!!!**
+===== Cuda compilation =====
+  * less square.cu
+  * nvcc -o square square.cu
+  * ./square
+===== Programming Rules =====
+  * Variables on the host are declared with **h_ prefix**: Example - //float h_in[SIZE]//
+  * Variables on the device (GPU) are declared with **d_ prefix**: Example - //float *d_in//
+==== Functions ====
+  * cudaMalloc - alloc data on the GPU
+  * cudaMemCpy - transfer the array to the GPU
+==== Configuring the kernel ====
+  * **kernel_name<<<num_of_blocks, num_of_threads>>>(d_out, d_in);**
+  * **kernel_name<<<grid_of_blocks, block_of_threads>>>(d_out, d_in);**
+
+Example: 
+square<<<dim3(bx,by,bz), dim3(tx,ty,tz), shmem>>>() [[shmem - shared memory per block in bytes, bx,by,bz - grid of blocks, tx,ty,tz - block of threads
+
+  - thread Idx - thread within block [threadIdx.x, threadIdx.y
+  - block Dim: size of block
+  - block Idx: block within grid
+  - gridDim: size of grid
+Ядру (Kernel) могут передаваться следующие параметры:
+
+  * dim3 gridDim - размер сетки в блоках 
+  * dim3 blockDim - размеры одного блока в потоках
+  * dim3 blockIdx - индекс блока внутри сетке
+  * dim3 threadIdx - индекс потока внутри блока
+
+square<<<dim3(8,4,2), dim3(16,16) [[num of blocks = 64, num of threads per block = 256, total threads = 16384
+===== Map =====
+  * **Set of elements to process And FUNCTION to run on each element**
+
+Map(ELEMENTS, FUNCTION)

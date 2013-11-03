@@ -1,0 +1,27 @@
+====== Методы ======
+===== Основные =====
+==== ready() ====
+**НЕ ИСПОЛЬЗУЕТСЯ ВМЕСТЕ С <body onload="">**
+  * метод, который исполняется, когда DOM готов (Document Object Model)
+  * + когда страница полностью загружена
+  * может использоваться чтобы спрятать элементы к-ые не загружены
+  * получение изображения, к-ое еще не загружено
+
+    $(document).ready(function() {
+       // Handler for .ready() called.
+    });
+ЭКВИВАЛЕНТНО
+    $(function() {
+        // Handler for .ready() called.
+    });
+==== children() ====
+Берет объект ребенок от родителя
+==== Пример ====
+      var ulImgList = $(".imgList").children();
+      если ul, то берет массив <li>
+==== each() ====   
+Проходит по каждому элементу   
+        ulImgList.each(function(){
+	     $(this).children().css("width","5px");
+	     $(this).children().css("height","5px");
+	});

@@ -1,0 +1,8 @@
+Host Your Site on Google AppEngine in 7 Easy Steps:
+  -  Register any $App at Google ApEngine using your Gmail Account {as if $App is you Application Name giving you url like $App.appspot.com}
+  -  Download the Python Script 'flat.py' provided on this site or from repo
+  -  Execute #python flat.py $App
+  -  It will created required structure in a dir $App
+  -  Copy all your static site to $App/flat_web/*
+  -  Download "Google AppEngine Python SDK"
+  -  Update this $App using Google AppEngine SDK as #python appcfg.py update $Path_to_App

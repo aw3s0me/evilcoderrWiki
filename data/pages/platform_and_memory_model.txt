@@ -1,0 +1,70 @@
+===== Platform and Memory model =====
+==== Platform model ====
+  * host is connected to one or more OpenCL Devices
+=== OpenCL Devics ===
+  * Collection of one or more computer units (CORES)
+=== Memory model ===
+4 types of memory (sync):
+  - Private (per work item)
+  - Local (shared among group)
+  - Global/Constant (Not sync)
+  - Host (on CPU)
+Rule : Must move data from host to global to local and back
+=== Buffers ===
+  * Simple chunks of memory (Buffers = simple structs, arrays, pointers)
+  * kernels have access to buffers by arrays,structs,pointers
+  * kernels can read and write buffers
+=== Images ===
+  * 2D or 3D formatted data structures
+  * kernels have access only via read_image(), write_image()
+  * can be read and written in kernel
+== Image formats ==
+Formats:
+
+  * Channel orders: CL_A, CL_RGB, CL_RG etc [[alpha channel, or rgb channel
+  * Channel data type: CL_UNORM_INTS, CL_FLOAT etc
+  * clGetSupportedImageFormats() - returns supported format
+
+Samplers(for reading):
+
+  * Filter mode: linear or nearest //liner or nearest interpolation
+  * Adressing: clamp, clamp-edge, repeat or none
+  * Normalizing: true | false //normalized coordinates or not
+
+.
+    cl_image_format format;
+    format.image_channel_data_type = CL_FLOAT;
+    format.image_channel_order = CL_RGBA;
+    
+    cl_mem input_image;
+    input_image = clCreateImage2D (context...)
+    cl_mem ouput_image;
+    output_image = clCreateImage2D (context...)
+    
+    cl_mem input_buffer;
+    input_buffer = clCreateBuffer(context,..)
+    cl_mem ouput_buffer;
+    ouput_buffer = clCreateBuffer(context,..)
+    
+=== Access to memory object data ===
+  * clEnqueueReadBuffer(...) //read buffer in memory obj to host memory
+  * clEnqueueWriteBuffer(...) //write from host memory
+  * clEnqueueMapBuffer(...) //map region in mem obj to host
+  * clEnqueueCopyBuffer(...) //copy region of mem obj
+
+----
+
+===== OpenCL Objects =====
+
+Setup
+  - Devices - GPU/CPU/CELL
+  - Contexts - Collection of Devices
+  - Queues - Submit work to the device
+Memory
+  - Buffers - Blocks of memory 
+  - Images - 2D or 3D formatted image
+Execution
+  - Programs - collection of kernels
+  - Kernel - exectuion instance
+Syncronization/Profiling
+  - Events

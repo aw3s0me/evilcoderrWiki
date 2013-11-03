@@ -1,0 +1,48 @@
+====== Ruby ======
+===== Характеристики =====
+  * имеет хорошее OOP, 
+  * медленный,
+  * Простой синтакс
+  * Исп-ет принцип **TMTOWTDI**\
+  * Динам типизация (**var**)
+  * +ВСЕ ОБЪЕКТЫ, например можно округлить **10.61.round** (метод round)
+===== Особенности =====
+require "название либы" #подключение либы
+===== Работа с файлами =====
+==== Открытие сайта ====
+  * file = open("http://tpu.ru")
+==== Кодировка ====
+file = File.new("rasp.txt","w:UTF-8")
+==== открытие сайта ====
+  * получение контента content = file.read
+  * файл создается методом file = File.new
+  * запись file.write(text)
+  * чтение file.read
+CTRL + SPACE - автозаполнение
+==== Поиск ====
+  * поиск по регулярным выражениям - ОБЪЕКТ_СТРОКА.scan(/РЕГУЛЯРНОЕ_ВЫРАЖЕНИЕ/)
+===== Массивы =====
+==== Создание ====
+     names = Array.new #пустой
+     digits Array.new(20) #20 элементов
+==== Методы ====
+     puts names.size  # This returns 20
+     puts names.length # This also returns 20
+     array.clear #чистит массив
+==== Инициализирование ====
+     names = Array.new(4, "mac") #все до пятого элемент == mac
+     nums = Array.new(10) { |e| e = e * 2 } #в блоке
+     nums = Array[1, 2, 3, 4,5]
+==== Получение элемента ====
+     num = digits.at(6)
+===== Условия =====
+==== Прямой ====
+   if expression
+      ...code block...
+   elsif another expression
+      ...code block...
+   elsif another expression
+      ...code block...
+   else
+      ...code block...
+   end

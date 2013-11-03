@@ -1,0 +1,10 @@
+====== Application Events ======
+We can write them in global.asax file [Код к-ый запускается при возникновении событий в приложении]:
+  * Запуск сайта
+  * Создание домена
+  * Application_Start
+  * Application_Error
+  * Session_Start
+===== PostBack =====
+Some events cause PostBack (Btn Click), some NOT (chk Click).
+ПОСЛЕ КАЖДОГО ИЗМЕНЕНИЯ СОБЫТИЯ - PAGE.PRERENDER

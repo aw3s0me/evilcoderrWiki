@@ -1,0 +1,51 @@
+====== Basic HTML ====== 
+      <!DOCTYPE html> //Every respectable html doc should begin with doctype, code indicate what flavor of html follows
+      <html>
+           <head>
+                <title>Sample Web Page</title>
+           </head>
+           <body>
+                <h1>Sample Web Page Heading</h1> //Heading 1 style
+                <p>This is a Sample Web Page</p> //p means paragraph
+           </body>
+      </html>
+HTML contains 2 types of content:
+  - TEXT
+  - TAGS (how to format text, easy to recognise <>)
+====== HTML Forms ====== 
+Not only formatting text but also tags for graphical widgets/controls
+      <!DOCTYPE html> //Every respectable html doc should begin with doctype, code indicate what flavor of html follows
+      <html>
+           <head>
+                <title>Sample Web Page</title>
+           </head>
+           <body>
+                <form>
+                     <input type="checkbox" />
+                     This is choice #1 <br/>
+                     <input type="checkbox" />
+                     This is choice #2 <br/>
+                     <input type="submit" value="Submit" />
+                </form>
+           </body>
+      </html>
+==== Page directive ====
+ASPX file consists of 3 sections : first - page directive
+      <%@ Page Language="C#" AutoEventWireup="true"
+      CodeFile = "Default.aspx.cs" Inherits="_Default" %>
+This directive gives ASP.NET basic information about how to COMPILE page.
+  * **language** (C#)
+  * The way we connect our** event handlers** [autoEventWireup]
+  * **Where the code is located**
+  * **The name of our custom page class**
+//THIS DIRECTIVE DOESNT APPEAR IN THE HTML THATS SENTS TO THE BROWSER//
+==== Doctype ====
+  * Indicates the type of markup (XHMTL or HTML5)
+  * But XHTML is fizzling out (терпеть неудачу, выдыхаться) (very strict)
+  * So It's best to use HTML5
+====== Compiling ======
+ASP.NET controls mingles with ordinary HTML content:
+  * When the web page is processed by the web server:
+  - Web controls are converted to HTML markup (RENDERING)
+  - Insert them into the web page
+  - Sent to browser

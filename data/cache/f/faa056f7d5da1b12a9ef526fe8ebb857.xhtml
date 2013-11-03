@@ -1,0 +1,278 @@
+
+<h1 class="sectionedit1" id="сетевые_утилиты">Сетевые утилиты</h1>
+<div class="level1">
+
+<p>
+Каждый комп в сети имеет адресы 3ех уровней:
+</p>
+<ol>
+<li class="level1"><div class="li"> Локальный</div>
+</li>
+<li class="level1"><div class="li"> IP-адрес</div>
+</li>
+<li class="level1"><div class="li"> Символьный идентификатор-имя</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT1 SECTION "Сетевые утилиты" [1-224] -->
+<h2 class="sectionedit2" id="локальный_физический_mac-адрес">Локальный(физический) MAC-адрес</h2>
+<div class="level2">
+
+<p>
+Уникальный идентификатор, который присваивается каждому сетевому устройству.
+</p>
+<ul>
+<li class="level1"><div class="li"> Все адреса должны быть уникальными</div>
+</li>
+<li class="level1"><div class="li"> Состоят из 48 битов → 2^48 уникальных значений MAC-адресов</div>
+</li>
+<li class="level1"><div class="li"> Администратор сети имеет возможность, вместо использования «зашитого», назначить устройству MAC-адрес по своему усмотрению.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Локальный(физический) MAC-адрес" [225-841] -->
+<h3 class="sectionedit3" id="узнать_mac">Узнать MAC</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Windows — ipconfig /all — более подробно расписывает — какой MAC-адрес к какому сетевому интерфейсу относится</div>
+</li>
+<li class="level1"><div class="li"> Linux — ifconfig -a | grep HWaddr</div>
+</li>
+<li class="level1"><div class="li"> FreeBSD — ifconfig|grep ether</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Узнать MAC" [842-1132] -->
+<h3 class="sectionedit4" id="сменить_mac">Сменить MAC</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Windows - в свойствах сетевой платы, во вкладке «Дополнительно» для редактирования доступно свойство «Сетевой адрес»</div>
+</li>
+<li class="level1"><div class="li"> Linux - ifconfig ethN hw ether &lt;mac-адрес&gt; #ethN — имя сетевого интерфейса</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Сменить MAC" [1133-1482] -->
+<h3 class="sectionedit5" id="пример">Пример</h3>
+<div class="level3">
+<pre class="code">  11-А0-17-3D-BC-01</pre>
+
+</div>
+<!-- EDIT5 SECTION "Пример" [1483-1528] -->
+<h3 class="sectionedit6" id="биты">Биты</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> старшие три байта - идентификатор фирмы производителя</div>
+</li>
+<li class="level1"><div class="li"> младшие три байта назначаются уникальным образом самим производителем.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Биты" [1529-1788] -->
+<h2 class="sectionedit7" id="сетевой_ip-адрес">Сетевой IP-адрес</h2>
+<div class="level2">
+
+<p>
+Уникальный адрес УЗЛА в компьютерной сети
+</p>
+<ul>
+<li class="level1"><div class="li"> Длина 4 байта в IPv4, 6 байт в IPv6</div>
+</li>
+<li class="level1"><div class="li"> Он назначается администратором во время конфигурирования компьютеров и маршрутизаторов</div>
+</li>
+<li class="level1"><div class="li"> IP-адрес состоит из двух частей: <strong>адреса сети и номера узла</strong></div>
+</li>
+<li class="level1"><div class="li"> Диапазоны провайдеры получают из NIC </div>
+</li>
+<li class="level1"><div class="li"> Сколько сетевых связей, столько и IP-адресов</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Сетевой IP-адрес" [1789-2399] -->
+<h3 class="sectionedit8" id="команды">Команды</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> В ОС Windows свой IP-адрес можно узнать, набрав ipconfig в командной строке.</div>
+</li>
+<li class="level1"><div class="li"> В ОС Unix свой IP-адрес можно узнать, набрав ifconfig в командной строке.</div>
+</li>
+<li class="level1"><div class="li"> IP-адрес, соответствующий доменному имени, можно узнать с помощью команды: nslookup example.net</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Команды" [2400-2833] -->
+<h3 class="sectionedit9" id="частные_адреса">Частные адреса</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 10.0.0.0/8</div>
+</li>
+<li class="level1"><div class="li"> 172.16.0.0/12</div>
+</li>
+<li class="level1"><div class="li"> 192.168.0.0/16</div>
+</li>
+</ul>
+
+<p>
+Также для внутреннего использования:
+</p>
+<ul>
+<li class="level1"><div class="li"> 127.0.0.0/8</div>
+</li>
+<li class="level1"><div class="li"> 169.254.0.0/16 — используется для автоматической настройки сетевого интерфейса в случае отсутствия DHCP.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "Частные адреса" [2834-3192] -->
+<h2 class="sectionedit10" id="символьный_dns-адрес">Символьный DNS-адрес</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> адрес назначается администратором и </div>
+</li>
+<li class="level1"><div class="li"> состоит из нескольких частей: имени машины, имени организации, имени домена.</div>
+</li>
+<li class="level1"><div class="li"> Используется в ftp и telnet</div>
+</li>
+</ul>
+
+<p>
+Протокол <abbr title="Domain Name System">DNS</abbr> является служебным протоколом прикладного уровня. Этот протокол несимметричен - в нем определены <abbr title="Domain Name System">DNS</abbr>-серверы и <abbr title="Domain Name System">DNS</abbr>-клиенты. <strong><abbr title="Domain Name System">DNS</abbr>-серверы хранят часть распределенной базы данных о соответствии символьных имен и IP-адресов.</strong> Эта база данных распределена по административным доменам сети Internet. Клиенты сервера <abbr title="Domain Name System">DNS</abbr> знают IP-адрес сервера <abbr title="Domain Name System">DNS</abbr> своего административного домена и по протоколу IP передают запрос, в котором сообщают известное символьное имя и просят вернуть соответствующий ему IP-адрес.
+</p>
+
+<p>
+Если данные о запрошенном соответствии хранятся в базе данного <abbr title="Domain Name System">DNS</abbr>-сервера, то он сразу посылает ответ клиенту, если же нет - то он посылает запрос <abbr title="Domain Name System">DNS</abbr>-серверу другого домена, который может сам обработать запрос, либо передать его другому <abbr title="Domain Name System">DNS</abbr>-серверу.
+</p>
+
+<p>
+Каждый домен <abbr title="Domain Name System">DNS</abbr> администрируется отдельной организацией, которая обычно разбивает свой домен на поддомены и передает функции администрирования этих поддоменов другим организациям. Каждый домен имеет уникальное имя, а каждый из поддоменов имеет уникальное имя внутри своего домена. 
+</p>
+
+<p>
+Имя домена может содержать до 63 символов.
+</p>
+
+</div>
+<!-- EDIT10 SECTION "Символьный DNS-адрес" [3193-5466] -->
+<h3 class="sectionedit11" id="пример1">Пример</h3>
+<div class="level3">
+
+<p>
+server.aics.acs.cctpu.edu.ru
+</p>
+
+</div>
+<!-- EDIT11 SECTION "Пример" [5467-5518] -->
+<h2 class="sectionedit12" id="dhcp">DHCP</h2>
+<div class="level2">
+
+<p>
+Основное назначение - назначение компьютерам IP адресов
+</p>
+
+<p>
+При динамическом распределении адресов DHCP-сервер выдает адрес клиенту на ограниченное время, что дает возможность впоследствии повторно использовать IP-адреса другими компьютерами. 
+</p>
+
+<p>
+Динамическое разделение адресов позволяет строить IP-сеть, количество узлов в которой намного превышает количество имеющихся в распоряжении администратора IP-адресов.
+</p>
+
+</div>
+<!-- EDIT12 SECTION "DHCP" [5519-6284] -->
+<h1 class="sectionedit13" id="утилиты">Утилиты</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT13 SECTION "Утилиты" [6285-6313] -->
+<h2 class="sectionedit14" id="ipconfig">ipconfig</h2>
+<div class="level2">
+
+<p>
+Для настройки протокола IP для <abbr title="Operating System">OS</abbr>
+</p>
+<pre class="code">  ipconfig /all </pre>
+
+</div>
+<!-- EDIT14 SECTION "ipconfig" [6314-6411] -->
+<h2 class="sectionedit15" id="ping">ping</h2>
+<div class="level2">
+
+<p>
+Для отладки сетей, для вызова ответа удаленной машины
+</p>
+<ul>
+<li class="level1"><div class="li"> С помощью ping, может начатся хакерская атака, поэтому некоторые сервы просто не отвечают (microsoft.com)</div>
+</li>
+</ul>
+<pre class="code">  ping [-t][-a][-n][-l][-f][-i TTL][-v TOS]</pre>
+
+<p>
+[-r][][имя машины][ [-j списокУзлов]|[-k списокУзлов] ][-w]
+</p>
+<ul>
+<li class="level1"><div class="li"> Ключи</div>
+</li>
+<li class="level1"><div class="li"> Функции</div>
+</li>
+<li class="level1"><div class="li"> -t</div>
+</li>
+<li class="level1"><div class="li"> Отправка пакетов на указанный узел до команды прерывания</div>
+</li>
+<li class="level1"><div class="li"> -a</div>
+</li>
+<li class="level1"><div class="li"> Определение имени узла по IP-адресу</div>
+</li>
+<li class="level1"><div class="li"> -n</div>
+</li>
+<li class="level1"><div class="li"> Число отправляемых запросов</div>
+</li>
+<li class="level1"><div class="li"> -l</div>
+</li>
+<li class="level1"><div class="li"> Размер буфера отправки</div>
+</li>
+<li class="level1"><div class="li"> -f</div>
+</li>
+<li class="level1"><div class="li"> Установка флага, запрещающего фрагментацию пакета</div>
+</li>
+<li class="level1"><div class="li"> -i TTL</div>
+</li>
+<li class="level1"><div class="li"> Задание времени жизни пакета (поле «Time To Live»)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "ping" [6412-7392] -->
+<h2 class="sectionedit16" id="tracert">tracert</h2>
+<div class="level2">
+
+<p>
+Утилита tracert позволяет выявлять последовательность маршрутизаторов, через которые проходит IP-пакет на пути к пункту своего назначения.
+</p>
+<pre class="code">  tracert имя_машины</pre>
+
+<p>
+имя_машины может быть именем узла или IP-адресом машины. Выходная информация представляет собой список машин, начиная с первого шлюза и заканчивая узлом назначения.
+</p>
+<ul>
+<li class="level1"><div class="li"> Интервал ожидания ответа может быть изменен с помощью опции –w команды tracert.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "tracert" [7393-8139] -->
+<h2 class="sectionedit17" id="whois">whois</h2>
+<div class="level2">
+
+<p>
+При регистрации доменных имен второго уровня обязательным условием является предоставление верных сведений о владельце этого домена: для юридических лиц - название организации, для физических лиц - ФИО и паспортные данные. Также обязательным является предоставление контактной информации. Часть этой информации становится свободно доступной для любого пользователя сети Интернет через сервис Whois. Получить интересующую информацию о владельце домена можно через Whois-клиент, например, в Unix это консольная команда whois, в ОС Windows - это приложение SmartWhois. Но проще всего отправить запрос можно через веб-форму on-line сервиса Whois, например через форму на странице <a href="http://www.nic.ru/whois/" class="urlextern" title="http://www.nic.ru/whois/"  rel="nofollow">http://www.nic.ru/whois/</a> или <a href="http://who.is" class="urlextern" title="http://who.is"  rel="nofollow">http://who.is</a>
+</p>
+
+</div>
+<!-- EDIT17 SECTION "whois" [8140-] -->

@@ -1,0 +1,65 @@
+
+<h1 class="sectionedit1" id="куки_в_js">Куки в JS</h1>
+<div class="level1">
+
+<p>
+Нужны для сохранения данных о юзере, т.к. переменные после закрытия браузера очищаются.
+</p>
+<ul>
+<li class="level1"><div class="li"> У куки есть зато срок хранения</div>
+</li>
+<li class="level1"><div class="li"> Не слишком безопасны, пароль туда не стоит сохранять</div>
+</li>
+<li class="level1"><div class="li"> Не источники вирусов</div>
+</li>
+<li class="level1"><div class="li"> Нет вечных куки</div>
+</li>
+<li class="level1"><div class="li"> Сохранение только небольших фрагментов</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Куки в JS" [1-504] -->
+<h2 class="sectionedit2" id="особенности">Особенности</h2>
+<div class="level2">
+<pre class="code">  if(navigator.cookieEnabled) {} - проверка на поддержку куки</pre>
+
+</div>
+<!-- EDIT2 SECTION "Особенности" [505-626] -->
+<h2 class="sectionedit3" id="пример_записи">Пример записи</h2>
+<div class="level2">
+<pre class="code">  function writeCookie(name, value, days) {
+      var expires = &quot;&quot;; // временные
+      if(days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = &quot;; expore=&quot; + date.toGMTString();
+      }
+      document.cookie = name + &quot;=&quot; + value + expires + &quot;; path=/&quot;;
+  }</pre>
+
+</div>
+<!-- EDIT3 SECTION "Пример записи" [627-1026] -->
+<h2 class="sectionedit4" id="пример_чтения_куки">Пример чтения куки</h2>
+<div class="level2">
+<pre class="code">  function readCookie(name) {
+      var searchName = name + &quot;=&quot;;
+      var cookies = document.cookie.split(&#039;;&#039;);
+      for (var i=0; i&lt;cookies.length; i++) {
+          var c = cookies[i];
+          while(c.charAt(0) == &#039; &#039;)
+             c = c.substring(1, c.length);
+          if (c.indexOf(searchName) == 0)
+             return c.substring(searchName.lenght, c.length);
+      }
+      return null;
+  }</pre>
+
+</div>
+<!-- EDIT4 SECTION "Пример чтения куки" [1027-1499] -->
+<h2 class="sectionedit5" id="пример_удаления_куки">Пример удаления куки</h2>
+<div class="level2">
+<pre class="code">  writeCookie(name, &quot;&quot;, -1);</pre>
+
+</div>
+<!-- EDIT5 SECTION "Пример удаления куки" [1500-] -->

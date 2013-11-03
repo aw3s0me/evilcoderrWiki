@@ -1,0 +1,14 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1379758401;s:8:"modified";i:1379759801;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1379759801;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:21:"basic_auth_with_mysql";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}s:5:"title";s:8:"Database";s:11:"description";a:2:{s:15:"tableofcontents";a:10:{i:0;a:4:{s:3:"hid";s:8:"database";s:5:"title";s:8:"Database";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:15:"create_mysql_db";s:5:"title";s:15:"Create mysql db";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:11:"create_user";s:5:"title";s:11:"Create user";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:12:"create_table";s:5:"title";s:12:"Create table";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:47:"create_login_attempts_table_to_stop_brute_force";s:5:"title";s:47:"Create login attempts table to stop brute force";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:5;a:4:{s:3:"hid";s:11:"insert_data";s:5:"title";s:11:"Insert data";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:6;a:4:{s:3:"hid";s:22:"define_data_to_connect";s:5:"title";s:22:"Define data to connect";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:7;a:4:{s:3:"hid";s:13:"php_functions";s:5:"title";s:13:"PHP functions";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:8;a:4:{s:3:"hid";s:20:"secure_start_session";s:5:"title";s:20:"Secure start session";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:9;a:4:{s:3:"hid";s:12:"secure_login";s:5:"title";s:12:"Secure login";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:503:"<http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL>
+
+Create mysql db
+  CREATE DATABASE `users`;
+Create user
+  CREATE USER 'sec_user'@'localhost' IDENTIFIED BY '9xAF3BbKFrLe';
+  GRANT SELECT, INSERT, UPDATE ON `users`.* TO 'sec_user'@'localhost';
+Create table
+  CREATE TABLE `secure_login`.`members` (
+     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+     `username` VARCHAR(30) NOT NULL, 
+     `email` VARCHAR(50) NOT NULL, 
+     `password` CHAR(128) NOT NULL, 
+     `salt` CHAR…";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1379758401;s:8:"modified";i:1379759801;}s:7:"creator";s:10:"Aleksander";s:4:"user";s:10:"evilcoderr";s:11:"last_change";a:7:{s:4:"date";i:1379759801;s:2:"ip";s:3:"::1";s:4:"type";s:1:"E";s:2:"id";s:21:"basic_auth_with_mysql";s:4:"user";s:10:"evilcoderr";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:10:"evilcoderr";s:10:"Aleksander";}}}

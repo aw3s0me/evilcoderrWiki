@@ -1,0 +1,156 @@
+
+<h1 class="sectionedit1" id="управление_состоянием">Управление состоянием</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Управление состоянием" [1-56] -->
+<h2 class="sectionedit2" id="view_state_collection">View State Collection</h2>
+<div class="level2">
+
+<p>
+For saving state there is a <strong>View State Collection</strong>
+</p>
+<pre class="code">     this.ViewState[&quot;Counter&quot;] = 1;</pre>
+
+</div>
+<!-- EDIT2 SECTION "View State Collection" [57-182] -->
+<h3 class="sectionedit3" id="making_it_secure">Making it secure</h3>
+<div class="level3">
+<pre class="code">     &lt;input type=&quot;hidden&quot; name=&quot;__VIEWSTATE&quot; id=&quot;__VIEWSTATE&quot; value&quot;fergjeriogher4...&quot; /&gt;</pre>
+
+<p>
+DATA ISNT ECNRYPTED!!, patched together in memory in Base64 string!
+ВРУБАЕМ:
+</p>
+<pre class="code">     &lt;%Page ViewStateEncryptionMode=&quot;Always&quot; or in system.web cfg</pre>
+
+<p>
+default is auto :(
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Making it secure" [183-472] -->
+<h2 class="sectionedit4" id="to_store_objects_in_view_state_you_need_serializable_flag">To store objects in View State you need SERIALIZABLE FLAG</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "To store objects in View State you need SERIALIZABLE FLAG" [473-542] -->
+<h2 class="sectionedit5" id="transferring_info_b_n_pages">Transferring info b/n pages</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT5 SECTION "Transferring info b/n pages" [543-582] -->
+<h3 class="sectionedit6" id="cross-page_posting">Cross-Page Posting</h3>
+<div class="level3">
+
+<p>
+Extends PostBack mechanism
+</p>
+<ul>
+<li class="level1"><div class="li"> PostBackUri property (is defined by IButtonControl)</div>
+</li>
+</ul>
+
+<p>
+Simply set PostBackUri to the name of another Web Form
+</p>
+<pre class="code">      var prevPage = PreviousPage as CrossPage1;
+      if (prevPage != null)
+      {
+          //Do some action
+      }</pre>
+
+<p>
+DON&#039;T FORGET in <abbr title="HyperText Markup Language">HTML</abbr>:
+</p>
+<pre class="code">      &lt;%@ PreviousPageType VirtualPath=&quot;~/CrossPage1.aspx&quot; %&gt;</pre>
+
+</div>
+<!-- EDIT6 SECTION "Cross-Page Posting" [583-965] -->
+<h3 class="sectionedit7" id="query_string">Query String</h3>
+<div class="level3">
+
+<p>
+q - variable, that contain «organic+gardening» string
+</p>
+<pre class="code">    http://www.google.ca/search?q=organic+gardening</pre>
+
+<p>
+LIMITATIONS:
+</p>
+<ul>
+<li class="level1"><div class="li"> info is limited to strings, which must contain <abbr title="Uniform Resource Locator">URL</abbr>-legal characters</div>
+</li>
+<li class="level1"><div class="li"> info is visible to the user to anyone else</div>
+</li>
+<li class="level1"><div class="li"> user can insert new values</div>
+</li>
+<li class="level1"><div class="li"> many browser have limits on the length of a <abbr title="Uniform Resource Locator">URL</abbr></div>
+</li>
+</ul>
+
+<p>
+Пример:
+</p>
+<pre class="code">    Response.Redirect(&quot;newpage.aspx?recordID=10&amp;mode=full&quot;);
+    //receiving
+    string ID = Request.QueryString[&quot;recordID&quot;];</pre>
+
+</div>
+<!-- EDIT7 SECTION "Query String" [966-1457] -->
+<h3 class="sectionedit8" id="by_using_cookies_dont_do_this">By Using Cookies (DONT DO THIS)</h3>
+<div class="level3">
+
+<p>
+Cookies - small files that are created in the web browser memory or on the client hard drive. 
+</p>
+<pre class="code">    var cookie = new HttpCookie(&quot;Preferences&quot;)</pre>
+
+</div>
+<!-- EDIT8 SECTION "By Using Cookies (DONT DO THIS)" [1458-1643] -->
+<h2 class="sectionedit9" id="session_tracking">Session Tracking</h2>
+<div class="level2">
+
+<p>
+2 Ways:
+</p>
+<ul>
+<li class="level1"><div class="li"> Using Cookie</div>
+</li>
+<li class="level1"><div class="li"> Modified <abbr title="Uniform Resource Locator">URL</abbr> (Example: ID)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "Session Tracking" [1644-1728] -->
+<h3 class="sectionedit10" id="config_session_state">Config session state</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> cookieless; - cookies in some sessions are bad choice</div>
+</li>
+<li class="level1"><div class="li"> cookieName; </div>
+</li>
+<li class="level1"><div class="li"> regenerateExpiredSessionId; </div>
+</li>
+<li class="level1"><div class="li"> timeout; - wait without receiving request, before session ends</div>
+</li>
+<li class="level1"><div class="li"> mode; </div>
+</li>
+<li class="level1"><div class="li"> stateConnectionString; </div>
+</li>
+<li class="level1"><div class="li"> stateNetworkTimeout;</div>
+</li>
+<li class="level1"><div class="li"> sqlConnectionString</div>
+</li>
+<li class="level1"><div class="li"> sqlCommandTimeout</div>
+</li>
+<li class="level1"><div class="li"> allowCustomSqlDatabase</div>
+</li>
+<li class="level1"><div class="li"> customProvider</div>
+</li>
+<li class="level1"><div class="li"> compressionEnabled</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "Config session state" [1729-] -->

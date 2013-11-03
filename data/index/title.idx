@@ -3,7 +3,7 @@ Some tips on dokuwiki
 DokuWiki
 Formatting Syntax
 Программирование
-
+ASP.NET
 Creating new pages and links
 Goal
 CLR
@@ -35,3 +35,149 @@ Null-совместимые значимые типы
 Исключения
 Контракты кода
 Управление памятью
+Basic HTML
+ASP.NET is server-side
+TEMPLATE
+RUNDOWN TEMPLATES
+TIPS
+ASP.NET WebForms
+HTML elements
+ASP.NET File Types
+The Most Common Errors
+Заголовок 1-го уровня
+HTML Control Classes
+Application Events
+Settings
+Управление состоянием
+Регулярные выражения
+Python
+Циклы
+Условие
+Дзен Пайтона
+Названия переменных
+
+Структуры данных
+События в пайтоне
+Визуализация
+Классы в пайтоне
+Убунта
+Консоль в линухе
+Суперпользователь
+Репозитории в убунте
+Полное обновление
+Blacklist
+
+Before installation
+C++
+OpenCL
+OpenCL Executional Model
+Platform and Memory model
+Resource Setup/Alloc
+Kernel
+Parallel Programming with CUDA
+About processors
+CUDA Program
+
+Цель SSH-ключей
+Patterns of communication
+Memory Model
+Efficiency in CUDA
+
+Midnight commander
+XAMPP
+Ruby
+
+Apache
+PHP
+Сетевые утилиты
+Протокол передачи гипертекста
+SMTP
+Javascript
+JQuery
+Синтакс JQuery
+Методы
+События
+Include
+ПРАВИЛА ПОСЛЕ 18
+Сессии
+Эссе
+Начало
+CSS Gradient Generators
+Database
+
+Демонстрация
+Cookies in PHP
+Строки
+Навигация
+Процессы
+Pipe
+System V IPC
+Структура
+Пример
+ОС
+Процессы
+Планирование процессов
+Грех
+
+Возбуждение
+Доверие
+МОЖНО
+Инструкция:
+Правила
+
+События в JS
+Типы данных
+Дифтонги
+Особенности немецкого языка
+Vorstellung (представление)
+Файлы в Linux
+Выбор
+HTML как JS object
+Проверка на число
+Таймеры
+Размеры окна
+CSS in JS
+Куки в JS
+Структуры данных в JS
+Функции в JS
+Regex
+Конструктор
+Строки
+Math in JS
+Методы в JS
+Тестирование
+AJAX
+Поля
+Процедуры
+TCP.IP, Sockets
+История
+TCP/IP
+Клиент-сервер
+UDP
+TCP сервер
+Управление пользователями
+Ошибки в MSSQL
+Индексирование таблиц
+OpenSSH
+lighttpd for UBUNTU
+
+ENGLISH STAFF
+Проектирование баз данных
+Первичный ключ
+Связи
+ER-диаграмма
+Нормализация таблиц
+Сети
+Многопоточный сервер
+Input/Output
+Сигналы
+Виртуалная фаловая система
+Устройства
+Группы процессов
+Болезни
+Мертвый зуб
+Глаза при вирусных заболеваниях
+Хронический тонзиллит
+Глаза ОКБ
+Аллергия
+

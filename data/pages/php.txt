@@ -1,0 +1,31 @@
+====== PHP ======
+Язык сценариев для динамических страниц. Выполняется на сервере.
+===== Преимущества =====
+  * Кроссплатформенный
+  * Для большинства серверов есть модули PHP
+  * Встроенная поддержка наиболее популярных СУБД, сессий, cookies, переменных запроса.
+  * PHP – более безопасный язык для написания CGI-приложений по сравнению с Perl и C.
+  * Встроенная поддержка вывода сообщений об ошибках и предупреждений напрямую в браузер.
+===== Недостатки =====
+  * strlen($s); string length
+  * str_replace(‘a’, ‘b’, $s); string replace
+  * strpos($s, ‘a’); string position
+  * htmlspecialchars($s);
+  * html_entity_decode($s);
+  * get_html_translation_table();
+===== План =====
+  * [[PHP methods]]
+  * [[Сессии]]
+  * [[Cookies]]
+  * [[Basic auth with mysql]]
+  * [[Функции в PHP]]
+  * [[String in PHP]]
+===== Hello World =====
+    <html>
+       <head>
+          <title>PHP Test</title>
+       </head>
+       <body>
+          <?php echo '<p>Hello World</p>'; ?> 
+       </body>
+    </html>

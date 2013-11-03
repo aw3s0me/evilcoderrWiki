@@ -1,0 +1,40 @@
+====== XAMPP ======
+===== Запуск =====
+sudo /opt/lampp/lampp start
+===== Рестарт =====
+sudo /opt/lampp/lampp restart
+===== Остановить =====
+sudo /opt/lampp/lampp stop
+===== Web интерфейс =====
+To access the XAMPP web interface, paste this link in your browser: http://localhost/xampp
+===== Ошибка =====
+Access forbidden!
+
+New XAMPP security concept:
+
+Access to the requested directory is only available from the local network.
+
+This setting can be configured in the file “httpd-xampp.conf”.
+
+To fix this, open the /opt/lampp/etc/extra/httpd-xampp.conf file with sudo priviledges:
+
+$ gksudo gedit /opt/lampp/etc/extra/httpd-xampp.conf
+
+And replace this code:
+
+<Directory “/opt/lampp/phpmyadmin”>
+AllowOverride AuthConfig Limit
+Order allow,deny
+Allow from all
+</Directory>
+
+With this one:
+
+<Directory “/opt/lampp/phpmyadmin”>
+AllowOverride AuthConfig Limit
+Order allow,deny
+Allow from all
+Require all granted
+</Directory>
+
+Actually, all you have to do is add the Require all granted line, on the second last line of the block code.

@@ -1,0 +1,30 @@
+===== UDP =====
+Процесс сервер создает:
+  - UDP сокет
+  - Связывает его с портом и IP адресом, настраивает адрес сокета
+Процесс сервер должен сделать то же самое
+===== Проблемы =====
+Для сообщения, длина одного символа - 1 байт, проблем нет, но когда в разных системах по разному все, то есть старший > меньшего, или меньший > старшего, то проблема. Поэтому введен сетевой порядок байт
+  * для перевода байт
+#include <netinet/in.h>
+    unsigned long int htonl(unsigned long int hostlong); //целое длинное
+    unsigned short int htons(unsigned short int hostshort); //короткое длинное
+    unsigned long int ntohl(unsigned long int netlong); //обратно длинное
+    unsigned short int ntohs(unsigned short int netshort); //
+===== Преобразование IP адресов =====
+char в int
+    int inet_aton(const char *strptr, struct in_addr *addrptr);
+    char *inet_ntoa(struct in_addr *addrptr);
+===== Заполнение адреса нулями =====   
+Заполняет n байт нулями 
+    void bzero(void *addr, int n);
+===== Создание socket() ===== 
+    int socket(int domain, int type, int protocol);
+Параметры
+  * **PF_INET** – для семейства протоколов TCP/IP; **PF_UNIX** – для семейства внутренних протоколов UNIX, иначе называемого еще UNIX domain.
+  * **SOCK_STREAM** – для связи с помощью установления виртуального соединения; **SOCK_DGRAM** – для обмена информацией через сообщения.
+==== Настройка сокета ====
+     int bind(int sockd, struct sockaddr *my_addr, int addrlen);
+==== Отправка  ====
+     int sendto(int sockd, char *buff, int nbytes, int flags, struct sockaddr *to, int addrlen);
+     int recvfrom(int sockd, char *buff, int nbytes, int flags, struct sockaddr *from, int *addrlen);
